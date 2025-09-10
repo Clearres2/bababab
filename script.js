@@ -1160,7 +1160,7 @@ let tracks = [
 
 
 
-const CACHE_NAME = 'audio-cache-v1';
+const CACHE_NAME = 'audio-cache-v100';
 
 
 async function cacheAudioFile(url) {
