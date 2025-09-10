@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Избранные треки</title>
+
+  <style>
+   body {
+      margin: 0;
+      background-color: #363E6B;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      color: #fff;
+      user-select: none;
+    }
+
+     body.dark-theme #playlist-container h3 {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    body.dark-theme #playlist-container {
+      background: linear-gradient(135deg, #2c2f4a 0%, #3a3f5e 100%);
+      color: #e0e4f0;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border: 1px solid #4a4f7a;
+    }
+
+
+    body.dark-theme {
+      background-color: #2c2f4a;
+      color: #363E6B;
+    }
+
+    body.dark-theme .highlight {
+      background-color: rgba(100, 200, 130, 0.8);
+      border-left-color: #4a9d5a;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+     .conteiner-h3-theme {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      user-select: none;
+      flex-wrap: wrap;
+      align-items: center;
+      transition: all 0.5s ease;
+      margin-bottom: 24px;
+      font-size: 0.7px;
+    }
+
+
+     .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.30rem;
+      cursor: pointer;
+      color: inherit;
+      padding: 10px;
+      transition: color 0.5s ease, transform 0.3s ease;
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    body.dark-theme .theme-toggle {
+      color: #f0f4ff;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    
+
+    .num-btn09 {
+      flex-shrink: 0;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+      line-height: 1;
+      color: black;
+      font-weight: 700;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body.dark-theme .num-btn09 {
+      background: #4a4f7a;
+      color: #e0e4f0;
+    }
+
+    .num-btn09:hover {
+      box-shadow: 0 8px 22px rgba(54, 62, 107, 0.9);
+      transform: scale(1.1);
+    }
+
+    .num-btn09:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+    }
+
+    #playlist-container {
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px 30px 40px;
+      max-width: 620px;
+      width: 100%;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      color: #363E6B;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .num-btn {
+      flex-shrink: 0;
+      background: #363E6B;
+      border: none;
+      border-radius: 45%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
+      line-height: 1;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body.dark-theme .num-btn {
+      background: #4a4f7a;
+      color: #e0e4f0;
+    }
+
+    #loading-indicator {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      color: black;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      z-index: 1000;
+    }
+
+    body.dark-theme #loading-indicator {
+      background: rgba(74, 79, 122, 0.9);
+      color: #e0e4f0;
+    }
+
+    #progress-bar {
+      width: 100%;
+      margin-top: 10px;
+      color: black;
+    }
+
+    body.dark-theme #progress-bar {
+      color: #e0e4f0;
+    }
+
+    .num-btn:hover {
+      box-shadow: 0 8px 22px rgba(54, 62, 107, 0.9);
+      transform: scale(1.1);
+    }
+
+    .num-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+    }
+
+    #playlist-container h3 {
+      margin: 0 0 24px 10px;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      color: #363E6B;
+      text-shadow: none;
+    }
+
+    body.dark-theme #playlist-container h3 {
+      color: #e0e4f0;
+    }
+
+    .tracks-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .track-container {
+      position: relative;
+    }
+
+    .delete-button, .delete-button12, .delete-button217, .restore-button, .restore-button0909 {
+      margin-left: 10px;
+    }
+
+    .small-button {
+      align-self: flex-start;
+      margin-bottom: 20px;
+      background: #fff;
+      color: #363E6B;
+      border: 2.5px solid #363E6B;
+      border-radius: 16px;
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+      transition: box-shadow 0.3s ease, transform 0.2s ease, color 0.3s ease, border-color 0.3s ease;
+      user-select: none;
+    }
+
+    body.dark-theme .small-button {
+      background: #4a4f7a;
+      color: #e0e4f0;
+      border-color: #4a4f7a;
+    }
+
+    .small-button:hover {
+      box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
+      transform: translateY(-3px);
+      color: #2a3150;
+      border-color: #2a3150;
+    }
+
+    body.dark-theme .small-button:hover {
+      color: #c0c4d0;
+      border-color: #5a5f8a;
+    }
+
+    .small-button:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+    }
+
+    .small-button80 {
+      flex: 0 0 auto;
+      width: auto;
+      min-width: 78px;
+      margin: 0 5px;
+      padding: 5px 8px;
+      background: #fff;
+      color: #363E6B;
+      border: 2.5px solid #363E6B;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+      transition: box-shadow 0.3s ease, transform 0.2s ease, color 0.3s ease, border-color 0.3s ease;
+      user-select: none;
+    }
+
+    body.dark-theme .small-button80 {
+      background: #4a4f7a;
+      color: #e0e4f0;
+      border-color: #4a4f7a;
+    }
+
+    .small-button80:hover {
+      box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
+      transform: translateY(-3px);
+      color: #2a3150;
+      border-color: #2a3150;
+    }
+
+    body.dark-theme .small-button80:hover {
+      color: #c0c4d0;
+      border-color: #5a5f8a;
+    }
+
+    .small-button80:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+    }
+
+    .small-button12 {
+      align-self: flex-start;
+      margin-bottom: 20px;
+      background: #fff;
+      color: #363E6B;
+      border: 2.5px solid #363E6B;
+      border-radius: 16px;
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+      transition: box-shadow 0.3s ease, transform 0.2s ease, color 0.3s ease, border-color 0.3s ease;
+      user-select: none;
+    }
+
+    body.dark-theme .small-button12 {
+      background: #4a4f7a;
+      color: #e0e4f0;
+      border-color: #4a4f7a;
+    }
+
+    .small-button12:hover {
+      box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
+      transform: translateY(-3px);
+      color: #2a3150;
+      border-color: #2a3150;
+    }
+
+    body.dark-theme .small-button12:hover {
+      color: #c0c4d0;
+      border-color: #5a5f8a;
+    }
+
+    .small-button12:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+    }
+
+    #favorites-container {
+      overflow-y: auto;
+      max-height: 430px;
+      padding-right: 6px;
+      margin-bottom: 20px;
+      user-select: none;
+      display: flex;
+      margin-top: 80px;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #favorites-container::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #favorites-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    #favorites-container::-webkit-scrollbar-thumb {
+      background: #363E6B;
+      border-radius: 8px;
+    }
+
+    body.dark-theme #favorites-container::-webkit-scrollbar-thumb {
+      background: #4a4f7a;
+    }
+
+    #favorites-container > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    #albom-container {
+      overflow-y: auto;
+      max-height: 2000px;
+      padding-right: 6px;
+      margin-bottom: 10px;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    #albom-container::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    .highlight {
+      background-color: rgba(66, 153, 99, 0.7);
+      border-left: 5px solid #2d4e2d;
+      border-radius: 10px;
+      transition: background-color 0.5s ease, transform 0.5s ease;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .track-button.highlight {
+      background-color: rgba(66, 153, 99, 0.7) !important;
+      border-left: 5px solid #2d4e2d;
+      border-radius: 10px;
+      transition: background-color 0.5s ease, transform 0.5s ease;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #albom-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    #albom-container::-webkit-scrollbar-thumb {
+      background: #363E6B;
+      border-radius: 8px;
+    }
+
+    body.dark-theme #albom-container::-webkit-scrollbar-thumb {
+      background: #4a4f7a;
+    }
+
+    #albom-container > div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .track-button {
+      background: #363E6B;
+      border: none;
+      border-radius: 16px;
+      padding: 8px 18px;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.7);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      width: 250px;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    body.dark-theme .track-button {
+      background: #4a4f7a;
+      color: #e0e4f0;
+    }
+
+    .restore-button0909 {
+      flex-shrink: 0;
+      background: #7db14d;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+      line-height: 1;
+      color: rgb(255, 255, 255);
+      font-weight: 700;
+      right: 20px;
+      bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body.dark-theme .restore-button0909 {
+      background: #5a8a3a;
+    }
+
+    .restore-button {
+      flex-shrink: 0;
+      background: #7db14d;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+      line-height: 1;
+      color: rgb(255, 255, 255);
+      font-weight: 700;
+      right: 30px;
+      bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body.dark-theme .restore-button {
+      background: #5a8a3a;
+    }
+
+    .delete-button12 {
+      flex-shrink: 0;
+      background: #c25858;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 1.2rem;
+      line-height: 1;
+      color: rgb(255, 255, 255);
+      font-weight: 700;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    body.dark-theme .delete-button12 {
+      background: #a04444;
+    }
+
+    .delete-button12:hover {
+      transform: scale(1.1);
+    }
+
+    .delete-button12:active {
+      transform: scale(0.95);
+    }
+
+    .track-button:hover:not(:disabled) {
+      box-shadow: 0 9px 28px rgba(54, 62, 107, 1);
+      transform: translateY(-3px);
+    }
+
+    .track-button:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.7);
+    }
+
+    .track-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+      background: #ccc;
+      color: #666;
+    }
+
+    body.dark-theme .track-button:disabled {
+      background: #666;
+      color: #ccc;
+    }
+
+    .delete-button {
+      flex-shrink: 0;
+      background: #c25858;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+      line-height: 1;
+      color: rgb(255, 255, 255);
+      font-weight: 700;
+      right: 20px;
+      bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body.dark-theme .delete-button {
+      background: #a04444;
+    }
+
+    .delete-button:hover {
+      transform: scale(1.1);
+    }
+
+    .delete-button:active {
+      transform: scale(0.95);
+    }
+
+    .delete-button217 {
+      flex-shrink: 0;
+      background: #c25858;
+      border-radius: 51%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+      line-height: 1;
+      color: rgb(255, 255, 255);
+      font-weight: 700;
+      right: 20px;
+      bottom: 5px;
+      justify-content: center;
+    }
+
+    body.dark-theme .delete-button217 {
+      background: #a04444;
+    }
+
+    .delete-button217:hover {
+      transform: scale(1.1);
+    }
+
+    .delete-button217:active {
+      transform: scale(0.95);
+    }
+
+    #audio-player {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(54, 62, 107, 0.3);
+      outline: none;
+      background-color: #fff;
+      height: 46px;
+      user-select: none;
+    }
+
+    body.dark-theme #audio-player {
+      background-color: #4a4f7a;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .album-title {
+      position: relative;
+      background-color: #6570af;
+      padding: 17px 55px 17px 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      user-select: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-theme .album-title {
+      background-color: #4a4f7a;
+      color: #e0e4f0;
+    }
+
+    .num-btn-date {
+      flex-shrink: 0;
+      background: #363E6B;
+      border: none;
+      border-radius: 25%;
+      width: 58px;
+      height: 58px;
+      font-size: 0.80rem;
+      line-height: 1;
+      color: white;
+      font-weight: 1500;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    body.dark-theme .num-btn-date {
+      background: #4a4f7a;
+      color: #e0e4f0;
+    }
+
+    .num-btn-date:hover {
+      box-shadow: 0 8px 22px rgba(54, 62, 107, 0.9);
+      transform: scale(1.1);
+    }
+
+    .num-btn-date:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+    }
+
+    .album-title:hover {
+      background-color: #4a5d9e;
+    }
+
+    body.dark-theme .album-title:hover {
+      background-color: #5a5f8a;
+    }
+
+    .album-title .title-text {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      user-select: none;
+    }
+
+    .album-title .title-text::after {
+      content: '▼';
+      font-size: 0.8em;
+      margin-left: 8px;
+      color: white;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      display: inline-block;
+      transform-origin: center;
+      transform: rotate(0deg);
+    }
+
+    .album-title[aria-expanded="true"] .title-text::after {
+      transform: rotate(180deg);
+    }
+
+    .album-title .delete-button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: none;
+      color: rgb(43, 43, 43);
+      font-weight: 700;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      z-index: 2;
+    }
+
+    body.dark-theme .album-title .delete-button {
+      background: #2c2f4a;
+      color: #e0e4f0;
+    }
+
+    .album-title .delete-button:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .album-title .delete-button:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .searchL {
+      margin-bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .searchL input[type="text"] {
+      width: 100%;
+      max-width: 600px;
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 2.5px solid #6570af;
+      border-radius: 16px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #363E6B;
+      box-sizing: border-box;
+    }
+
+    body.dark-theme .searchL input[type="text"] {
+      background-color: #4a4f7a;
+      color: #e0e4f0;
+      border-color: #4a4f7a;
+    }
+
+    .searchL input[type="text"]::placeholder {
+      color: #999;
+    }
+
+    body.dark-theme .searchL input[type="text"]::placeholder {
+      color: #bbb;
+    }
+
+    .searchL input[type="text"]:focus {
+      border-color: #4a5d9e;
+      box-shadow: 0 0 8px rgba(74, 93, 158, 0.6);
+    }
+
+    body.dark-theme .searchL input[type="text"]:focus {
+      border-color: #5a5f8a;
+      box-shadow: 0 0 8px rgba(90, 95, 138, 0.6);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      #playlist-container {
+        padding: 25px 20px 30px;
+      }
+
+      #playlist-container h3 {
+        font-size: 1.6rem;
+      }
+
+      #favorites-container {
+        max-height: 300px;
+      }
+
+      .track-button {
+        font-size: 14px;
+        padding: 4px 8px;
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 55px;
+      }
+
+      .delete-button {
+        width: 32px;
+        height: 32px;
+        font-size: 1.3rem;
+      }
+
+      .conteiner-h3-theme {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      user-select: none;
+      flex-wrap: wrap;
+      font-size: 0.8px;
+      align-items: center;
+      transition: all 0.5s ease;
+      margin-bottom: 24px;
+    }
+
+      #audio-player {
+        height: 40px;
+      }
+
+      .header-container {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="playlist-container" aria-label="Плейлист избранных треков">
+
+    <div class="conteiner-h3-theme">
+      <h3>Избранные треки</h3> 
+      <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
+    </div>
+
+    <div class="header-container">
+      <button class="small-button" onclick="location.href='cash.html'" aria-label="Перейти в меню">Меню</button>
+      <button id="recache-btn" style="padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px;">🔄</button>
+    </div>
+    
+    
+
+    <form action="search" method="get" class="searchL">
+      <input type="text" name="query" placeholder="Поиск песен...">
+    </form>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+      <button id="sort-button" class="small-button80" aria-label="Сортировать по названию">А-Я</button>
+      <button id="sort-button-baze" class="small-button80" aria-label="Сортировать по названию">Перемешать</button>
+      <button id="sort-button-data" class="small-button80" aria-label="Сортировать по датам">Дата</button>
+    </div>
+    <div id="albom-container" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
+    <div id="favorites-container" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
+    <audio id="audio-player" controls preload="none" controlsList="nodownload" aria-label="Аудиоплеер для избранных треков"></audio>
+  </section>
+
+  <div id="loading-indicator">
+    <p>Подгружаем безинтернетное прослушивание.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Музыка и Клипы</title>
+ <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      color: #fff;
+      user-select: none;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      background: linear-gradient(135deg, #191d31 0%, #1e1f31 100%);
+    }
+
+    body.light-theme {
+      background-color: #505050;
+      color: #363E6B;
+    }
+
+    #main {
+      background: #fff;
+      border-radius: 28px;
+      padding: 30px 30px 40px;
+      box-shadow: 0 15px 35px rgba(54, 62, 107, 0.25);
+      display: flex;
+      flex-direction: column;
+      color: #363E6B;
+      user-select: none;
+      box-sizing: border-box;
+      max-width: 690px;
+      width: 95%;
+      margin: 0 auto;
+      transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease;
+    }
+
+    #main:hover {
+      transform: translateY(-5px);
+    }
+
+    body.dark-theme #main {
+      background: linear-gradient(135deg, #4a4f7a 0%, #5a5f8a 100%);
+      color: #fff;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .conteiner-h3-theme {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      user-select: none;
+      flex-wrap: wrap;
+      align-items: center;
+      transition: all 0.5s ease;
+      margin-bottom: 24px;
+    }
+
+    #main h3 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: inherit;
+    }
+
+    .cards-container {
+      display: flex;
+      gap: 27px;
+      justify-content: space-between;
+      user-select: none;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 25px;
+    }
+
+    .small-button {
+      background: linear-gradient(45deg, #fff 0%, #f0f0f0 100%);
+      color: #363E6B;
+      border: 2.5px solid #363E6B;
+      border-radius: 20px;
+      padding: 12px 26px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(54, 62, 107, 0.3);
+      transition: all 0.4s ease;
+      user-select: none;
+      min-width: 120px;
+      text-align: center;
+      flex-grow: 1;
+      max-width: 200px;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .small-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+      border-radius: 20px;
+      z-index: 1;
+    }
+
+    .small-button:hover::before {
+      left: 100%;
+    }
+
+    body.dark-theme .small-button {
+      background: linear-gradient(45deg, #363E6B 0%, #4a4f7a 100%);
+      color: #fff;
+      border-color: #fff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    body.dark-theme .small-button:hover {
+      color: #ddd;
+      border-color: #ddd;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .small-button:hover {
+      box-shadow: 0 10px 30px rgba(54, 62, 107, 0.5);
+      transform: translateY(-4px) scale(1.05);
+      color: #2a3150;
+      border-color: #2a3150;
+    }
+
+    .small-button:active {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 6px 20px rgba(54, 62, 107, 0.3);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: inherit;
+      padding: 10px;
+      transition: color 0.5s ease, transform 0.3s ease;
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    body.dark-theme .theme-toggle {
+      color: #fff;
+    }
+
+    @media (max-width: 640px) {
+      #main {
+        padding: 28px 22px 34px;
+      }
+
+      #main h3 {
+        font-size: 1.6rem;
+        text-align: center;
+      }
+
+      .cards-container {
+        gap: 25px;
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 25px;
+      }
+
+      .small-button {
+        max-width: 100%;
+        flex-grow: 0;
+      }
+
+      .theme-toggle {
+        font-size: 1.5rem;
+        align-self: center;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <div class="conteiner-h3-theme">
+  <h3>Музыка</h3> 
+    <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
+  </div>
+    <div class="cards-container">
+      <button class="small-button" onclick="location.href='trek.html'" aria-label="Перейти к оплате">Треки</button>
+      <button class="small-button" onclick="location.href='albom.html'" aria-label="Перейти к оплате">Альбомы</button>
+      <button class="small-button" onclick="location.href='izbran.html'" aria-label="Перейти к оплате">Избранные</button>
+      <button class="small-button" onclick="location.href='index.html'" aria-label="Перейти к оплате">Меню</button>
+    </div>
+  </div>
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') == 'dark') {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+  } else {
+    body.classList.remove('dark-theme');
+    body.classList.add('ligth-theme');
+    themeToggle.textContent = "☀️";
+  }
+
+  
+  function theme() {
+    them = localStorage.getItem('theme')
+    if (them == 'dark') {
+      body.classList.remove('dark-theme');
+      body.classList.add('ligth-theme');
+      themeToggle.textContent = "☀️";
+      localStorage.setItem('theme', 'ligth')
+    } else {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+      localStorage.setItem('theme', 'dark')
+    }
+  }
+
+  themeToggle.addEventListener('click', theme)
+  </script>
+</body>
+
+</html>
