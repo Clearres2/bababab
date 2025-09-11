@@ -1255,6 +1255,8 @@ async function DmanuallyRecacheAll() {
         await cacheAudioFile(window.location.origin + '/bababab/izbran.html'); 
        await cacheAudioFile(window.location.origin + '/bababab/cash.html'); 
        await cacheAudioFile(window.location.origin + '/bababab/albom.html'); 
+       await cacheAudioFile(window.location.origin + '/bababab/index.html');
+       await cacheAudioFile(window.location.origin + '/bababab/trek.html'); 
 
         console.log('Ручное кэширование завершено.');
     } catch (error) {
@@ -1314,6 +1316,8 @@ async function manuallyRecacheAll() {
         await cacheAudioFile(window.location.origin + '/bababab/izbran.html'); 
        await cacheAudioFile(window.location.origin + '/bababab/cash.html'); 
        await cacheAudioFile(window.location.origin + '/bababab/albom.html'); 
+       await cacheAudioFile(window.location.origin + '/bababab/index.html');
+       await cacheAudioFile(window.location.origin + '/bababab/trek.html'); 
 
         console.log('Ручное кэширование завершено.');
     } catch (error) {
