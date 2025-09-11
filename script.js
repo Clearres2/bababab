@@ -1205,6 +1205,71 @@ async function getAudioFile(url) {
     }
 }
 
+
+
+
+
+
+
+async function DmanuallyRecacheAll() {
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const progressBar = document.getElementById('progress-bar');
+    loadingIndicator.style.display = 'none';
+
+    try {
+
+        const favoriteTitlesRaw = localStorage.getItem('trek') || '';
+        const favoriteTitles = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
+        const favoriteTracks = favoriteTitles
+            .map(title => tracks.find(t => t.title === title))
+            .filter(t => t && t.url);
+
+ 
+        const albomTitlesRaw = localStorage.getItem('trekA') || '';
+        const AlbomTitles = albomTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
+        const allAlbumTracks = [];
+        AlbomTitles.forEach(albomTitle => {
+            const album = albomsBaze.find(a => a.title === albomTitle);
+            if (album && album.album) {
+                allAlbumTracks.push(...album.album);
+            }
+        });
+
+
+        const allUrls = [
+            ...favoriteTracks.map(t => t.url),
+            ...allAlbumTracks.map(t => t.url)
+        ];
+
+
+        for (let i = 0; i < allUrls.length; i++) {
+            await cacheAudioFile(allUrls[i]);
+
+            if (progressBar) {
+                progressBar.style.width = `${((i + 1) / allUrls.length) * 100}%`;
+            }
+        }
+
+       await cacheAudioFile(window.location.origin + '/bababab/');
+        await cacheAudioFile(window.location.origin + '/bababab/script.js'); 
+        await cacheAudioFile(window.location.origin + '/bababab/izbran.html'); 
+       await cacheAudioFile(window.location.origin + '/bababab/cash.html'); 
+       await cacheAudioFile(window.location.origin + '/bababab/albom.html'); 
+
+        console.log('Ручное кэширование завершено.');
+    } catch (error) {
+        console.error('Ошибка при ручном кэшировании:', error);
+    } finally {
+        loadingIndicator.style.display = 'none';
+    }
+}
+
+
+
+
+
+
+
 async function manuallyRecacheAll() {
     const loadingIndicator = document.getElementById('loading-indicator');
     const progressBar = document.getElementById('progress-bar');
@@ -3151,7 +3216,7 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
 
 window.addEventListener('load', function() {
     UpdateFunction();
-   manuallyRecacheAll();
+   DmanuallyRecacheAll();
 });
 
 
