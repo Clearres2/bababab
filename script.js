@@ -1367,8 +1367,17 @@ async function playTrack(index) {
             const audioBlob = await audioResponse.blob();
             const audioUrl = URL.createObjectURL(audioBlob);
 
+           const cache = await caches.open(CACHE_NAME);
+           let cachedresponse = await cache.match(track.url);
+           if (cachedresponce) {
+              audioPlayer.src = audioUrl;
+           } else {
+              audioPlayer.src = track.url;
+           }
 
-            audioPlayer.src = audioUrl;
+           
+
+
             await audioPlayer.play();
         } catch (error) {
             console.error("Ошибка воспроизведения:", error);
@@ -1431,7 +1440,15 @@ async function playAlbomTrack(albumIndex, trackIndex) {
             const audioBlob = await audioResponse.blob();
             const audioUrl = URL.createObjectURL(audioBlob);
 
-            audioPlayer.src = audioUrl;
+           const cache = await caches.open(CACHE_NAME);
+           let cachedresponse = await cache.match(track.url);
+           
+           if (cachedresponce) {
+              audioPlayer.src = audioUrl;
+           } else {
+              audioPlayer.src = track.url;
+           }
+
             await audioPlayer.play();
         } catch (error) {
             console.error("Ошибка воспроизведения:", error);
