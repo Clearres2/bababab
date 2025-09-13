@@ -1368,8 +1368,8 @@ async function playTrack(index) {
             const audioUrl = URL.createObjectURL(audioBlob);
 
            const cache = await caches.open(CACHE_NAME);
-           let cachedresponse = await cache.match(track.url);
-           if (cachedresponse) {
+           let cachedresponse  = await cache.match(track.url);
+           if (cachedresponse ) {
               audioPlayer.src = audioUrl;
            } else {
               audioPlayer.src = track.url;
@@ -1441,9 +1441,9 @@ async function playAlbomTrack(albumIndex, trackIndex) {
             const audioUrl = URL.createObjectURL(audioBlob);
 
            const cache = await caches.open(CACHE_NAME);
-           let cachedresponse = await cache.match(track.url);
+           let cachedresponse  = await cache.match(track.url);
            
-           if (cachedresponse) {
+           if (cachedresponse ) {
               audioPlayer.src = audioUrl;
            } else {
               audioPlayer.src = track.url;
