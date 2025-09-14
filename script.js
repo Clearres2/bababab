@@ -3243,7 +3243,7 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
 
 
 
-window.addEventListener('load', function() {
+window.addEventListener('load', async function() {
    await DmanuallyRecacheAll();
     UpdateFunction();
 });
