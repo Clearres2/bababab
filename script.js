@@ -1365,6 +1365,8 @@ async function playTrack(index) {
 
            if (navigator.onLine) {
             audioPlayer.src = track.url;
+              audioPlayer.preload = 'auto';
+audioPlayer.load(); 
             console.log('сеть')
            } else {
               const audioResponse = await getAudioFile(track.url);
@@ -3011,12 +3013,11 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
     const favoriteTitlesRaw = localStorage.getItem('trek') || '';
     const favoriteTitles = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
 
-    // Проверяем, что favoriteTitles является массивом и перемешиваем
     if (Array.isArray(favoriteTitles)) {
         shuffledFavorites = shuffleArray(favoriteTitles);
     } else {
         console.error("favoriteTitles не является массивом:", favoriteTitles);
-        shuffledFavorites = []; // Устанавливаем пустой массив
+        shuffledFavorites = []; 
     }
 
     const favoriteTracks = shuffledFavorites
@@ -3036,7 +3037,6 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
         const albomMass = albomsBaze.find(a => a.title === albom);
         if (!albomMass) return;
 
-        // Перемешиваем треки альбома
         const shuffledAlbumTracksList = shuffleArray([...albomMass.album]);
         shuffledAlbumTracks[albom] = shuffledAlbumTracksList;
 
@@ -3245,7 +3245,7 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
 
 window.addEventListener('load', function() {
     UpdateFunction();
-   DmanuallyRecacheAll();
+   await DmanuallyRecacheAll();
 });
 
 
