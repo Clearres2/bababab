@@ -1366,7 +1366,6 @@ async function playTrack(index) {
            if (navigator.onLine) {
             audioPlayer.src = track.url;
             console.log('сеть')
-            await audioPlayer.play();
            } else {
               const audioResponse = await getAudioFile(track.url);
             const audioBlob = await audioResponse.blob();
@@ -1444,7 +1443,6 @@ async function playAlbomTrack(albumIndex, trackIndex) {
         try {
            if (navigator.onLine) {
             audioPlayer.src = track.url;
-            await audioPlayer.play();
            } else {
               const audioResponse = await getAudioFile(track.url);
             const audioBlob = await audioResponse.blob();
