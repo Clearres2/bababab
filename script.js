@@ -1363,7 +1363,12 @@ async function playTrack(index) {
 
         try {
 
-            const audioResponse = await getAudioFile(track.url);
+           if (navigator.onLine) {
+            audioPlayer.src = track.url;
+            console.log('сеть')
+            await audioPlayer.play();
+           } else {
+              const audioResponse = await getAudioFile(track.url);
             const audioBlob = await audioResponse.blob();
             const audioUrl = URL.createObjectURL(audioBlob);
 
@@ -1371,9 +1376,10 @@ async function playTrack(index) {
            let cachedresponse  = await cache.match(track.url);
            if (cachedresponse ) {
               audioPlayer.src = audioUrl;
-           } else {
-              audioPlayer.src = track.url;
            }
+      }
+
+            
 
            
 
