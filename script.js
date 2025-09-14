@@ -1383,7 +1383,7 @@ async function playTrack(index) {
            
 
 
-            audioPlayer.play();
+            await audioPlayer.play();
         } catch (error) {
             console.error("Ошибка воспроизведения:", error);
             if (error.name === 'NotAllowedError') {
@@ -1457,7 +1457,7 @@ async function playAlbomTrack(albumIndex, trackIndex) {
             
            
 
-            audioPlayer.play();
+           await  audioPlayer.play();
         } catch (error) {
             console.error("Ошибка воспроизведения:", error);
         }
