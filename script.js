@@ -1362,22 +1362,23 @@ async function playTrack(index) {
         const track = tracks[index];
 
         try {
-
-           if (navigator.onLine) {
-            audioPlayer.src = track.url;
-              audioPlayer.preload = 'auto';
-audioPlayer.load(); 
-            console.log('сеть')
-           } else {
-              const audioResponse = await getAudioFile(track.url);
-            const audioBlob = await audioResponse.blob();
+           const cachedResponse = await caches.open(CACHE_NAME).then(cache => cache.match(track.url));
+        if (cachedResponse) {
+            const audioBlob = await cachedResponse.blob();
             const audioUrl = URL.createObjectURL(audioBlob);
-
-           const cache = await caches.open(CACHE_NAME);
-           let cachedresponse  = await cache.match(track.url);
-           if (cachedresponse ) {
-              audioPlayer.src = audioUrl;
-           }
+            audioPlayer.src = audioUrl;
+            console.log('Файл воспроизведён из кэша');
+           } else {
+           
+           if (navigator.onLine) {
+                audioPlayer.src = track.url;
+                audioPlayer.preload = 'auto';
+                audioPlayer.load();
+                console.log('Файл загружается из сети');
+            } else {
+                throw new Error('Файл не закэширован и нет интернета');
+            }
+            
       }
 
             
@@ -1443,22 +1444,22 @@ async function playAlbomTrack(albumIndex, trackIndex) {
         currentTrackIndex = { albumIndex, trackIndex };
 
         try {
-           if (navigator.onLine) {
-            audioPlayer.src = track.url;
-           } else {
-              const audioResponse = await getAudioFile(track.url);
-            const audioBlob = await audioResponse.blob();
-            const audioUrl = URL.createObjectURL(audioBlob);
-
-           const cache = await caches.open(CACHE_NAME);
-           let cachedresponse  = await cache.match(track.url);
-              if (cachedresponse ) {
-              audioPlayer.src = audioUrl;
-           }
-           }
-            
-           
-
+          const cachedResponse = await caches.open(CACHE_NAME).then(cache => cache.match(track.url));
+            if (cachedResponse) {
+                const audioBlob = await cachedResponse.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                audioPlayer.src = audioUrl;
+                console.log('Файл воспроизведён из кэша');
+            } else {
+                if (navigator.onLine) {
+                    audioPlayer.src = track.url;
+                    audioPlayer.preload = 'auto';
+                    audioPlayer.load();
+                    console.log('Файл загружается из сети');
+                } else {
+                    throw new Error('Файл не закэширован и нет интернета');
+                }
+            }
            await  audioPlayer.play();
         } catch (error) {
             console.error("Ошибка воспроизведения:", error);
