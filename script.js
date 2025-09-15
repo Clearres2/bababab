@@ -1166,20 +1166,27 @@ const CACHE_NAME = 'audio-cache-v190';
 async function cacheAudioFile(url) {
     try {
         const cache = await caches.open(CACHE_NAME);
-        const response = await fetch(url);
-        if (response.ok) {
-            await cache.put(url, response.clone());
-            console.log(`Файл закэширован: ${url}`);
-            return true;
+        const cachedResponse = await cache.match(url);
+        if (cachedResponse) {
+            console.log(`Файл уже закэширован: ${url}`);
+            return false; 
         } else {
-            console.warn(`Не удалось получить файл для кэширования: ${url}`);
-            return false;
+            const response = await fetch(url);
+            if (response.ok) {
+                await cache.put(url, response.clone());
+                console.log(`Файл закэширован: ${url}`);
+                return true;
+            } else {
+                console.warn(`Не удалось получить файл для кэширования: ${url}`);
+                return false;
+            }
         }
     } catch (error) {
         console.error(`Ошибка при кэшировании файла ${url}:`, error);
         return false;
     }
 }
+
 
 
 async function getAudioFile(url) {
