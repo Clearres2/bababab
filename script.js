@@ -1214,7 +1214,7 @@ async function getAudioFile(url) {
 async function DmanuallyRecacheAll() {
     const loadingIndicator = document.getElementById('loading-indicator');
     const progressBar = document.getElementById('progress-bar');
-    loadingIndicator.style.display = 'none';
+    loadingIndicator.style.display = 'block';
 
     try {
 
