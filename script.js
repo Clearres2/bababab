@@ -2207,7 +2207,7 @@ albumIndex = AlbomTitles.length
 
     
     const albomMass = albomsBaze.find(a => a.title === albom);
-     albomMass.album.sort((a, b) => new Date(b.titleDate) - new Date(a.titleDate));
+     albomMass.album.sort((a, b) => parseDate(a.titleDate) - parseDate(b.titleDate));
     if (!albomMass) return;
     
 
