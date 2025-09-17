@@ -3257,6 +3257,11 @@ window.addEventListener('load', async function() {
 });
 
 
+function parseDate(str) {
+  const [day, month, year] = str.split('.');
+  return new Date(`${year}-${month}-${day}`);
+}
+
 
 document.getElementById('sort-button-data').addEventListener('click', (event) => {
    event.preventDefault();
@@ -3279,7 +3284,8 @@ document.getElementById('sort-button-data').addEventListener('click', (event) =>
 
    console.log(filteredUpdatedFavorites)
 
-   filteredUpdatedFavorites.sort((a, b) => new Date(a.date) - new Date(b.date));
+   filteredUpdatedFavorites.sort((a, b) => parseDate(a.date) - parseDate(b.date));
+
 
    filteredUpdatedFavorites.forEach((favoritesTrek, index) => {
       console.log(favoritesTrek)
