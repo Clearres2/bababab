@@ -2115,6 +2115,11 @@ albumButton.addEventListener('click', createAlbumToggleHandler(albumButton, trac
 function DateUpdateFunction() {
   favoritesContainer.innerHTML = '';
   albomContainer.innerHTML = '';
+   console.log('есть')
+
+    isSortedAlphabetically = false;
+  isSortedByDate = true;
+  peremesh = false;
 
   const favoriteTitlesRaw = localStorage.getItem('trek') || '';
   const favoriteTitles = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
