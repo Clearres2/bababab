@@ -1,7 +1,12 @@
    let shuffledFavorites = [];
 let shuffledAlbums = [];
 let shuffledAlbumTracks = {}
-   
+
+function parseDate(str) {
+  const [day, month, year] = str.split('.');
+  return new Date(`${year}-${month}-${day}`);
+}
+
     const albomsT = [
       {
       titleDate: '09.12.2025',title: '1 ТГК МУЗ-ЧАТ',
@@ -2120,7 +2125,7 @@ function DateUpdateFunction() {
 
 
   console.log(favoriteTracks)
-  favoriteTracks.sort((a, b) => new Date(a.date) - new Date(b.date));
+  favoriteTracks.sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
   if (favoriteTracks.length === 0) {
     favoritesContainer.style.color = '#363E6B';
@@ -3257,10 +3262,7 @@ window.addEventListener('load', async function() {
 });
 
 
-function parseDate(str) {
-  const [day, month, year] = str.split('.');
-  return new Date(`${year}-${month}-${day}`);
-}
+
 
 
 document.getElementById('sort-button-data').addEventListener('click', (event) => {
