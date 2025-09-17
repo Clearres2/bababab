@@ -1009,7 +1009,7 @@ document.getElementById('sort-button-data').addEventListener('click', () => {
    event.preventDefault();
    buttonsContainer.innerHTML = '';
 
-   tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
+   tracks.sort((a, b) => new Date(b.date) - new Date(a.date));
 
    tracks.forEach((trackSort, index) => {
         const clearTrackRowToSort1 = DateNumbercreateTrackRow(trackSort, index);
