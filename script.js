@@ -3315,7 +3315,7 @@ document.getElementById('sort-button-data').addEventListener('click', (event) =>
       }
    });
 
-   AlbomfilteredUpdatedFavorites.sort((a, b) => new Date(a.titleDate) - new Date(b.titleDate));
+   AlbomfilteredUpdatedFavorites.sort((a, b) => parseDate(a.titleDate) - parseDate(b.titleDate));
 
    AlbomfilteredUpdatedFavorites.forEach((filteredAlbom, index) => {
     tea = DateAlbom(filteredAlbom, index, AlbomfilteredUpdatedFavorites)
