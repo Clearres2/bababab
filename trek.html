@@ -1000,7 +1000,10 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
 });
 
 
-
+function parseDate(str) {
+  const [day, month, year] = str.split('.');
+  return new Date(`${year}-${month}-${day}`);
+}
 
 
 
@@ -1009,7 +1012,7 @@ document.getElementById('sort-button-data').addEventListener('click', () => {
    event.preventDefault();
    buttonsContainer.innerHTML = '';
 
-   tracks.sort((a, b) => new Date(b.date) - new Date(a.date));
+   tracks.sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
    tracks.forEach((trackSort, index) => {
         const clearTrackRowToSort1 = DateNumbercreateTrackRow(trackSort, index);
