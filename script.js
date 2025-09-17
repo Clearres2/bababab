@@ -2852,6 +2852,7 @@ const deleteBtn2124 = document.createElement('button');
     tracksContainer.style.overflow = 'hidden';
 
    const sortedTracks = [...track.album].sort((a, b) => parseDate(a.titleDate) - parseDate(b.titleDate));
+   const s = [...track.album]
 
 
     sortedTracks.forEach((albom, albomIndex) => {
@@ -3364,8 +3365,7 @@ audioPlayer.addEventListener('ended', () => {
             
             if (isSortedAlphabetically) {
                 trackList.sort((a, b) => a.title.localeCompare(b.title));
-            } 
-            if (isSortedByDate) {
+            } else if (isSortedByDate) {
                 trackList.sort((a, b) => parseDate(a.date) - parseDate(b.date));
             }
         }
