@@ -189,10 +189,10 @@ function parseDate(str) {
       {
       titleDate: '09.12.2014',title: 'ГЕРОИ В МУЗЫКЕ',
       album: [
-        { titleDate: '09.12.2024',title: 'Блокада Ленинграда', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_Блокада-Ленинграда-(2).mp3' },
-        { titleDate: '09.12.2024',title: 'Вагнера', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_РД-Вагнера.mp3' },
+        { titleDate: '09.01.2024',title: 'Блокада Ленинграда', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_Блокада-Ленинграда-(2).mp3' },
+        { titleDate: '05.09.2024',title: 'Вагнера', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_РД-Вагнера.mp3' },
         { titleDate: '09.12.2024',title: 'Стрелок', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_стрелок.mp3' },
-        { titleDate: '09.12.2024',title: 'Ну, здравствуй, мама!', url: 'https://nextjs-boil-delta.vercel.app/Ну,%20здравствуй,%20мама!.mp3' },
+        { titleDate: '12.12.2012',title: 'Ну, здравствуй, мама!', url: 'https://nextjs-boil-delta.vercel.app/Ну,%20здравствуй,%20мама!.mp3' },
         { titleDate: '09.12.2024',title: 'Мать', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_Русская-душа---мать.mp3' },
         { titleDate: '09.12.2024',title: 'Там, где маки лютуют', url: 'https://nextjs-boil-delta.vercel.app/Там, где маки лютуют.mp3' },
         { titleDate: '09.12.2024',title: 'Как заставить молчать', url: 'https://nextjs-boil-delta.vercel.app/3_Русская_Душа_Как_заставить_молчать.mp3' },
