@@ -3366,7 +3366,7 @@ audioPlayer.addEventListener('ended', () => {
                 trackList.sort((a, b) => a.title.localeCompare(b.title));
             } 
             if (isSortedByDate) {
-                trackList.sort((a, b) => new Date(b.date) - new Date(a.date));
+                trackList.sort((a, b) => parseDate(a.date) - parseDate(b.date));
             }
         }
         
