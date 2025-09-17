@@ -2120,7 +2120,7 @@ function DateUpdateFunction() {
 
 
   console.log(favoriteTracks)
-  favoriteTracks.sort((a, b) => new Date(b.date) - new Date(a.date));
+  favoriteTracks.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   if (favoriteTracks.length === 0) {
     favoritesContainer.style.color = '#363E6B';
@@ -3279,7 +3279,7 @@ document.getElementById('sort-button-data').addEventListener('click', (event) =>
 
    console.log(filteredUpdatedFavorites)
 
-   filteredUpdatedFavorites.sort((a, b) => new Date(b.date) - new Date(a.date));
+   filteredUpdatedFavorites.sort((a, b) => new Date(a.date) - new Date(b.date));
 
    filteredUpdatedFavorites.forEach((favoritesTrek, index) => {
       console.log(favoritesTrek)
@@ -3301,7 +3301,7 @@ document.getElementById('sort-button-data').addEventListener('click', (event) =>
       }
    });
 
-   AlbomfilteredUpdatedFavorites.sort((a, b) => new Date(b.titleDate) - new Date(a.titleDate));
+   AlbomfilteredUpdatedFavorites.sort((a, b) => new Date(a.titleDate) - new Date(b.titleDate));
 
    AlbomfilteredUpdatedFavorites.forEach((filteredAlbom, index) => {
     tea = DateAlbom(filteredAlbom, index, AlbomfilteredUpdatedFavorites)
