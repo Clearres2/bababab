@@ -2851,7 +2851,7 @@ const deleteBtn2124 = document.createElement('button');
     tracksContainer.style.maxHeight = '0'; 
     tracksContainer.style.overflow = 'hidden';
 
-    track.album.sort((a, b) => parseDate(a.date) - parseDate(b.date));
+    track.album.sort((a, b) => parseDate(a.titleDate) - parseDate(b.titleDate));
 
     track.album.forEach((albom, albomIndex) => {
       const albomRow = document.createElement('div');
