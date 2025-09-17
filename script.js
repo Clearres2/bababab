@@ -2885,9 +2885,9 @@ albomRow.appendChild(trackNumberBtn);
        btnf290.onclick = () => {
     
     const albumIndex = albomsBaze.indexOf(track);
-    const trackIndex = track.album.indexOf(albom);
+    const trackIndex = albomIndex + 1;
     console.log("Album", albumIndex);
-    console.log("Track", albomIndex);
+    console.log("Track", trackIndex);
     playAlbomTrack(albumIndex, trackIndex);
 };
 
