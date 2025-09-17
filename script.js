@@ -2887,7 +2887,7 @@ albomRow.appendChild(trackNumberBtn);
     const albumIndex = albomsBaze.indexOf(track);
     const trackIndex = track.album.indexOf(albom);
     console.log("Album", albumIndex);
-    console.log("Track", trackIndex);
+    console.log("Track", albomIndex);
     playAlbomTrack(albumIndex, trackIndex);
 };
 
