@@ -1437,7 +1437,7 @@ async function playAlbomTrack(albumIndex, trackIndex) {
     } else if (isSortedAlphabetically) {
         trackList = [...album.album].sort((a, b) => a.title.localeCompare(b.title));
     } else if (isSortedByDate) {
-        trackList = [...album.album].sort((a, b) => new Date(b.titleDate) - new Date(a.titleDate));
+        trackList = [...album.album].sort((a, b) => parseDate(a.titleDate) - parseDate(b.titleDate));
     }
     let track = trackList[trackIndex];
     const disabledTitlesRaw = localStorage.getItem('disabled') || '';
