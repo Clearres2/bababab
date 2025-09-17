@@ -2851,9 +2851,10 @@ const deleteBtn2124 = document.createElement('button');
     tracksContainer.style.maxHeight = '0'; 
     tracksContainer.style.overflow = 'hidden';
 
-    track.album.sort((a, b) => parseDate(a.titleDate) - parseDate(b.titleDate));
+   const sortedTracks = [...track.album].sort((a, b) => new Date(b.titleDate) - new Date(a.titleDate));
 
-    track.album.forEach((albom, albomIndex) => {
+
+    sortedTracks.forEach((albom, albomIndex) => {
       const albomRow = document.createElement('div');
     albomRow.style.display = 'flex';
     albomRow.style.gap = '16px'
@@ -2862,7 +2863,7 @@ const deleteBtn2124 = document.createElement('button');
 
 
     const trackNumberBtn = document.createElement('span');
-trackNumberBtn.textContent = `${track.album.length - albomIndex}`;
+trackNumberBtn.textContent = `${sortedTracks.length - albomIndex}`;
 trackNumberBtn.className = 'num-btn';
 trackNumberBtn.style.marginRight = '10px';
 albomRow.appendChild(trackNumberBtn);
