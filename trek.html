@@ -543,7 +543,7 @@
     </div>
     <button class="small-button" style="margin-top: 5px;" onclick="location.href='cash.html'" aria-label="Перейти в меню">Меню</button>
     <div id="buttons-container" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
-    <audio id="audio-player" controls preload="none" controlsList="nodownload" aria-label="Аудиоплеер для треков"></audio>
+    <audio id="audio-player" controls preload="metadata" controlsList="nodownload" aria-label="Аудиоплеер для треков"></audio>
   </section>
 
 <script>
@@ -724,6 +724,8 @@ function playTrack(index) {
     currentTrackIndex = index;
     const track = tracks[index];
     audioPlayer.src = track.url;
+
+  audioPlayer.load();
     
     const trackElements = Array.from(buttonsContainer.children);
     const currentTrackElement = trackElements.find(el => 
