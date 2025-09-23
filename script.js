@@ -37,7 +37,7 @@ function parseDate(str) {
       {
       titleDate: '09.12.2012',title: '3 ТГК МУЗ-ЧАТ',
       album: [
-        { titleDate: '09.12.2024',title: 'Гафт', url: 'https://nextjs-boil-delta.vercel.app/гафт.mp3' },
+        { titleDate: '09.12.2023',title: 'Гафт', url: 'https://nextjs-boil-delta.vercel.app/гафт.mp3' },
         { titleDate: '09.12.2024',title: 'Читаю строки ветхого завета', url: 'https://nextjs-boil-delta.vercel.app/Читаю-строки-ветхого-завета_.mp3' },
         { titleDate: '09.12.2024',title: 'Женщина до утра', url: 'https://nextjs-boil-delta.vercel.app/женщина%20до%20утра.mp3' },
         { titleDate: '09.12.2024',title: 'Одесса', url: 'https://nextjs-boil-delta.vercel.app/4.%20Русская%20душа%20-%20Одесса%20(1).mp3' },
