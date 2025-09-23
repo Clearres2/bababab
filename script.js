@@ -187,7 +187,7 @@ function parseDate(str) {
       ]
       },
       {
-      titleDate: '09.12.2014',title: 'ГЕРОИ В МУЗЫКЕ',
+      titleDate: '09.12.2004',title: 'ГЕРОИ В МУЗЫКЕ',
       album: [
         { titleDate: '09.01.2024',title: 'Блокада Ленинграда', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_Блокада-Ленинграда-(2).mp3' },
         { titleDate: '05.09.2024',title: 'Вагнера', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_РД-Вагнера.mp3' },
