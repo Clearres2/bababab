@@ -1160,6 +1160,19 @@ let tracks = [
     title: "Я не ханжа",
     url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
   }
+        { date: '25.06.2025', titleNumber: '149', title: 'Курская битва', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Курская битва.MP3'},
+        { date: '26.06.2025', titleNumber: '150', title: 'Пять лет назад', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Пять лет назад.MP3'},
+        { date: '27.06.2025', titleNumber: '151', title: 'Дальнобой', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Дальнобой.MP3'},
+        { date: '28.06.2025', titleNumber: '152', title: 'Дальнобойные страдания', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Дальнобойные страдания.MP3'},
+        { date: '29.06.2025', titleNumber: '153', title: 'Дальнобойщикам', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Дальнобойщикам.MP3'},
+        { date: '30.06.2025', titleNumber: '154', title: 'Передай привет сентябрю', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Передай привет сентябрю.MP3'},
+        { date: '01.07.2025', titleNumber: '155', title: 'Пуля, Танк и Верный', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Пуля, Танк и Верный.MP3'},
+        { date: '02.07.2025', titleNumber: '156', title: 'Беслан', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Беслан.MP3'},
+        { date: '03.07.2025', titleNumber: '157', title: 'Танкистам', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Танкистам.MP3'},
+        { date: '04.07.2025', titleNumber: '158', title: 'Осень', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Осень.MP3'},
+        { date: '05.07.2025', titleNumber: '159', title: 'С днем рожденья, Курск!', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - С днем рожденья, Курск!.MP3'},
+        { date: '06.07.2025', titleNumber: '160', title: 'Донбасс', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Донбасс.MP3'},
+        { date: '07.07.2025', titleNumber: '161', title: 'Жемчужная свадьба', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Жемчужная свадьба.MP3'},
 ];
 
 
