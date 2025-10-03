@@ -1160,6 +1160,84 @@ let tracks = [
     title: "Я не ханжа",
     url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
   }
+  { 
+   date: '24.06.2025', 
+      titleNumber: '148', 
+      title: 'Я не ханжа', 
+      url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '24.06.2025', 
+        titleNumber: '149', 
+        title: 'Курская битва', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '25.06.2025', 
+        titleNumber: '150', 
+        title: 'Дальнобойные страдания', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '26.06.2025', 
+        titleNumber: '151', 
+        title: 'Дальнобойщикам', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '27.06.2025', 
+        titleNumber: '152', 
+        title: 'Передай привет сентябрю', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '28.06.2025', 
+        titleNumber: '153', 
+        title: 'Пуля, Танк и Верный', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '29.06.2025', 
+        titleNumber: '154', 
+        title: 'Беслан', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '30.06.2025', 
+        titleNumber: '155', 
+        title: 'Танкистам', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '01.07.2025', 
+        titleNumber: '156', 
+        title: 'Осень', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  {
+     date: '02.07.2025', 
+        titleNumber: '157', 
+        title: 'С днём рождения Курск', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '03.07.2025', 
+        titleNumber: '158', 
+        title: 'Донбасс', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '07.07.2025', 
+        titleNumber: '159', 
+        title: 'Жемчужная свадьба', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
+  { 
+     date: '08.07.2025', 
+        titleNumber: '160', 
+        title: 'Посмотри мне в глаза', 
+        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
+  },
 ];
 
 
