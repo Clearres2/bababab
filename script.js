@@ -1159,7 +1159,7 @@ let tracks = [
     titleNumber: 148,
     title: "Я не ханжа",
     url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
-  }
+  },
   { 
      date: '24.06.2025', 
         titleNumber: '149', 
