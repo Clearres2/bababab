@@ -19,7 +19,7 @@ function parseDate(str) {
           { titleDate: '09.12.2012', title: 'Дерзкий вечер', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_6.-Русская-душа---Дерзкий-вечер.mp3' },
           { titleDate: '09.12.2012', title: 'Пушкин', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_7.-Русская-душа---Пушкин.mp3' },
           { titleDate: '09.12.2024', title: 'Санкции', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_8_Русская-душа_Новости_смотрю_и_плачу.mp3' },
-          { titleDate: '09.12.2012', title: 'Здесь лапы у eли', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_9.-Русская-душа---Здесь-лапы-у-ели.mp3' },
+          { titleDate: '09.12.2012', title: 'Здесь лапы у eли 2', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_9.-Русская-душа---Здесь-лапы-у-ели.mp3' },
         ]
       },
       {
@@ -158,7 +158,7 @@ function parseDate(str) {
           { titleDate: '09.12.2012', title: 'Дерзкий вечер', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_6.-Русская-душа---Дерзкий-вечер.mp3' },
           { titleDate: '09.12.2012', title: 'Пушкин', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_7.-Русская-душа---Пушкин.mp3' },
           { titleDate: '09.12.2024', title: 'Санкции', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_8_Русская-душа_Новости_смотрю_и_плачу.mp3' },
-          { titleDate: '09.12.2012', title: 'Здесь лапы у eли', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_9.-Русская-душа---Здесь-лапы-у-ели.mp3' },
+          { titleDate: '09.12.2012', title: 'Здесь лапы у eли 2', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_9.-Русская-душа---Здесь-лапы-у-ели.mp3' },
         ]
       },
       {
@@ -623,7 +623,7 @@ let tracks = [
   {
     date: "09.01.2024",
     titleNumber: 60,
-    title: "Здесь лапы у eли",
+    title: "Здесь лапы у eли 2",
     url: "https://nextjs-boilerplate-lemon-pi-53.vercel.app/tagmp3_9.-Русская-душа---Здесь-лапы-у-ели.mp3"
   },
   {
