@@ -2477,6 +2477,13 @@ const searchForm = document.querySelector('.searchL');
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault(); 
 
+   const allAlbumButtons = document.querySelectorAll('.album-title');
+const allTrackContainers = document.querySelectorAll('.tracks-container');
+allAlbumButtons.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+allTrackContainers.forEach(container => {
+  container.style.maxHeight = '0px';
+});
+
   const query = searchInput.value.toLowerCase();
 
   const favoriteTitlesRaw = localStorage.getItem('trek') || '';
