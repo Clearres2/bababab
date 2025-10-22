@@ -1160,78 +1160,102 @@ let tracks = [
     title: "Я не ханжа",
     url: "https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3"
   },
-  { 
-     date: '24.06.2025', 
-        titleNumber: '149', 
-        title: 'Курская битва', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Курская битва.MP3"
-  },
-  { 
-     date: '25.06.2025', 
-        titleNumber: '150', 
-        title: 'Дальнобойные страдания', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Дальнобойные страдания.MP3"
-  },
-  { 
-     date: '26.06.2025', 
-        titleNumber: '151', 
-        title: 'Дальнобойщикам', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Дальнобойщикам.MP3"
-  },
-  { 
-     date: '27.06.2025', 
-        titleNumber: '152', 
-        title: 'Передай привет сентябрю', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Передай привет сентябрю.MP3"
-  },
-  { 
-     date: '28.06.2025', 
-        titleNumber: '153', 
-        title: 'Пуля, Танк и Верный', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Пуля, Танк и Верный.MP3"
-  },
-  { 
-     date: '29.06.2025', 
-        titleNumber: '154', 
-        title: 'Беслан', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Беслан.MP3"
-  },
-  { 
-     date: '30.06.2025', 
-        titleNumber: '155', 
-        title: 'Танкистам', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Танкистам.MP3"
-  },
-  { 
-     date: '01.07.2025', 
-        titleNumber: '156', 
-        title: 'Осень', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Осень.MP3"
-  },
-  {
-     date: '02.07.2025', 
-        titleNumber: '157', 
-        title: 'С днём рождения Курск', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - С днем рождения Курск.MP3"
-  },
-  { 
-     date: '03.07.2025', 
-        titleNumber: '158', 
-        title: 'Донбасс', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Донбасс.MP3"
-  },
-  { 
-     date: '07.07.2025', 
-        titleNumber: '159', 
-        title: 'Жемчужная свадьба', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Жемчужная свадьба.MP3"
-  },
-  { 
-     date: '08.07.2025', 
-        titleNumber: '160', 
-        title: 'Посмотри мне в глаза', 
-        url: "https://nextjs-boil-delta.vercel.app/Русская душа - Посмотри в глаза.MP3"
-  },
+   { 
+      date: '25.06.2025', 
+      titleNumber: '149', 
+      title: 'Курская битва', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Курская битва.MP3'
+   },
+   { 
+      date: '26.06.2025', 
+      titleNumber: '150', 
+      title: 'Дальнобойные страдания', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Дальнобойные страдания.MP3'
+   },
+   { 
+      date: '27.06.2025', 
+      titleNumber: '151', 
+      title: 'Дальнобойщикам', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Дальнобойщикам.MP3'
+   },
+   { 
+      date: '28.06.2025', 
+      titleNumber: '152', 
+      title: 'Передай привет сентябрю', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Передай привет сентябрю.MP3'
+   },
+   { 
+      date: '29.06.2025', 
+      titleNumber: '153', 
+      title: 'Пуля, Танк и Верный', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Пуля, Танк и Верный.MP3'
+   },
+   { 
+      date: '30.06.2025', 
+      titleNumber: '154', 
+      title: 'Беслан', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Беслан.MP3'
+   },
+   { 
+      date: '01.07.2025', 
+      titleNumber: '155', 
+      title: 'Танкистам', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Танкистам.MP3'
+   },
+   { 
+      date: '02.07.2025', 
+      titleNumber: '156', 
+      title: 'Осень', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Осень.MP3'
+   },
+   { 
+      date: '03.07.2025', 
+      titleNumber: '157', 
+      title: 'С днём рождения Курск', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - С днем рождения Курск.MP3'
+   },
+   {
+      date: '04.07.2025', 
+      titleNumber: '158', 
+      title: 'Донбасс', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Донбасс.MP3'
+   },
+   { 
+      date: '05.07.2025', 
+      titleNumber: '159', 
+      title: 'Жемчужная свадьба', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Жемчужная свадьба.MP3'
+   },
+   { 
+      date: '06.07.2025', 
+      titleNumber: '160', 
+      title: 'Посмотри мне в глаза', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Посмотри в глаза.MP3'
+   },    
+   { 
+      date: '07.07.2025', 
+      titleNumber: '161', 
+      title: 'Учителям', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Учителям.MP3'
+   },    
+   { 
+      date: '08.07.2025', 
+      titleNumber: '162', 
+      title: 'С днём рождения, Президент!', 
+      url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_С_днём_рождения,_наш_Президент!.MP3'
+   },    
+   { 
+      date: '09.07.2025', 
+      titleNumber: '163', 
+      title: 'Ложь и правда', 
+      url: 'https://nextjs-boil-delta.vercel.app/Ложь и правда.mp3'
+   },    
+   { 
+      date: '10.07.2025', 
+      titleNumber: '164', 
+      title: 'Ах, эта осень, эта чудо осень!', 
+      url: 'https://nextjs-boil-delta.vercel.app/Ах, эта осень, эта чудо-осень!.mp3'
+   }, 
 ];
 
 
