@@ -1256,6 +1256,12 @@ let tracks = [
       title: 'Ах, эта осень, эта чудо осень!', 
       url: 'https://nextjs-boil-delta.vercel.app/Ах, эта осень, эта чудо-осень!.mp3'
    }, 
+   { 
+      date: '11.07.2025', 
+      titleNumber: '165', 
+      title: 'В чистом поле васильки', 
+      url: 'https://nextjs-boil-delta.vercel.app/В чистом поле васильки.mp3'
+   },  
 ];
 
 
