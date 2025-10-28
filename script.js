@@ -395,7 +395,7 @@ let tracks = [
     { date: '04.06.2025', titleNumber: '127', title: 'Спряталось солнце в дымке заката', url: 'https://nextjs-boil-delta.vercel.app/Спряталось_солнце,_в_дымке_заката.mp3'},
     { date: '05.06.2025', titleNumber: '128', title: 'Не забывайте значение слово друг (рок)', url: 'https://nextjs-boil-delta.vercel.app/Не забывайте Рок (1).mp3'},
     { date: '06.06.2025', titleNumber: '129', title: 'Не забывайте значение слово друг', url: 'https://nextjs-boil-delta.vercel.app/Не забывайте.mp3'},
-    { date: '07.06.2025', titleNumber: '130', title: 'Во славу русского соладата', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Во славу русского солдата.mp3'},
+    { date: '07.06.2025', titleNumber: '130', title: 'Во славу русского солдата', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Во славу русского солдата.mp3'},
     { date: '08.06.2025', titleNumber: '131', title: 'Дaльнобой', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Дальнобой.mp3'},
     { date: '09.06.2025', titleNumber: '132', title: 'Передавай привет сентябрю', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Передай привет сентябрю.mp3'},
     { date: '10.06.2025', titleNumber: '133', title: 'С дем рождения!', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - С днем рождения!.mp3'},
