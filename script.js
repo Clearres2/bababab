@@ -170,7 +170,7 @@ function parseDate(str) {
         { titleDate: '09.12.2024',title: 'Туман', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/5.%20Русская%20душа%20-%20Туман.wav--online-audio-convert.com.mp3' },
         { titleDate: '09.12.2024',title: 'Дети 20-го века', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/6.%20Русская%20душа%20-%20Дети%2020-го%20века.wav--online-audio-convert.com.mp3' },
         { titleDate: '09.12.2024',title: 'Застава', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/7.%20Русская%20душа%20-%20Застава.wav--online-audio-convert.com.mp3' },
-        { titleDate: '09.12.2024',title: 'Великая держава', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/Русская душа - Великая держава.mp3' },
+        { titleDate: '09.12.2024',title: 'Великая держава', url: 'https://nextjs-boilerplate-lemon-pi-53.vercel.app/1. Русская душа - Великая держава.mp3' },
       ]
       },
       {
@@ -384,7 +384,7 @@ let tracks = [
     { date: '23.05.2025', titleNumber: '116', title: 'Я уже не спешу', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Я уже не спешу .mp3'},
     { date: '24.05.2025', titleNumber: '117', title: 'Крещение руси', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Крещение Руси.mp3'},
     { date: '25.05.2025', titleNumber: '118', title: 'Июнь зеленый', url: 'https://nextjs-boil-delta.vercel.app/Июль зеленый.mp3'},
-    { date: '26.05.2025', titleNumber: '119', title: 'Жизнь это опыт, но никак не бремя', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Жизнь это опыт, но никак не бремя.mp3'},
+    { date: '26.05.2025', titleNumber: '119', title: 'Жизнь - это опыт, но никак не бремя', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Жизнь это опыт, но никак не бремя.mp3'},
     { date: '27.05.2025', titleNumber: '120', title: 'Лермонтов', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Лермонтов.mp3'},
     { date: '28.05.2025', titleNumber: '121', title: 'Когда уходит гений', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Когда уходит гений.mp3'},
     { date: '29.05.2025', titleNumber: '122', title: 'Море не ответит', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Море не ответит.mp3'},
