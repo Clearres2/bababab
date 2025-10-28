@@ -391,7 +391,7 @@ let tracks = [
     { date: '30.05.2025', titleNumber: '123', title: 'Наш русский флаг', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Наш русский флаг.mp3'},
     { date: '01.06.2025', titleNumber: '124', title: 'Под куполом неба', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Под куполом неба.mp3'},
     { date: '02.06.2025', titleNumber: '125', title: 'Хочу я жить в глуши', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Хочу я жить в глуши.mp3'},
-    { date: '03.06.2025', titleNumber: '126', title: 'Эх лето красное', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Эх, лето красное,.mp3'},
+    { date: '03.06.2025', titleNumber: '126', title: 'Эх, лето красное', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Эх, лето красное,.mp3'},
     { date: '04.06.2025', titleNumber: '127', title: 'Спряталось солнце в дымке заката', url: 'https://nextjs-boil-delta.vercel.app/Спряталось_солнце,_в_дымке_заката.mp3'},
     { date: '05.06.2025', titleNumber: '128', title: 'Не забывайте Рок', url: 'https://nextjs-boil-delta.vercel.app/Не забывайте Рок (1).mp3'},
     { date: '06.06.2025', titleNumber: '129', title: 'Не забывайте', url: 'https://nextjs-boil-delta.vercel.app/Не забывайте.mp3'},
