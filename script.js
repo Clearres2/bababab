@@ -418,7 +418,7 @@ let tracks = [
     { date: '30.06.2025', titleNumber: '150', title: 'Беслан', url: 'https://nextjs-boil-delta.vercel.app/Беслан.mp3'},
     { date: '01.07.2025', titleNumber: '151', title: 'Танкистам', url: 'https://nextjs-boil-delta.vercel.app/Танкистам.mp3'},
     { date: '02.07.2025', titleNumber: '152', title: 'Осень', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Осень .mp3'},
-    { date: '03.07.2025', titleNumber: '153', title: 'С днём рождения Курск', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_С_Днем_Рождения,_Курск!_.mp3'},
+    { date: '03.07.2025', titleNumber: '153', title: 'С днем рождения, Курск!', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_С_Днем_Рождения,_Курск!_.mp3'},
     { date: '04.07.2025', titleNumber: '154', title: 'Донбасс', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Донбасс.MP3'},
     { date: '05.07.2025', titleNumber: '155', title: 'Жемчужная свадьба', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Жемчужная свадьба..mp3'},
     { date: '06.07.2025', titleNumber: '156', title: 'Посмотри мне в глаза', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_Посмотри_мне_в_глаза.MP3'},    
