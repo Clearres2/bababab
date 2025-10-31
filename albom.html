@@ -583,45 +583,34 @@
     let currentHighlightedElement = null;
 
     function playTrack(albumIndex, trackIndex) {
+        if (currentHighlightedElement) {
+            currentHighlightedElement.classList.remove('highlight');
+        }
 
-      if (currentHighlightedElement) {
-        currentHighlightedElement.classList.remove('highlight');
-    }
-
-
-      
-    const track = tracks[albumIndex].album[trackIndex];
-    currentTrackIndex = { albumIndex, trackIndex };
-    audioPlayer.src = track.url;
-    audioPlayer.play().catch(error => {
-        console.error("Ошибка воспроизведения:", error);
-    });
-
-     const albumTracksContainers = document.querySelectorAll('.album-tracks');
-    
-
-    let foundElement = null;
-    
-    albumTracksContainers.forEach(container => {
-        const trackRows = container.querySelectorAll('.track-row');
-        trackRows.forEach(row => {
-            const trackButton = row.querySelector('.local-track-button');
-            if (trackButton && trackButton.textContent === track.title) {
-                foundElement = row;
-            }
+        const track = tracks[albumIndex].album[trackIndex];
+        currentTrackIndex = { albumIndex, trackIndex };
+        audioPlayer.src = track.url;
+        audioPlayer.play().catch(error => {
+            console.error("Ошибка воспроизведения:", error);
         });
-    });
 
-    if (foundElement) {
-        foundElement.classList.add('highlight');
-        currentHighlightedElement = foundElement;
-
-        foundElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // НОВЫЙ КОД: Находим конкретный альбом по индексу
+        const albumTitles = document.querySelectorAll('.album-title');
+        const currentAlbumTitle = albumTitles[albumIndex];
+        
+        if (currentAlbumTitle && currentAlbumTitle.nextElementSibling) {
+            const albumTracks = currentAlbumTitle.nextElementSibling;
+            const trackRows = albumTracks.querySelectorAll('.track-row');
+            
+            // Находим конкретный трек по индексу в этом альбоме
+            if (trackIndex < trackRows.length) {
+                const foundElement = trackRows[trackIndex];
+                foundElement.classList.add('highlight');
+                currentHighlightedElement = foundElement;
+                foundElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
     }
-
-
-}
-
 
     const buttonsContainer = document.getElementById('buttons-container');
     const audioPlayer = document.getElementById('audio-player');
@@ -838,3 +827,4 @@ const themeToggle = document.getElementById('theme-toggle');
 
   </script>
 </body>
+</html>
