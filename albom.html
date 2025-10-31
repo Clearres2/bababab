@@ -583,10 +583,13 @@
     let currentHighlightedElement = null;
 
     function playTrack(albumIndex, trackIndex) {
-    if (currentHighlightedElement) {
+
+      if (currentHighlightedElement) {
         currentHighlightedElement.classList.remove('highlight');
     }
 
+
+      
     const track = tracks[albumIndex].album[trackIndex];
     currentTrackIndex = { albumIndex, trackIndex };
     audioPlayer.src = track.url;
@@ -594,23 +597,18 @@
         console.error("Ошибка воспроизведения:", error);
     });
 
-    // Находим конкретный альбом по индексу
-    const albumTitles = document.querySelectorAll('.album-title');
-    const currentAlbumTitle = albumTitles[albumIndex];
+     const albumTracksContainers = document.querySelectorAll('.album-tracks');
     
-    if (currentAlbumTitle && currentAlbumTitle.nextElementSibling) {
-        const albumTracks = currentAlbumTitle.nextElementSibling;
-        const trackRows = albumTracks.querySelectorAll('.track-row');
-        
-        // Находим конкретный трек по индексу в этом альбоме
-        if (trackIndex < trackRows.length) {
-            const foundElement = trackRows[trackIndex];
-            foundElement.classList.add('highlight');
-            currentHighlightedElement = foundElement;
-            foundElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-}
+
+    let foundElement = null;
+    
+    albumTracksContainers.forEach(container => {
+        const trackRows = container.querySelectorAll('.track-row');
+        trackRows.forEach(row => {
+            const trackButton = row.querySelector('.local-track-button');
+            if (trackButton && trackButton.textContent === track.title) {
+                foundElement = row;
+            }
         });
     });
 
