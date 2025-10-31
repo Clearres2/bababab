@@ -606,7 +606,7 @@
         const trackRows = container.querySelectorAll('.track-row');
         trackRows.forEach(row => {
             const trackButton = row.querySelector('.local-track-button');
-            if (trackButton && trackButton.textContent === track.title) {
+            if (trackButton && trackButton.textContent.trim() === track.title.trim()) {
                 foundElement = row;
             }
         });
