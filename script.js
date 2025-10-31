@@ -97,7 +97,7 @@ function parseDate(str) {
       album: [
         { titleDate: '09.01.2024', title: 'Путник', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_Русская-душа---Путник.mp3' },
           { titleDate: '09.01.2024', titleNumber: '105', title: 'Ну что пришла', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Ну что пришла.mp3' },
-        { titleDate: '09.01.2024', titleNumber: '106', title: 'Остановите земле', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Остановите земле .mp3' },
+        { titleDate: '09.01.2024', titleNumber: '106', title: 'Остановите землю', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Остановите земле .mp3' },
         { titleDate: '09.01.2024', titleNumber: '107', title: 'Бродяге', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Бродяга.mp3' },
     { titleDate: '09.01.2024', titleNumber: '108', title: 'Ну что застыл', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Ну что застыл.mp3' },
     { titleDate: '09.01.2024', titleNumber: '109', title: 'Налетает грусть', url: 'https://nextjs-boil-delta.vercel.app/' },
@@ -238,7 +238,7 @@ function parseDate(str) {
       album: [
         { titleDate: '01.01.2024', title: 'Путник', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_Русская-душа---Путник.mp3' },
               { titleDate: '02.01.2024', titleNumber: '105', title: 'Ну что пришла', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Ну что пришла.mp3' },
-        { titleDate: '03.01.2024', titleNumber: '106', title: 'Остановите земле', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Остановите земле .mp3' },
+        { titleDate: '03.01.2024', titleNumber: '106', title: 'Остановите землю', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Остановите земле .mp3' },
         { titleDate: '04.01.2024', titleNumber: '107', title: 'Бродяге', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Бродяга.mp3' },
     { titleDate: '05.01.2024', titleNumber: '108', title: 'Ну что застыл', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Ну что застыл.mp3' },
     { titleDate: '06.01.2024', titleNumber: '109', title: 'Налетает грусть', url: 'https://nextjs-boil-delta.vercel.app/Русская%20душа%20-%20Налетает%20грусть%20.mp3' },
@@ -375,7 +375,7 @@ let tracks = [
     { date: '09.05.2025', titleNumber: '103', title: 'Уходят на войну', url: 'https://nextjs-boil-delta.vercel.app/Русская+душа+-+Уходят+на+войну++%281%29.mp3' },
     { date: '10.05.2025', titleNumber: '104', title: 'Александр Блок', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Александр Блок.mp3' },
     { date: '11.05.2025', titleNumber: '105', title: 'Ну что пришла', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Ну что пришла.mp3' },
-    { date: '12.05.2025', titleNumber: '106', title: 'Остановите земле', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Остановите земле .mp3' },
+    { date: '12.05.2025', titleNumber: '106', title: 'Остановите землю', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Остановите земле .mp3' },
     { date: '13.05.2025', titleNumber: '107', title: 'Бродяге', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Бродяга.mp3' },
     { date: '14.05.2025', titleNumber: '108', title: 'Ну что застыл', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Ну что застыл.mp3' },
     { date: '15.05.2025', titleNumber: '109', title: 'Налетает грусть', url: 'https://nextjs-boil-delta.vercel.app/Русская%20душа%20-%20Налетает%20грусть%20.mp3' },
