@@ -88,7 +88,7 @@ function parseDate(str) {
         { titleDate: '06.12.2024',title: 'Уже не стало ветеранов', url: 'https://nextjs-boil-delta.vercel.app/Уже%20не%20стало%20ветеранов.mp3' },
         { titleDate: '07.12.2024',title: 'Мы часто о героях говорим', url: 'https://nextjs-boil-delta.vercel.app/Мы%20часто%20о%20героях%20говорим%20(2).mp3' },
         { titleDate: '08.12.2024',title: 'Война дошла до Сталинграда', url: 'https://nextjs-boil-delta.vercel.app/Война%20дошла%20до%20Сталинграда%20(2).mp3' },
-        { titleDate: '09.12.2024',title: 'На выжженой земле', url: 'https://nextjs-boil-delta.vercel.app/На выжженной земле.mp3' },
+        { titleDate: '09.12.2024',title: 'На выжженной земле', url: 'https://nextjs-boil-delta.vercel.app/На выжженной земле.mp3' },
         { titleDate: '10.12.2024',title: 'Девятый десяток', url: 'https://nextjs-boil-delta.vercel.app/Девятый_десяток_для_вечности_миг_1.mp3' },        
       ]
       },
@@ -229,7 +229,7 @@ function parseDate(str) {
         { titleDate: '06.12.2024',title: 'Уже не стало ветеранов', url: 'https://nextjs-boil-delta.vercel.app/Уже%20не%20стало%20ветеранов.mp3' },
         { titleDate: '07.12.2024',title: 'Мы часто о героях говорим', url: 'https://nextjs-boil-delta.vercel.app/Мы%20часто%20о%20героях%20говорим%20(2).mp3' },
         { titleDate: '08.12.2024',title: 'Война дошла до Сталинграда', url: 'https://nextjs-boil-delta.vercel.app/Война%20дошла%20до%20Сталинграда%20(2).mp3' },
-        { titleDate: '09.12.2024',title: 'На выжженой земле', url: 'https://nextjs-boil-delta.vercel.app/На выжженной земле.mp3' },
+        { titleDate: '09.12.2024',title: 'На выжженной земле', url: 'https://nextjs-boil-delta.vercel.app/На выжженной земле.mp3' },
         { titleDate: '10.12.2024',title: 'Девятый десяток', url: 'https://nextjs-boil-delta.vercel.app/Девятый_десяток_для_вечности_миг_1.mp3' },        
       ]
       },
