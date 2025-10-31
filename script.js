@@ -51,6 +51,7 @@ function parseDate(str) {
       titleDate: '09.12.2014',title: 'ГЕРОИ В МУЗЫКЕ',
       album: [
         { titleDate: '09.12.2024',title: 'Блокада Ленинграда', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_Блокада-Ленинграда-(2).mp3' },
+        { titleDate: '09.12.2024',title: 'Крестов молчания', url: 'https://nextjs-boilerplate-i6pd.vercel.app/tagmp3_Русская-душа---Крестов-молчания%20(1).mp3' },
         { titleDate: '09.12.2024',title: 'Вагнера', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_РД-Вагнера.mp3' },
         { titleDate: '09.12.2024',title: 'Стрелок', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_стрелок.mp3' },
         { titleDate: '09.12.2024',title: 'Ну, здравствуй, мама!', url: 'https://nextjs-boil-delta.vercel.app/Ну,%20здравствуй,%20мама!.mp3' },
@@ -190,6 +191,7 @@ function parseDate(str) {
       titleDate: '09.12.2004',title: 'ГЕРОИ В МУЗЫКЕ',
       album: [
         { titleDate: '09.01.2024',title: 'Блокада Ленинграда', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_Блокада-Ленинграда-(2).mp3' },
+        { titleDate: '09.12.2024',title: 'Крестов молчания', url: 'https://nextjs-boilerplate-i6pd.vercel.app/tagmp3_Русская-душа---Крестов-молчания%20(1).mp3' },
         { titleDate: '05.09.2024',title: 'Вагнера', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_РД-Вагнера.mp3' },
         { titleDate: '09.12.2024',title: 'Стрелок', url: 'https://nextjs-boil-delta.vercel.app/tagmp3_стрелок.mp3' },
         { titleDate: '12.12.2012',title: 'Ну, здравствуй, мама!', url: 'https://nextjs-boil-delta.vercel.app/Ну,%20здравствуй,%20мама!.mp3' },
