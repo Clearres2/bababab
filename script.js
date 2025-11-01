@@ -117,36 +117,7 @@ function parseDate(str) {
         { titleDate: '09.01.2024', title: 'Над Курском взрывы', url: 'https://nextjs-boil-delta.vercel.app/Над Курском взрывы.mp3' },
         ]
       }, 
-      {
-     titleDate: '08.2014.2009',title: 'ПЛЯШЕМ ПО-НАШЕМУ',
-      album: [
-        { titleDate: '09.01.2024', titleNumber: '137', title: 'Читаю строки ветхого завета', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Читаю строки ветхого завета.mp3'},
-        { titleDate: '09.02.2024', titleNumber: '138', title: 'Чеcть пацана', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Честь пацана.mp3'},
-        { titleDate: '09.03.2024', titleNumber: '139', title: 'Пять лет я учился на инженера', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Пять лет учился я на инженера.mp3'},
-        { titleDate: '09.04.2024', titleNumber: '140', title: 'Одесса', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Одесса.mp3'},
-        { titleDate: '09.05.2024', titleNumber: '141', title: 'Новости смотрю и плачу (частушки)', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Новости смотрю и плачу (частушки).mp3'},
-        { titleDate: '09.06.2024', titleNumber: '142', title: 'Врач от Бога', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Врач от Бога.MP3'},
-        { titleDate: '09.07.2024', titleNumber: '144', title: 'Приснился адвокату сон', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Приснился адвокату сон.mp3'},
-        { titleDate: '09.08.2024', titleNumber: '145', title: 'Пришел домой', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Пришел домой.mp3'},
-        { titleDate: '09.09.2024', titleNumber: '148', title: 'Я не ханжа', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3'},
-
-        ]
-      }
       ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       const albomsBaze = [
       {
@@ -252,21 +223,6 @@ function parseDate(str) {
     { titleDate: '14.01.2024', titleNumber: '117', title: 'Я уже не спешу', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Я уже не спешу .mp3'},
       ]
       },
-         {
-     titleDate: '08.20.2009',title: 'ПЛЯШЕМ ПО-НАШЕМУ',
-      album: [
-        { titleDate: '01.01.2024', titleNumber: '137', title: 'Читаю строки ветхого завета', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Читаю строки ветхого завета.mp3'},
-        { titleDate: '02.01.2024', titleNumber: '138', title: 'Чеcть пацана', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Честь пацана.mp3'},
-        { titleDate: '03.01.2024', titleNumber: '139', title: 'Пять лет я учился на инженера', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Пять лет учился я на инженера.mp3'},
-        { titleDate: '04.01.2024', titleNumber: '140', title: 'Одесса', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Одесса.mp3'},
-        { titleDate: '05.01.2024', titleNumber: '141', title: 'Новости смотрю и плачу (частушки)', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Новости смотрю и плачу (частушки).mp3'},
-        { titleDate: '06.01.2024', titleNumber: '142', title: 'Врач от Бога', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Врач от Бога.MP3'},
-        { titleDate: '07.01.2024', titleNumber: '144', title: 'Приснился адвокату сон', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Приснился адвокату сон.mp3'},
-        { titleDate: '08.01.2024', titleNumber: '145', title: 'Пришел домой', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Пришел домой.mp3'},
-        { titleDate: '09.01.2024', titleNumber: '148', title: 'Я не ханжа', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Я не ханжа.MP3'},
-
-        ]
-      }
       ];
 
 let tracks = [
