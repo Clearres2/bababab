@@ -433,6 +433,7 @@ let tracks = [
     { date: '13.10.2025', titleNumber: '161', title: 'Ложь и правда', url: 'https://nextjs-boil-delta.vercel.app/Ложь и правда.mp3'},    
     { date: '24.10.2025', titleNumber: '162', title: 'В чистом поле васильки', url: 'https://nextjs-boil-delta.vercel.app/В чистом поле васильки.mp3'},
     { date: '22.10.2025', titleNumber: '163', title: 'Ах, эта осень', url: 'https://nextjs-boil-delta.vercel.app/Ах, эта осень, эта чудо-осень!.mp3'},    
+    { date: '15.08.2025', titleNumber: '164', title: 'Легенда', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Легенда.mp3'},  
 ];
 
 
