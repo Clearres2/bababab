@@ -531,15 +531,13 @@
   <section id="playlist-container" aria-label="Плейлист треков">
     <div class="conteiner-h3-theme">
   <h3>Клипы</h3> 
-  <h2>В процессе...<h2>
     <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
+    </div>
     <form action="search" method="get" class="searchL">  
       <input type="text" name="query" placeholder="Поиск клипов...">   
     </form>  
     <button class="small-button" style="margin-top: 5px;" onclick="location.href='cash.html'" aria-label="Перейти в меню">Меню</button>
-    <div id="buttons-container" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
-    <audio id="audio-player" controls preload="metadata" controlsList="nodownload" aria-label="Аудиоплеер для треков"></audio>
-    <video src="https://www.youtube.com/watch?v=Tq0Rk-Tnfak" controls>
+    <div id="buttons-container" tabindex="0" aria-live="polite" aria-relevant="additions"><video src="https://www.youtube.com/watch?v=Tq0Rk-Tnfak" controls></div>
 
 <script>
   const themeToggle = document.getElementById('theme-toggle');
