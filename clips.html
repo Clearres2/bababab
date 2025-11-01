@@ -1,1 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Плейлист треков</title>
+   <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      color: #fff;
+      user-select: none;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      background: linear-gradient(135deg, #191d31 0%, #1e1f31 100%);
+    }
+
+    body.light-theme {
+      background-color: #505050;
+      color: #363E6B;
+    }
+
+    .highlight {
+      background-color: rgba(66, 153, 99, 0.7);
+      border-left: 5px solid #2d4e2d;
+      border-radius: 10px;
+      transition: background-color 0.5s ease, transform 0.5s ease;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-theme .highlight {
+      background-color: rgba(100, 200, 130, 0.8);
+      border-left-color: #4a9d5a;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #playlist-container {
+      background: #fff;
+      border-radius: 28px;
+        padding: 25px 20px 30px;
+      max-width: 620px;
+      width: 95%;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      color: #363E6B;
+      user-select: none;
+      transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease;
+    }
+
+    #playlist-container:hover {
+      transform: translateY(-5px);
+    }
+
+    body.dark-theme #playlist-container {
+      background: linear-gradient(135deg, #2c2f4a 0%, #3a3f5e 100%);
+      color: #e0e4f0;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border: 1px solid #4a4f7a;
+    }
+
+    .conteiner-h3-theme {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      user-select: none;
+      flex-wrap: wrap;
+      align-items: center;
+      transition: all 0.5s ease;
+      margin-bottom: 24px;
+    }
+
+    #playlist-container h3 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: inherit;
+    }
+
+    body.dark-theme #playlist-container h3 {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: inherit;
+      padding: 10px;
+      transition: color 0.5s ease, transform 0.3s ease;
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    body.dark-theme .theme-toggle {
+      color: #f0f4ff;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .small-button {
+      align-self: flex-start;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #fff 0%, #f0f0f0 100%);
+      color: #363E6B;
+      border: 2.5px solid #363E6B;
+      border-radius: 20px;
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+      transition: all 0.4s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .small-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+      border-radius: 20px;
+      z-index: 1;
+    }
+
+    .small-button:hover::before {
+      left: 100%;
+    }
+
+    body.dark-theme .small-button {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      color: #e0e4f0;
+      border-color: #7a80b0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark-theme .small-button:hover {
+      color: #fff;
+      border-color: #9aa0c8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .small-button:hover {
+      box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
+      transform: translateY(-3px) scale(1.05);
+      color: #2a3150;
+      border-color: #2a3150;
+    }
+
+    .small-button:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+    }
+
+    .small-button80 {
+      flex: 0 0 auto;
+      width: auto;
+      min-width: 78px;
+      margin: 0 5px;
+      padding: 5px 8px;
+      background: linear-gradient(45deg, #fff 0%, #f0f0f0 100%);
+      color: #363E6B;
+      border: 2.5px solid #363E6B;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+      transition: all 0.4s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .small-button80::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+      border-radius: 8px;
+      z-index: 1;
+    }
+
+    .small-button80:hover::before {
+      left: 100%;
+    }
+
+    body.dark-theme .small-button80 {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      color: #e0e4f0;
+      border-color: #7a80b0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark-theme .small-button80:hover {
+      color: #fff;
+      border-color: #9aa0c8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .small-button80:hover {
+      box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
+      transform: translateY(-3px) scale(1.05);
+      color: #2a3150;
+      border-color: #2a3150;
+    }
+
+    .small-button80:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+    }
+
+    #buttons-container {
+      overflow-y: auto;
+      max-height: 430px;
+      padding-right: 6px;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    .track-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .add-btn {
+      flex-shrink: 0;
+      background: #1c6d4b;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.7rem;
+      line-height: 1;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(66, 153, 99, 0.7);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .add-btn:hover {
+      box-shadow: 0 8px 22px rgba(66, 153, 99, 0.7);
+      transform: scale(1.1);
+    }
+
+    .add-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 14px rgba(66, 153, 99, 0.7);
+    }
+
+    body.dark-theme .add-btn {
+      background: linear-gradient(45deg, #2c8d5b 0%, #3a9d6b 100%);
+      box-shadow: 0 5px 14px rgba(58, 157, 107, 0.8);
+    }
+
+    .searchL {
+      margin-bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .searchL input[type="text"] {
+      width: 100%;
+      max-width: 600px;
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 2.5px solid #6570af;
+      border-radius: 16px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #363E6B;
+      box-sizing: border-box;
+    }
+
+    .searchL input[type="text"]::placeholder {
+      color: #999;
+    }
+
+    .searchL input[type="text"]:focus {
+      border-color: #4a5d9e;
+      box-shadow: 0 0 8px rgba(74, 93, 158, 0.6);
+    }
+
+    body.dark-theme .searchL input[type="text"] {
+      background: linear-gradient(135deg, #4a4f7a 0%, #5a5f8a 100%);
+      color: #e0e4f0;
+      border-color: #7a80b0;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-theme .searchL input[type="text"]::placeholder {
+      color: #b0b4c8;
+    }
+
+    body.dark-theme .searchL input[type="text"]:focus {
+      border-color: #9aa0c8;
+      box-shadow: 0 0 8px rgba(154, 160, 200, 0.6), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .num-btn {
+      flex-shrink: 0;
+      background: #363E6B;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
+      line-height: 1;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .num-btn:hover {
+      box-shadow: 0 8px 22px rgba(54, 62, 107, 0.9);
+      transform: scale(1.1);
+    }
+
+    .num-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+    }
+
+    body.dark-theme .num-btn {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      box-shadow: 0 5px 14px rgba(74, 79, 122, 0.8);
+    }
+
+    .num-btn-date {
+      flex-shrink: 0;
+      background: #363E6B;
+      border: none;
+      border-radius: 25%;
+      width: 58px;
+      height: 58px;
+      font-size: 0.85rem;
+      line-height: 1;
+      color: white;
+      font-weight: 1500;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .num-btn-date:hover {
+      box-shadow: 0 8px 22px rgba(54, 62, 107, 0.9);
+      transform: scale(1.1);
+    }
+
+    .num-btn-date:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
+    }
+
+    body.dark-theme .num-btn-date {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      box-shadow: 0 5px 14px rgba(74, 79, 122, 0.8);
+    }
+
+    .local-track-button {
+      flex-grow: 1;
+      background: #363E6B;
+      border: none;
+      border-radius: 16px;
+      padding: 12px 22px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.7);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .local-track-button:hover:not(:disabled) {
+      box-shadow: 0 9px 28px rgba(54, 62, 107, 1);
+      transform: translateY(-3px);
+    }
+
+    .local-track-button:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.7);
+    }
+
+    .local-track-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+      background: #ccc;
+      color: #666;
+    }
+
+    body.dark-theme .local-track-button {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      box-shadow: 0 5px 18px rgba(74, 79, 122, 0.8);
+    }
+
+    body.dark-theme .local-track-button:hover:not(:disabled) {
+      box-shadow: 0 9px 28px rgba(74, 79, 122, 1);
+    }
+
+    body.dark-theme .local-track-button:active:not(:disabled) {
+      box-shadow: 0 5px 18px rgba(74, 79, 122, 0.8);
+    }
+
+    .small-button1 {
+      background: linear-gradient(45deg, #fff 0%, #f0f0f0 100%);
+      color: #363E6B;
+      border: 2.5px solid #363E6B;
+      border-radius: 16px;
+      padding: 10px 0;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+      transition: all 0.4s ease;
+      user-select: none;
+      width: 30%;
+      margin: 0 5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .small-button1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+      border-radius: 16px;
+      z-index: 1;
+    }
+
+    .small-button1:hover::before {
+      left: 100%;
+    }
+
+    body.dark-theme .small-button1 {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      color: #e0e4f0;
+      border-color: #7a80b0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark-theme .small-button1:hover {
+      color: #fff;
+      border-color: #9aa0c8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .small-button1:hover {
+      box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
+      transform: translateY(-3px) scale(1.05);
+      color: #2a3150;
+      border-color: #2a3150;
+    }
+
+    .small-button1:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
+    }
+  </style>
+</head>
+
+<body>
+  <section id="playlist-container" aria-label="Плейлист треков">
+    <div class="conteiner-h3-theme">
+  <h3>Клипы</h3> 
+  <h2>В процессе...<h2>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
+  </div>
+    <form action="search" method="get" class="searchL">  
+      <input type="text" name="query" placeholder="Поиск песен...">   
+    </form>  
+    <button class="small-button" style="margin-top: 5px;" onclick="location.href='cash.html'" aria-label="Перейти в меню">Меню</button>
+    <div id="buttons-container" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
+    <audio id="audio-player" controls preload="metadata" controlsList="nodownload" aria-label="Аудиоплеер для треков"></audio>
+  </section>
