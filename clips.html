@@ -561,15 +561,12 @@ searchForm.addEventListener('submit', (event) => {
 
   const query = searchInput.value.toLowerCase();
 
-
-  const ver = Array.from(buttonsContainer.children);
-
-  const trackToScrollTo = ver.find(title => title.title.toLowerCase().includes(query));
+  const h4Elements = Array.from(buttonsContainer.querySelectorAll('h4'));
 
 
 
-  if (trackToScrollTo) {
-    const Element = ver.find(child => child.textContent.includes(trackToScrollTo.title));
+  if (h4Elements) {
+    const Element = h4Elements.find(child => child.textContent.includes(query));
     if (Element) {
       Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
       Element.classList.add('highlight');
