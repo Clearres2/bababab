@@ -534,9 +534,42 @@
   <h2>В процессе...<h2>
     <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
     <form action="search" method="get" class="searchL">  
-      <input type="text" name="query" placeholder="Поиск песен...">   
+      <input type="text" name="query" placeholder="Поиск клипов...">   
     </form>  
     <button class="small-button" style="margin-top: 5px;" onclick="location.href='cash.html'" aria-label="Перейти в меню">Меню</button>
     <div id="buttons-container" tabindex="0" aria-live="polite" aria-relevant="additions"></div>
     <audio id="audio-player" controls preload="metadata" controlsList="nodownload" aria-label="Аудиоплеер для треков"></audio>
     <video src="https://www.youtube.com/watch?v=Tq0Rk-Tnfak" controls>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') == 'dark') {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+  } else {
+    body.classList.remove('dark-theme');
+    body.classList.add('ligth-theme');
+    themeToggle.textContent = "☀️";
+  }
+
+  
+  function theme() {
+    them = localStorage.getItem('theme')
+    if (them == 'dark') {
+      body.classList.remove('dark-theme');
+      body.classList.add('ligth-theme');
+      themeToggle.textContent = "☀️";
+      localStorage.setItem('theme', 'ligth')
+    } else {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+      localStorage.setItem('theme', 'dark')
+    }
+  }
+
+  themeToggle.addEventListener('click', theme)
+</script>
