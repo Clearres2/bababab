@@ -567,7 +567,7 @@ searchForm.addEventListener('submit', (event) => {
 
 
   if (h4Elements) {
-    const Element = h4Elements.find(child.textContent.toLowerCase().includes(query));
+    const Element = h4Elements.find(child => child.textContent.toLowerCase().includes(query));
     if (Element) {
       Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
       Element.classList.add('highlight');
