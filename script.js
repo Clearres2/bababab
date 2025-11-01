@@ -567,10 +567,6 @@ async function manuallyRecacheAll() {
 }
 
 
-document.getElementById('recache-btn').addEventListener('click', () => {
-    manuallyRecacheAll();
-});
-
 
 
 
