@@ -551,6 +551,46 @@
     </div>
 
 <script>
+
+
+      const searchInput = document.querySelector('.searchL input[type="text"]');
+const searchForm = document.querySelector('.searchL');
+
+searchForm.addEventListener('submit', (event) => {
+  event.preventDefault(); 
+
+  const query = searchInput.value.toLowerCase();
+
+
+  const ver = Array.from(buttonsContainer.children);
+
+  const trackToScrollTo = ver.find(title => title.title.toLowerCase().includes(query));
+
+
+
+  if (trackToScrollTo) {
+    const Element = ver.find(child => child.textContent.includes(trackToScrollTo.title));
+    if (Element) {
+      Element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      Element.classList.add('highlight');
+      setTimeout(() => {
+                Element.classList.add('fade-out');
+                setTimeout(() => {
+                    Element.classList.remove('highlight');
+                    Element.classList.remove('fade-out'); 
+                }, 500); 
+            }, 2000);
+    }
+  }
+
+});
+
+
+
+
+
+
+  
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
