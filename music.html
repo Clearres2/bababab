@@ -323,14 +323,20 @@
     form.addEventListener('submit', function (event) {
       event.preventDefault();
 
-      const f = new FormData(form);
-      const orderType = f.get('orderType');
-      const phone = f.get('phone');
-      const has = f.get('hasText') === 'on';
-      const gen = f.get('genre');
-      const el = f.get('elpochta');
+     const orderTypeElement = document.querySelector('input[name="orderType"]:checked');
 
-      getPost(orderType, phone, has, gen, el).then(result => {
+  if (!orderTypeElement) {
+    alert("Пожалуйста, выберите тип заказа.");
+    return; 
+  }
+  const orderType = orderTypeElement.value;
+
+  const phone = document.querySelector('input[name="phone"]').value;
+  const el = document.querySelector('input[name="elpochta"]').value;
+  const hasText = document.querySelector('input[name="hasText"]').checked; 
+  const genre = document.getElementById('genre').value;
+
+      getPost(orderType, phone, hasText, genre, el).then(result => {
         console.log('Ответ сервера:', result);
       });
     });
