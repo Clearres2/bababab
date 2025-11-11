@@ -387,6 +387,15 @@ let tracks = [
     { date: '22.10.2025', titleNumber: '159', title: 'Ах, эта осень', url: 'https://nextjs-boil-delta.vercel.app/Ах, эта осень, эта чудо-осень!.mp3'},      
     { date: '15.08.2025', titleNumber: '160', title: 'Легенда', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Легенда.mp3'},   
     { date: '27.07.2025', titleNumber: '161', title: 'Морякам', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Морякам.mp3'}, 
+    { date: '19.10.2025', titleNumber: '162', title: 'Папа', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Папа.MP3'}, 
+    { date: '20.10.2025', titleNumber: '163', title: 'Связист', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Связист.MP3'}, 
+    { date: '22.10.2025', titleNumber: '164', title: 'Бунин', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Бунин.MP3'}, 
+    { date: '27.10.2025', titleNumber: '165', title: 'Жёлтый лист', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Жёлтый лист.MP3'}, 
+    { date: '28.10.2025', titleNumber: '166', title: 'Родителям', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Родителям.MP3'}, 
+    { date: '04.11.2025', titleNumber: '167', title: 'Единство', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Единство.MP3'}, 
+    { date: '05.11.2025', titleNumber: '168', title: 'Разведчик', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Разведчик.mp3'}, 
+    { date: '07.11.2025', titleNumber: '169', title: 'Детсотво золотое', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Детство золотое.MP3'}, 
+    { date: '09.11.2025', titleNumber: '170', title: 'Тургенев', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Тургенев.MP3'},  
 ];
 
 
