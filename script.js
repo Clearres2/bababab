@@ -395,7 +395,8 @@ let tracks = [
     { date: '04.11.2025', titleNumber: '167', title: 'Единство', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Единство.MP3'}, 
     { date: '05.11.2025', titleNumber: '168', title: 'Разведчик', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Разведчик.mp3'}, 
     { date: '07.11.2025', titleNumber: '169', title: 'Детство золотое', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Детство золотое.MP3'}, 
-    { date: '09.11.2025', titleNumber: '170', title: 'Тургенев', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Тургенев.MP3'},  
+    { date: '09.11.2025', titleNumber: '170', title: 'Тургенев', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Тургенев.MP3'}, 
+    { date: '14.11.2025', titleNumber: '171', title: 'Не для себя', url: 'https://nextjs-boil-delta.vercel.app/Два сильных актёра, но разные роли.mp3'}, 
 ];
 
 
