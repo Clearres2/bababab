@@ -348,6 +348,11 @@
       event.preventDefault();
       document.getElementById('loading-indicator').style.display = 'block'
 
+      setTimeout(() => {
+              document.getElementById('loading-indicator').style.display = 'none'  
+      }, 6000);
+
+
      const orderTypeElement = document.querySelector('input[name="orderType"]:checked');
 
   if (!orderTypeElement) {
