@@ -310,7 +310,7 @@
       <fieldset>
         <legend>Есть ли у вас текст песни?</legend>
         <label>
-          <input type="checkbox" name="hasText" id="hasText" />
+          <input type="checkbox" name="hasText" id="hasText" required/>
           Есть текст   
         </label>
       </fieldset>
@@ -323,9 +323,9 @@
 
   <script>
 
-    document.getElementById('orderForm').addEventListener('submit', function(event) {
-      window.location.href = 'questions.html';
-  });
+     form.addEventListener('submit', function (event) {
+          window.location.href = 'questions.html'
+    )}
     
     const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
