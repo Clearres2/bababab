@@ -410,13 +410,17 @@
     </form>
 
     <button class="small-button music-button" onclick="location.href='music.html'" aria-label="Перейти к оплате">Назад</button>
-    <button class="small-button" onclick="location.href='questions2.html'" aria-label="Меню">Далее</button>
+    <button type="submit" form="orderForm" class="small-button" aria-label="Перейти к следующему шагу">Далее</button>
     
   </div>
 
   <script>
     const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
+
+    document.getElementById('nextButton').addEventListener('click', function(event) {
+        location.href = 'questions2.html';
+});
 
   if (localStorage.getItem('theme') == 'dark') {
       body.classList.add('dark-theme');
