@@ -130,6 +130,11 @@
       margin-bottom: 20px;
     }
 
+
+    .music-button {
+      margin-bottom: 10px;
+    }
+
     .small-button::before {
       content: '';
       position: absolute;
@@ -284,8 +289,8 @@
       <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
     </div>
 
-    <div class="cards-container" style="margin: 7.5px 7.5px 7.5px 7.5px;">
-      <button class="small-button" onclick="location.href='cash.html'" aria-label="Перейти к оплате">Музыка</button>
+    <div class="cards-container" style="margin: 7.5px 0;">
+     <button class="small-button music-button" onclick="location.href='cash.html'" aria-label="Перейти к оплате">Музыка</button>
       <button class="small-button" onclick="location.href='index.html'" aria-label="Меню">Меню</button>
     </div>
 
@@ -320,7 +325,7 @@
 
       <fieldset>
         <legend>Ваш юзернейм:</legend>
-        <input type="us" name="username" placeholder="username" aria-label="Введите username" />
+        <input type="us" name="username" placeholder="username" aria-label="Введите username" required/>
       </fieldset>
 
       <fieldset>
@@ -365,11 +370,13 @@
 
   if (!orderTypeElement) {
     alert("Пожалуйста, выберите тип заказа.");
+    document.getElementById('loading-indicator').style.display = 'none'  
     return; 
   }
 
   if (!username) {
     alert("Пожалуйста, введите юзернейм.");
+    document.getElementById('loading-indicator').style.display = 'none'  
     return; 
   }
       
