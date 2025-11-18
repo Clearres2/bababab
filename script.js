@@ -614,16 +614,16 @@ async function playTrack(index) {
             const audioBlob = await cachedResponse.blob();
             const audioUrl = URL.createObjectURL(audioBlob);
             audioPlayer.src = audioUrl;
-            console.log('Файл воспроизведён из кэша');
+            console.log('Ф');
            } else {
            
            if (navigator.onLine) {
                 audioPlayer.src = track.url;
                 audioPlayer.preload = 'auto';
                 audioPlayer.load();
-                console.log('Файл загружается из сети');
+                console.log('');
             } else {
-                throw new Error('Файл не закэширован и нет интернета');
+                throw new Error('Ф');
             }
             
       }
@@ -637,7 +637,7 @@ async function playTrack(index) {
         } catch (error) {
             console.error("Ошибка воспроизведения:", error);
             if (error.name === 'NotAllowedError') {
-                console.log('Автопроигрывание заблокировано браузером. Нажмите на плеер для воспроизведения.');
+                console.log('А');
             }
         }
 
@@ -663,7 +663,7 @@ let currentTrackIndex = { albumIndex: -1, trackIndex: -1 };
 async function playAlbomTrack(albumIndex, trackIndex) {
     const album = albomsBaze[albumIndex];
     if (!album || !album.album) {
-        console.error("Альбом не найден или не содержит треков.");
+        console.error("А");
         return;
     }
     let trackList = album.album;
@@ -704,12 +704,12 @@ async function playAlbomTrack(albumIndex, trackIndex) {
                     audioPlayer.load();
                     console.log('Файл загружается из сети');
                 } else {
-                    throw new Error('Файл не закэширован и нет интернета');
+                    throw new Error('Ф');
                 }
             }
            await  audioPlayer.play();
         } catch (error) {
-            console.error("Ошибка воспроизведения:", error);
+            console.error("Ошибка воспроизведения");
         }
 
         const albumElements = Array.from(albomContainer.querySelectorAll('.album-title'));
@@ -741,7 +741,7 @@ async function playAlbomTrack(albumIndex, trackIndex) {
             }
         }
     } else {
-        console.error("Трек не найден для воспроизведения.");
+        console.error("Т");
     }
 }
 
