@@ -315,12 +315,19 @@
         </label>
       </fieldset>
 
-      <button class="small-button" onclick="location.href='questions.html'" aria-label="Далее">Далее</button>
       
     </form>
+
+    <button type="submit" class="small-button" aria-label="Перейти к следующему шагу">Далее</button>
   </div>
 
   <script>
+
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      location.href = 'questions2.html';
+  });
+    
     const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
