@@ -379,11 +379,11 @@
       <fieldset>
         <legend>Согласны ли Вы на размещение песни в наших социальных сетях?</legend>
     <label>
-      <input type="radio" name="style" value="pop" required/>
+      <input type="radio" name="style" value="yes" required/>
       Да
     </label>
     <label>
-      <input type="radio" name="style" value="pop" />
+      <input type="radio" name="style" value="no" />
       Нет
     </label>
       </fieldset>
@@ -391,11 +391,11 @@
       <fieldset>
         <legend>Нужен ли вам клип?</legend>
     <label>
-      <input type="radio" name="styleClips" value="pop" required/>
+      <input type="radio" name="styleClips" value="yes" required/>
       Да
     </label>
     <label>
-      <input type="radio" name="styleClips" value="pop" />
+      <input type="radio" name="styleClips" value="no" />
       Нет
     </label>
       </fieldset>
@@ -416,12 +416,16 @@
 
       const posInput = document.querySelector('input[name="Posvesh"]');
     const povInput = document.querySelector('input[name="pov"]');
+    const socialInput = document.querySelector('input[name="style"]';
 
     const pos = posInput.value.trim();
     const povod = povInput.value.trim();
+    const social = socialInput.value.trim();
 
     localStorage.setItem("POS", pos)
-    localStorage.setItem("POV", pov)
+    localStorage.setItem("POV", povod)
+    localStorage.setItem("SOC", social)
+
 
 
       
