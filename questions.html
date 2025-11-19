@@ -315,11 +315,11 @@
       <fieldset>
         <legend>Выберите исполнителя:</legend>
         <label>
-          <input type="radio" name="SelectSinger" id="hasText" required/>
+          <input type="radio" name="SelectSinger" id="hasText" value="male" required/>
           Мужчина
         </label>
         <label>
-          <input type="radio" name="SelectSinger" id="hasText" />
+          <input type="radio" name="SelectSinger" id="hasText" value="women" />
           Женщина
         </label>
       </fieldset>
@@ -417,14 +417,17 @@
       const posInput = document.querySelector('input[name="Posvesh"]');
     const povInput = document.querySelector('input[name="pov"]');
     const socialInput = document.querySelector('input[name="style"]');
+    const selectSinger = document.querySelector('input[name="SelectSinger"]');
 
     const pos = posInput.value.trim();
     const povod = povInput.value.trim();
     const social = socialInput.value.trim();
+    const singer = selectSinger.value.trim();
 
     localStorage.setItem("POS", pos)
     localStorage.setItem("POV", povod)
     localStorage.setItem("SOC", social)
+    localStorage.setItem("SIN", singer)
 
 
 
