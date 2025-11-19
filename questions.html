@@ -223,6 +223,11 @@
       box-shadow: 0 0 8px rgba(74, 93, 158, 0.6);
     }
 
+    fieldset label {
+  display: block;
+  margin-bottom: 10px; 
+}
+
     body.dark-theme input,
     body.dark-theme select {
       background: linear-gradient(135deg, #4a4f7a 0%, #5a5f8a 100%);
@@ -388,27 +393,15 @@
 
       <fieldset>
         <legend>Нужен ли вам клип?</legend>
-        <div style="display: inline-block; margin-right: 15px;">
     <label>
-      <input type="checkbox" name="style" value="pop" />
+      <input type="radio" name="style" value="pop" />
       Да
     </label>
-  </div>
-        <div style="display: inline-block; margin-right: 15px;">
     <label>
-      <input type="checkbox" name="style" value="pop" />
+      <input type="radio" name="style" value="pop" />
       Нет
     </label>
-  </div>
       </fieldset>
-
-      
-
-      
-
-      
-
-      
       
     </form>
 
