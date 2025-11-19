@@ -414,10 +414,10 @@
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-      const posInput = document.querySelector('input[name="Posvesh"]');
-    const povInput = document.querySelector('input[name="pov"]');
-    const socialInput = document.querySelector('input[name="style"]');
-    const selectSinger = document.querySelector('input[name="SelectSinger"]');
+      const posInput = document.querySelector('input[name="Posvesh"]:checked');
+    const povInput = document.querySelector('input[name="pov"]:checked');
+    const socialInput = document.querySelector('input[name="style"]:checked');
+    const selectSinger = document.querySelector('input[name="SelectSinger"]:checked');
 
     const pos = posInput.value.trim();
     const povod = povInput.value.trim();
