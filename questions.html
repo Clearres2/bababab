@@ -408,6 +408,14 @@
   </div>
 
   <script>
+
+    const form = document.getElementById('orderForm');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        window.location.href = 'questions2.html';
+    });
+    
  const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
