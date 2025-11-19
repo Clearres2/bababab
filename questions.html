@@ -328,42 +328,42 @@
         <legend>В каком стиле исполнить песню?</legend>
         
         <label>
-          <input type="radio" name="hasText" id="hasText" required/>
+          <input type="radio" name="has" id="hasText" value="pop" required/>
           Поп (современная музыка)
         </label>
         
         <label>
-          <input type="radio" name="hasText" id="hasText" />
+          <input type="radio" name="has" id="hasText" value="rok"/>
           Рок (гитары, драйв, энергия)
         </label>
         
         <label>
-          <input type="radio" name="hasText" id="hasText" />
+          <input type="radio" name="has" id="hasText" value="dzh"/>
           Джаз (свободный и расслабленный, с элементами импровизации)
         </label>
         
         <label>
-          <input type="radio" name="hasText" id="hasText" />
+          <input type="radio" name="has" id="hasText" value="hip"/>
           Хип-хоп ( ритмичные рифмы, бит)
         </label>
         
         <label>
-          <input type="radio" name="hasText" id="hasText" />
+          <input type="radio" name="has" id="hasText" value="elm"/>
           Электронная музыка (танцевальные клубы и треки)
         </label>
 
         <label>
-          <input type="radio" name="hasText" id="hasText" />
+          <input type="radio" name="has" id="hasText" value="clm"/>
           Классическая музыка (оркестровая музыка)
         </label>
 
          <label>
-          <input type="radio" name="hasText" id="hasText" />
+          <input type="radio" name="has" id="hasText" value="flk"/>
           Фолк (народные мотивы и акустика)
         </label>
 
          <label>
-          <input type="radio" name="hasText" id="hasText" />
+          <input type="radio" name="has" id="hasText" value="oth"/>
           Другое:
                    <input type="text" name="pos" aria-label="Введите кому посвещена песня"/>
         </label>
@@ -418,16 +418,21 @@
     const povInput = document.querySelector('input[name="pov"]');
     const socialInput = document.querySelector('input[name="style"]:checked');
     const selectSinger = document.querySelector('input[name="SelectSinger"]:checked');
+    const selectZhaner = document.querySelector('input[name="has"]:checked');
+
 
     const pos = posInput.value;
     const povod = povInput.value;
     const social = socialInput.value.trim();
     const singer = selectSinger.value.trim();
 
+        const zhaner = selectZhaner.value.trim();
+
     localStorage.setItem("POS", pos)
     localStorage.setItem("POV", povod)
     localStorage.setItem("SOC", social)
     localStorage.setItem("SIN", singer)
+    localStorage.setItem("ZHN", zhaner)
 
 
 
