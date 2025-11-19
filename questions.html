@@ -304,7 +304,7 @@
     <form id="orderForm">
       <fieldset>
         <legend>Кому будет посвящена песня? (маме, папе, подруге, парню и т.д.)</legend>
-        <input type="pos" name="pos" aria-label="Введите кому посвещена песня" required/>
+        <input type="pos" name="Posvesh" aria-label="Введите кому посвещена песня" required/>
       </fieldset>
 
       <fieldset>
@@ -413,6 +413,18 @@
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
+
+      const posInput = document.querySelector('input[name="Posvesh"]');
+    const povInput = document.querySelector('input[name="pov"]');
+
+    const pos = posInput.value.trim();
+    const povod = povInput.value.trim();
+
+    localStorage.setItem("POS", pos)
+    localStorage.setItem("POV", pov)
+
+
+      
         window.location.href = 'questions2.html';
     });
     
