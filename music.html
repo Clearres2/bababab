@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Музыка и Клипы</title>
   <style>
+    /* Твоя CSS стили остаются без изменений */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #191d31 0%, #1e1f31 100%);
@@ -285,7 +285,7 @@
 <body>
   <div id="main">
     <div class="conteiner-h3-theme">
-      <h3>Заказы</h3> 
+      <h3>Заказы</h3>
       <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
     </div>
 
@@ -299,66 +299,68 @@
     <form id="orderForm">
       <fieldset>
         <legend>Согласны ли Вы на обработку персональных данных?</legend>
-        <input type="personal" name="personal" aria-label="Согласны ли Вы на обработку персональных данных?" required/>
+        <input type="text" name="personal" aria-label="Согласны ли Вы на обработку персональных данных?" required/> 
       </fieldset>
 
       <fieldset>
         <legend>Ваше ФИО:</legend>
-        <input type="fio" name="fio" placeholder="username" aria-label="Ваше ФИО:" required/>
+        <input type="text" name="fio" placeholder="username" aria-label="Ваше ФИО:" required/> 
       </fieldset>
 
       <fieldset>
         <legend>Есть ли у вас текст песни?</legend>
         <label>
-          <input type="checkbox" name="hasText" id="hasText" required/>
-          Есть текст   
+          <input type="checkbox" name="hasText" id="hasText"/>
+          Есть текст
         </label>
       </fieldset>
 
     <button type="submit" class="small-button" aria-label="Перейти к следующему шагу">Далее</button>
     </form>
 
-    
   </div>
 
   <script>
-const form = document.getElementById('orderForm');
-     form.addEventListener('submit', function (event) {
-          window.location.href = 'questions2.html'
-    )}
-    
+
+    const form = document.getElementById('orderForm');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        window.location.href = 'questions2.html';
+    });
+
     const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
+    const body = body;
 
-  if (localStorage.getItem('theme') == 'dark') {
-      body.classList.add('dark-theme');
-      body.classList.remove('ligth-theme');
-      themeToggle.textContent = "🌙";
-  } else {
-    body.classList.remove('dark-theme');
-    body.classList.add('ligth-theme');
-    themeToggle.textContent = "☀️";
-  }
-
-  
-  function theme() {
-    them = localStorage.getItem('theme')
-    if (them == 'dark') {
+    if (localStorage.getItem('theme') == 'dark') {
+        body.classList.add('dark-theme');
+        body.classList.remove('ligth-theme');
+        themeToggle.textContent = "🌙";
+    } else {
       body.classList.remove('dark-theme');
       body.classList.add('ligth-theme');
       themeToggle.textContent = "☀️";
-      localStorage.setItem('theme', 'ligth')
-    } else {
-      body.classList.add('dark-theme');
-      body.classList.remove('ligth-theme');
-      themeToggle.textContent = "🌙";
-      localStorage.setItem('theme', 'dark')
     }
-  }
 
-  themeToggle.addEventListener('click', theme)
+
+    function theme() {
+      them = localStorage.getItem('theme')
+      if (them == 'dark') {
+        body.classList.remove('dark-theme');
+        body.classList.add('ligth-theme');
+        themeToggle.textContent = "☀️";
+        localStorage.setItem('theme', 'ligth')
+      } else {
+        body.classList.add('dark-theme');
+        body.classList.remove('ligth-theme');
+        themeToggle.textContent = "🌙";
+        localStorage.setItem('theme', 'dark')
+      }
+    }
+
+    themeToggle.addEventListener('click', theme)
 
   </script>
 </body>
-
 </html>
+
