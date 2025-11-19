@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Музыка и Клипы</title>
   <style>
-    /* Твоя CSS стили остаются без изменений */
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #191d31 0%, #1e1f31 100%);
@@ -326,39 +326,39 @@
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        window.location.href = 'questions2.html';
+        window.location.href = 'questions.html';
     });
 
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = body;
+   const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
 
-    if (localStorage.getItem('theme') == 'dark') {
-        body.classList.add('dark-theme');
-        body.classList.remove('ligth-theme');
-        themeToggle.textContent = "🌙";
-    } else {
+  if (localStorage.getItem('theme') == 'dark') {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+  } else {
+    body.classList.remove('dark-theme');
+    body.classList.add('ligth-theme');
+    themeToggle.textContent = "☀️";
+  }
+
+  
+  function theme() {
+    them = localStorage.getItem('theme')
+    if (them == 'dark') {
       body.classList.remove('dark-theme');
       body.classList.add('ligth-theme');
       themeToggle.textContent = "☀️";
+      localStorage.setItem('theme', 'ligth')
+    } else {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+      localStorage.setItem('theme', 'dark')
     }
+  }
 
-
-    function theme() {
-      them = localStorage.getItem('theme')
-      if (them == 'dark') {
-        body.classList.remove('dark-theme');
-        body.classList.add('ligth-theme');
-        themeToggle.textContent = "☀️";
-        localStorage.setItem('theme', 'ligth')
-      } else {
-        body.classList.add('dark-theme');
-        body.classList.remove('ligth-theme');
-        themeToggle.textContent = "🌙";
-        localStorage.setItem('theme', 'dark')
-      }
-    }
-
-    themeToggle.addEventListener('click', theme)
+  themeToggle.addEventListener('click', theme)
 
   </script>
 </body>
