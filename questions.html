@@ -415,12 +415,8 @@
   </div>
 
   <script>
-    const themeToggle = document.getElementById('theme-toggle');
+ const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
-
-    document.getElementById('nextButton').addEventListener('click', function(event) {
-        location.href = 'questions2.html';
-});
 
   if (localStorage.getItem('theme') == 'dark') {
       body.classList.add('dark-theme');
