@@ -373,7 +373,7 @@
 
       <fieldset>
         <legend>Кратко напишите моменты из жизни, которые вы хотите услышать в песне</legend>
-        <input type="pov" name="pov" placeholder="Напишите повод" required/>
+        <input type="pov" name="moment" placeholder="Напишите  момент" required/>
       </fieldset>
 
       <fieldset>
@@ -414,21 +414,23 @@
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-      const posInput = document.querySelector('input[name="Posvesh"]');
+    const posInput = document.querySelector('input[name="Posvesh"]');
     const povInput = document.querySelector('input[name="pov"]');
+    const momInput = document.querySelector('input[name="moment"]');
     const socialInput = document.querySelector('input[name="style"]:checked');
     const selectSinger = document.querySelector('input[name="SelectSinger"]:checked');
     const selectZhaner = document.querySelector('input[name="has"]:checked');
 
 
     const pos = posInput.value;
+    const moment = momInput.value;
     const povod = povInput.value;
     const social = socialInput.value.trim();
     const singer = selectSinger.value.trim();
-
-        const zhaner = selectZhaner.value.trim();
+    const zhaner = selectZhaner.value.trim();
 
     localStorage.setItem("POS", pos)
+    localStorage.setItem("MOM", moment)
     localStorage.setItem("POV", povod)
     localStorage.setItem("SOC", social)
     localStorage.setItem("SIN", singer)
