@@ -330,17 +330,31 @@
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
+
+      const fioInput = document.querySelector('input[name="fio"]');
+    const hasTextInput = document.querySelector('input[name="hasText"]');
+    const personalInput = document.querySelector('input[name="personal"]');
+
+    const fio = fioInput.value.trim();
+           localStorage.setItem("FIO", fio)
+
+    if (hasTextInput) {
+      localStorage.setItem('TEXT', hasTextInput.checked)
+    } else {
+      localStorage.setItem('TEXT', "false")
+    }
+
+      if (personalInput) {
+      localStorage.setItem('PERSONAL', personalInput.checked)
+    } else {
+      localStorage.setItem('PERSONAL', "false")
+    }
+
+      
         window.location.href = 'questions.html';
     });
 
-     const NameAndOther = document.querySelector('input[name="fio"]').value;
-     const orderTextElement = document.querySelector('input[name="hasText"]').checked
-     const orderTextPersonal = document.querySelector('input[name="personal"]').checked;
-
-     localStorage.setItem("FIO", NameAndOther)
-      localStorage.setItem("TEXT", orderTextElement)
-      localStorage.setItem("PERSONAL", orderTextPersonal)
-
+    
    const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
