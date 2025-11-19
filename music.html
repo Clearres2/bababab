@@ -299,7 +299,11 @@
     <form id="orderForm">
       <fieldset>
         <legend>Согласны ли Вы на обработку персональных данных?</legend>
-        <input type="text" name="personal" aria-label="Согласны ли Вы на обработку персональных данных?" required/> 
+        <label>
+          <input type="checkbox" name="personal" id="personal" required/>
+Согласен
+        </label>
+
       </fieldset>
 
       <fieldset>
@@ -328,6 +332,14 @@
         event.preventDefault();
         window.location.href = 'questions.html';
     });
+
+     const NameAndOther = document.querySelector('input[name="fio"]').value;
+     const orderTextElement = document.querySelector('input[name="hasText"]').checked
+     const orderTextPersonal = document.querySelector('input[name="personal"]').checked;
+
+     localStorage.setItem("FIO", NameAndOther)
+      localStorage.setItem("TEXT", orderTextElement)
+      localStorage.setItem("PERSONAL", orderTextPersonal)
 
    const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
