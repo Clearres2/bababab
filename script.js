@@ -399,6 +399,7 @@ let tracks = [
     { date: '14.11.2025', titleNumber: '171', title: 'Не для себя', url: 'https://nextjs-boil-delta.vercel.app/Два сильных актёра, но разные роли.mp3'}, 
     { date: '18.11.2025', titleNumber: '172', title: 'Колыбельная', url: 'https://nextjs-boil-delta.vercel.app/Колыбельная (0.94x).mp3'}, 
     { date: '18.11.2025', titleNumber: '173', title: 'Дед мороз', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Дед Мороз.MP3'}, 
+    { date: '19.11.2025', titleNumber: '174', title: 'На паперти душа стояла', url: 'https://nextjs-boil-delta.vercel.app/На паперти душа стояла, (Extend) (1).mp3'},
 ];
 
 
