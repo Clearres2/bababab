@@ -451,7 +451,7 @@
     localStorage.setItem("MATERIALS", materials);
     localStorage.setItem("TEXT", textElements);
     localStorage.setItem("EFFECTS", effects);
-    if (otherSize) {
+    if (otherSize && format === 'other') {
         localStorage.setItem("OTHER_SIZE", otherSize);
     } else {
         localStorage.removeItem("OTHER_SIZE");
