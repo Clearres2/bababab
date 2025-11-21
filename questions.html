@@ -315,11 +315,11 @@
       <fieldset>
         <legend>Выберите исполнителя:</legend>
         <label>
-          <input type="radio" name="SelectSinger" id="hasText" value="male" required/>
+          <input type="radio" name="SelectSinger" id="hasText" value="Мужчина" required/>
           Мужчина
         </label>
         <label>
-          <input type="radio" name="SelectSinger" id="hasText" value="women" />
+          <input type="radio" name="SelectSinger" id="hasText" value="Женщина" />
           Женщина
         </label>
       </fieldset>
@@ -328,42 +328,42 @@
         <legend>В каком стиле исполнить песню?</legend>
         
         <label>
-          <input type="radio" name="has" id="hasText" value="pop" required/>
+          <input type="radio" name="has" id="hasText" value="Поп" required/>
           Поп (современная музыка)
         </label>
         
         <label>
-          <input type="radio" name="has" id="hasText" value="rok"/>
+          <input type="radio" name="has" id="hasText" value="Рок"/>
           Рок (гитары, драйв, энергия)
         </label>
         
         <label>
-          <input type="radio" name="has" id="hasText" value="dzh"/>
+          <input type="radio" name="has" id="hasText" value="Джах"/>
           Джаз (свободный и расслабленный, с элементами импровизации)
         </label>
         
         <label>
-          <input type="radio" name="has" id="hasText" value="hip"/>
+          <input type="radio" name="has" id="hasText" value="Хип-хоп"/>
           Хип-хоп ( ритмичные рифмы, бит)
         </label>
         
         <label>
-          <input type="radio" name="has" id="hasText" value="elm"/>
+          <input type="radio" name="has" id="hasText" value="Электронная музыка"/>
           Электронная музыка (танцевальные клубы и треки)
         </label>
 
         <label>
-          <input type="radio" name="has" id="hasText" value="clm"/>
+          <input type="radio" name="has" id="hasText" value="Классическая музыка"/>
           Классическая музыка (оркестровая музыка)
         </label>
 
          <label>
-          <input type="radio" name="has" id="hasText" value="flk"/>
+          <input type="radio" name="has" id="hasText" value="Фолк"/>
           Фолк (народные мотивы и акустика)
         </label>
 
          <label>
-          <input type="radio" name="has" id="hasText" value="oth"/>
+          <input type="radio" name="has" id="hasText" value="Другой"/>
           Другое:
                    <input type="text" name="Other" aria-label="Введите кому посвещена песня"/>
         </label>
@@ -379,11 +379,11 @@
       <fieldset>
         <legend>Согласны ли Вы на размещение песни в наших социальных сетях?</legend>
     <label>
-      <input type="radio" name="style" value="yes" required/>
+      <input type="radio" name="style" value="Да" required/>
       Да
     </label>
     <label>
-      <input type="radio" name="style" value="no" />
+      <input type="radio" name="style" value="Нет" />
       Нет
     </label>
       </fieldset>
@@ -391,11 +391,11 @@
       <fieldset>
         <legend>Нужен ли вам клип?</legend>
     <label>
-      <input type="radio" name="styleClips" value="yes" required/>
+      <input type="radio" name="styleClips" value="Да" required/>
       Да
     </label>
     <label>
-      <input type="radio" name="styleClips" value="no" />
+      <input type="radio" name="styleClips" value="Нет" />
       Нет
     </label>
       </fieldset>
@@ -421,7 +421,7 @@
     const socialInput = document.querySelector('input[name="style"]:checked');
     const selectSinger = document.querySelector('input[name="SelectSinger"]:checked');
     const selectZhaner = document.querySelector('input[name="has"]:checked');
-    const otherTextInput = document.querySelector('input[name="Other"]'); // Поле ввода "Другое"
+    const otherTextInput = document.querySelector('input[name="Other"]'); 
 
 
     const pos = posInput.value;
