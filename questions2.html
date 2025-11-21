@@ -478,26 +478,6 @@
         const e = localStorage.getItem("PERSONAL");
         const ht = localStorage.getItem("hasText");
 
-  
-        console.log("POS:", pos1);
-        console.log("MOM:", mom1);
-        console.log("POV:", pov1);
-        console.log("SOC:", soc1);
-        console.log("SIN:", sin1);
-        console.log("ZHN:", zhn1);
-        console.log("CLP:", clp1);
-        console.log("OTH:", oth1);
-        console.log("FORMAT:", format1);
-        console.log("TIME:", time1);
-        console.log("GOAL:", goal1);
-        console.log("WATERMARK:", watermark1);
-        console.log("MATERIALS:", materials1);
-        console.log("TEXT:", text1);
-        console.log("EFFECTS:", effects1);
-        console.log("OTHER_SIZE:", otherSize1);
-        console.log("FIO:", t);
-        console.log("PERSONAL_D:", e);
-        console.log("hasText:", ht);
 
 
         const payload = {
@@ -558,7 +538,6 @@
             alert('Ваши данные успешно отправлены! Спасибо.');
 
         } catch (error) {
-            console.error('Ошибка при отправке данных:', error);
             alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова.');
         }
     });
