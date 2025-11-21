@@ -451,7 +451,7 @@
         localStorage.setItem("MATERIALS", materials);
         localStorage.setItem("TEXT", textElements);
         localStorage.setItem("EFFECTS", effects);
-        if (otherSize && format === 'other') {
+        if (otherSize && format === 'Другой') {
             localStorage.setItem("OTHER_SIZE", otherSize);
         } else {
             localStorage.removeItem("OTHER_SIZE");
@@ -465,7 +465,10 @@
         const sin1 = localStorage.getItem("SIN");
         const zhn1 = localStorage.getItem("ZHN");
         const clp1 = localStorage.getItem("CLP");
+      
         const oth1 = localStorage.getItem("OTH");
+        const otherSize1 = localStorage.getItem("OTHER_SIZE");
+      
         const format1 = localStorage.getItem("FORMAT");
         const time1 = localStorage.getItem("TIME");
         const goal1 = localStorage.getItem("GOAL");
@@ -473,7 +476,6 @@
         const materials1 = localStorage.getItem("MATERIALS");
         const text1 = localStorage.getItem("TEXT");
         const effects1 = localStorage.getItem("EFFECTS");
-        const otherSize1 = localStorage.getItem("OTHER_SIZE");
         const t = localStorage.getItem("FIO");
         const e = localStorage.getItem("PERSONAL");
         const ht = localStorage.getItem("hasText");
