@@ -365,7 +365,7 @@
          <label>
           <input type="radio" name="has" id="hasText" value="oth"/>
           Другое:
-                   <input type="text" name="pos" aria-label="Введите кому посвещена песня"/>
+                   <input type="text" name="Other" aria-label="Введите кому посвещена песня"/>
         </label>
         
       </fieldset>
@@ -421,6 +421,8 @@
     const socialInput = document.querySelector('input[name="style"]:checked');
     const selectSinger = document.querySelector('input[name="SelectSinger"]:checked');
     const selectZhaner = document.querySelector('input[name="has"]:checked');
+    const selectOther = document.querySelector('input[name="other"]:checked');
+
 
 
     const pos = posInput.value;
@@ -430,6 +432,7 @@
     const social = socialInput.value.trim();
     const singer = selectSinger.value.trim();
     const zhaner = selectZhaner.value.trim();
+    const other = selectOther.value.trim();
 
     localStorage.setItem("POS", pos)
     localStorage.setItem("MOM", moment)
@@ -438,6 +441,9 @@
     localStorage.setItem("SIN", singer)
     localStorage.setItem("ZHN", zhaner)
     localStorage.setItem("CLP", clips)
+    if (other && selectZhaner.value == "oth") {
+      localStorage.setItem("OTH", other)
+    }
 
 
 
