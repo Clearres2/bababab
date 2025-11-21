@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Музыка и Клипы</title>
+  <title>Музыка РД</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -223,6 +223,11 @@
       box-shadow: 0 0 8px rgba(74, 93, 158, 0.6);
     }
 
+    fieldset label {
+  display: block;
+  margin-bottom: 10px; 
+}
+
     body.dark-theme input,
     body.dark-theme select {
       background: linear-gradient(135deg, #4a4f7a 0%, #5a5f8a 100%);
@@ -296,125 +301,167 @@
 
     <h3>Форма заказа:</h3>
 
-    <form id="orderForm">
+      <form id="orderForm">
       <fieldset>
-        <legend>Что вы заказываете?</legend>
+        <legend>Выберите формат видео:</legend>
+        
         <label>
-          <input type="radio" name="orderType" value="Песня" required />
-          Песню
+          <input type="radio" name="SelectS" value="vert" required/>
+          Вертикальный
         </label>
+        
         <label>
-          <input type="radio" name="orderType" value="Клип" />
-          Клип
+          <input type="radio" name="SelectS" value="gores" />
+          Горизонтальный
         </label>
-        <label>
-          <input type="radio" name="orderType" value="Песня + клип" />
-          Песню+клип
+        
+         <label>
+          <input type="radio" name="SelectS" value="other" />
+          Другой:
+          <input type="text" name="OtherRazmash" aria-label="Введите размеры"/>
         </label>
+        
       </fieldset>
 
-      <fieldset>
-        <legend>Ссылка на профиль (ВК, телеграм):</legend>
-        <input type="tel" name="phone" aria-label="Введите ваш номер телефона" />
+
+
+    <fieldset>
+        <legend>Выберите длительность клипа</legend>
+    <label>
+      
+      <input type="radio" name="time" value="30" required/>
+      30 секунд
+    </label>
+      
+    <label>
+      <input type="radio" name="time" value="30-1" />
+      от 30 секунд до 1 минуты
+    </label>
+
+      <label>
+      <input type="radio" name="time" value="one-tree" />
+      от 1 минуты до 3-х минут
+    </label>
+      
       </fieldset>
 
+
+  
       <fieldset>
-        <legend>Ваша почта:</legend>
-        <input type="el" name="elpochta" placeholder="эл.почта" aria-label="Введите эл.почту" />
+        <legend>Укажите цель клипа</legend>
+    <label>
+      <input type="radio" name="Chel" value="reklam" required/>
+      Рекламный
+    </label>
+    <label>
+      <input type="radio" name="Chel" value="pozd" />
+      Поздравительный
+    </label>
       </fieldset>
 
-      <fieldset>
-        <legend>Ваш юзернейм:</legend>
-        <input type="us" name="username" placeholder="username" aria-label="Введите username" required/>
+
+    <fieldset>
+        <legend>Нужен ли водный знак?</legend>
+    <label>
+      <input type="radio" name="VZ" value="yes" required/>
+       Да
+    </label>
+    <label>
+      <input type="radio" name="VZ" value="no" />
+      Нет
+    </label>
       </fieldset>
 
-      <fieldset>
-        <legend>Есть ли у вас текст и жанр песни?</legend>
-        <label>
-          <input type="checkbox" name="hasText" id="hasText" />
-          Есть текст
-          
-        </label>
 
-        <label>
-          Жанр песни:
-          <select name="genre" id="genre" aria-label="Выберите жанр песни">
-            <option value="" selected>Выберите жанр</option>
-            <option value="Поп">Поп</option>
-            <option value="Рок">Рок</option>
-          </select>
-        </label>
+     <fieldset>
+        <legend>Есть ли у Вас фото и видеоматериалы?</legend>
+    <label>
+      <input type="radio" name="der" value="yes" required/>
+       Да
+    </label>
+    <label>
+      <input type="radio" name="der" value="no" />
+      Нет
+    </label>
       </fieldset>
 
-      <button type="submit" class="small-button">Отправить заказ</button>
 
-      <div id="loading-indicator"> <p>Заказ отправлен</p> </div>
+    <fieldset>
+        <legend>Нужно ли добавлять текстовые элементы?</legend>
+    <label>
+      <input type="radio" name="sc" value="Sub" required/>
+       Субтитры
+    </label>
+    <label>
+      <input type="radio" name="sc" value="Pozd" />
+      Поздравления
+    </label>
+      </fieldset>
+
+    <fieldset>
+        <legend>Нужны ли переходы и спец эффекты?</legend>
+    <label>
+      <input type="radio" name="ef" value="yes" required/>
+       Да
+    </label>
+    <label>
+      <input type="radio" name="ef" value="no" />
+      Нет
+    </label>
+      </fieldset>
+
+    
       
     </form>
+
+    <button class="small-button music-button" onclick="location.href='music.html'" aria-label="Перейти к оплате">Назад</button>
+    <button type="submit" form="orderForm" class="small-button" aria-label="Перейти к следующему шагу">Далее</button>
+    
   </div>
 
   <script>
+
     const form = document.getElementById('orderForm');
 
     form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      document.getElementById('loading-indicator').style.display = 'block'
+        event.preventDefault();
 
-      setTimeout(() => {
-              document.getElementById('loading-indicator').style.display = 'none'  
-      }, 6000);
+    const formatInput = document.querySelector('input[name="SelectS"]:checked');
+    const timeInput = document.querySelector('input[name="time"]:checked');
+    const goalInput = document.querySelector('input[name="Chel"]:checked');
+    const watermarkInput = document.querySelector('input[name="VZ"]:checked');
+    const materialsInput = document.querySelector('input[name="der"]:checked');
+    const textElementsInput = document.querySelector('input[name="sc"]:checked');
+    const effectsInput = document.querySelector('input[name="ef"]:checked');
+    const otherSizeInput = document.querySelector('input[name="OtherRazmash"]');
 
+    const format = formatInput ? formatInput.value : '';
+    const time = timeInput ? timeInput.value : '';
+    const goal = goalInput ? goalInput.value : '';
+    const watermark = watermarkInput ? watermarkInput.value : '';
+    const materials = materialsInput ? materialsInput.value : '';
+    const textElements = textElementsInput ? textElementsInput.value : '';
+    const effects = effectsInput ? effectsInput.value : '';
+    const otherSize = otherSizeInput ? otherSizeInput.value : '';
 
-     const username = document.querySelector('input[name="username"]').value;
-     const orderTypeElement = document.querySelector('input[name="orderType"]:checked');
-
-  if (!orderTypeElement) {
-    alert("Пожалуйста, выберите тип заказа.");
-    document.getElementById('loading-indicator').style.display = 'none'  
-    return; 
-  }
-
-  if (!username) {
-    alert("Пожалуйста, введите юзернейм.");
-    document.getElementById('loading-indicator').style.display = 'none'  
-    return; 
-  }
-      
-  const orderType = orderTypeElement.value;
-
-  const phone = document.querySelector('input[name="phone"]').value;
-  const el = document.querySelector('input[name="elpochta"]').value;
-  const hasText = document.querySelector('input[name="hasText"]').checked; 
-  const genre = document.getElementById('genre').value;
-
-      getPost(orderType, phone, hasText, genre, el, username).then(result => {
-        console.log('Ответ сервера:');
-      });
-    });
-
-    async function getPost(orderType, phone, has, gen, el, username) {
-      const data = {
-        orderType,
-        phone,
-        hasText: has,
-        genre: gen,
-        el,
-        username,
-      };
-
-      const response = await fetch('https://nexboilerplate.vercel.app/api/getyears', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      const result = await response.json();
-      return result;
+    localStorage.setItem("FORMAT", format);
+    localStorage.setItem("TIME", time);
+    localStorage.setItem("GOAL", goal);
+    localStorage.setItem("WATERMARK", watermark);
+    localStorage.setItem("MATERIALS", materials);
+    localStorage.setItem("TEXT", textElements);
+    localStorage.setItem("EFFECTS", effects);
+    if (otherSize) {
+        localStorage.setItem("OTHER_SIZE", otherSize);
+    } else {
+        localStorage.removeItem("OTHER_SIZE");
     }
 
-    const themeToggle = document.getElementById('theme-toggle');
+      
+        console.log("Заполение прошло успешно")
+    });
+    
+ const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
   if (localStorage.getItem('theme') == 'dark') {
@@ -447,5 +494,5 @@
 
   </script>
 </body>
-
+</html>
 </html>
