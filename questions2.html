@@ -420,175 +420,179 @@
   </div>
 
   <script>
-
     const form = document.getElementById('orderForm');
 
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-    const formatInput = document.querySelector('input[name="SelectS"]:checked');
-    const timeInput = document.querySelector('input[name="time"]:checked');
-    const goalInput = document.querySelector('input[name="Chel"]:checked');
-    const watermarkInput = document.querySelector('input[name="VZ"]:checked');
-    const materialsInput = document.querySelector('input[name="der"]:checked');
-    const textElementsInput = document.querySelector('input[name="sc"]:checked');
-    const effectsInput = document.querySelector('input[name="ef"]:checked');
-    const otherSizeInput = document.querySelector('input[name="OtherRazmash"]');
+        const formatInput = document.querySelector('input[name="SelectS"]:checked');
+        const timeInput = document.querySelector('input[name="time"]:checked');
+        const goalInput = document.querySelector('input[name="Chel"]:checked');
+        const watermarkInput = document.querySelector('input[name="VZ"]:checked');
+        const materialsInput = document.querySelector('input[name="der"]:checked');
+        const textElementsInput = document.querySelector('input[name="sc"]:checked');
+        const effectsInput = document.querySelector('input[name="ef"]:checked');
+        const otherSizeInput = document.querySelector('input[name="OtherRazmash"]');
 
-    const format = formatInput ? formatInput.value : '';
-    const time = timeInput ? timeInput.value : '';
-    const goal = goalInput ? goalInput.value : '';
-    const watermark = watermarkInput ? watermarkInput.value : '';
-    const materials = materialsInput ? materialsInput.value : '';
-    const textElements = textElementsInput ? textElementsInput.value : '';
-    const effects = effectsInput ? effectsInput.value : '';
-    const otherSize = otherSizeInput ? otherSizeInput.value : '';
-
-    localStorage.setItem("FORMAT", format);
-    localStorage.setItem("TIME", time);
-    localStorage.setItem("GOAL", goal);
-    localStorage.setItem("WATERMARK", watermark);
-    localStorage.setItem("MATERIALS", materials);
-    localStorage.setItem("TEXT", textElements);
-    localStorage.setItem("EFFECTS", effects);
-    if (otherSize && format === 'other') {
-        localStorage.setItem("OTHER_SIZE", otherSize);
-    } else {
-        localStorage.removeItem("OTHER_SIZE");
-    }
-
-    const pos1 = localStorage.getItem("POS");
-    const mom1 = localStorage.getItem("MOM");
-    const pov1 = localStorage.getItem("POV");
-    const soc1 = localStorage.getItem("SOC");
-    const sin1 = localStorage.getItem("SIN");
-    const zhn1 = localStorage.getItem("ZHN");
-    const clp1 = localStorage.getItem("CLP");
-    const oth1 = localStorage.getItem("OTH");
-    const format1 = localStorage.getItem("FORMAT");
-    const time1 = localStorage.getItem("TIME");
-    const goal1 = localStorage.getItem("GOAL");
-    const watermark1 = localStorage.getItem("WATERMARK");
-    const materials1 = localStorage.getItem("MATERIALS");
-    const text1 = localStorage.getItem("TEXT");
-    const effects1 = localStorage.getItem("EFFECTS");
-    const otherSize1 = localStorage.getItem("OTHER_SIZE");
+        const format = formatInput ? formatInput.value : '';
+        const time = timeInput ? timeInput.value : '';
+        const goal = goalInput ? goalInput.value : '';
+        const watermark = watermarkInput ? watermarkInput.value : '';
+        const materials = materialsInput ? materialsInput.value : '';
+        const textElements = textElementsInput ? textElementsInput.value : '';
+        const effects = effectsInput ? effectsInput.value : '';
+        const otherSize = otherSizeInput ? otherSizeInput.value : '';
 
 
-   const t = localStorage.getItem("FIO");
-    const e = localStorage.getItem("PERSONAL");
-    const ht = localStorage.getItem("hasText");
+        localStorage.setItem("FORMAT", format);
+        localStorage.setItem("TIME", time);
+        localStorage.setItem("GOAL", goal);
+        localStorage.setItem("WATERMARK", watermark);
+        localStorage.setItem("MATERIALS", materials);
+        localStorage.setItem("TEXT", textElements);
+        localStorage.setItem("EFFECTS", effects);
+        if (otherSize && format === 'other') {
+            localStorage.setItem("OTHER_SIZE", otherSize);
+        } else {
+            localStorage.removeItem("OTHER_SIZE");
+        }
 
 
-    console.log("POS:", pos);
-    console.log("MOM:", mom);
-    console.log("POV:", pov);
-    console.log("SOC:", soc);
-    console.log("SIN:", sin);
-    console.log("ZHN:", zhn);
-    console.log("CLP:", clp);
-    console.log("OTH:", oth);
-    console.log("FORMAT:", format);
-    console.log("TIME:", time);
-    console.log("GOAL:", goal);
-    console.log("WATERMARK:", watermark);
-    console.log("MATERIALS:", materials);
-    console.log("TEXT:", text);
-    console.log("EFFECTS:", effects);
-    console.log("OTHER_SIZE:", otherSize);
-    console.log("FIO:", t);
-    console.log("PERSONAL_D:", e);
-    console.log("TEXTNAL":", ht);
-
-
-  const payload = {
-        POS: pos1,
-        MOM: mom1,
-        POV: pov1,
-        SOC: soc1,
-        SIN: sin1,
-        ZHN: zhn1,
-        CLP: clp1,
-        OTH: oth1,
-        FORMAT: format1,
-        TIME: time1,
-        GOAL: goal1,
-        WATERMARK: watermark1,
-        MATERIALS: materials1,
-        TEXT: text1,
-        EFFECTS: effects1,
-        OTHER_SIZE: otherSize1,
-        FIO: t,
-        PERSONAL: e,
-        hasText: ht
-    };
-
-   const response = await fetch('https://nexboilerplate.vercel.app/api/getyears', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-
-      const result = await response.json();
-      return result;
-    }
-
-    localStorage.removeItem("POS");
-    localStorage.removeItem("MOM");
-    localStorage.removeItem("POV");
-    localStorage.removeItem("SOC");
-    localStorage.removeItem("SIN");
-    localStorage.removeItem("ZHN");
-    localStorage.removeItem("CLP");
-    localStorage.removeItem("OTH");
-    localStorage.removeItem("FORMAT");
-    localStorage.removeItem("TIME");
-    localStorage.removeItem("GOAL");
-    localStorage.removeItem("WATERMARK");
-    localStorage.removeItem("MATERIALS");
-    localStorage.removeItem("TEXT");
-    localStorage.removeItem("EFFECTS");
-    localStorage.removeItem("OTHER_SIZE");
-    localStorage.removeItem("FIO");
-    localStorage.removeItem("PERSONAL");
-    localStorage.removeItem("hasText");
-      
-    });
-    
- const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-
-  if (localStorage.getItem('theme') == 'dark') {
-      body.classList.add('dark-theme');
-      body.classList.remove('ligth-theme');
-      themeToggle.textContent = "🌙";
-  } else {
-    body.classList.remove('dark-theme');
-    body.classList.add('ligth-theme');
-    themeToggle.textContent = "☀️";
-  }
+        const pos1 = localStorage.getItem("POS");
+        const mom1 = localStorage.getItem("MOM");
+        const pov1 = localStorage.getItem("POV");
+        const soc1 = localStorage.getItem("SOC");
+        const sin1 = localStorage.getItem("SIN");
+        const zhn1 = localStorage.getItem("ZHN");
+        const clp1 = localStorage.getItem("CLP");
+        const oth1 = localStorage.getItem("OTH");
+        const format1 = localStorage.getItem("FORMAT");
+        const time1 = localStorage.getItem("TIME");
+        const goal1 = localStorage.getItem("GOAL");
+        const watermark1 = localStorage.getItem("WATERMARK");
+        const materials1 = localStorage.getItem("MATERIALS");
+        const text1 = localStorage.getItem("TEXT");
+        const effects1 = localStorage.getItem("EFFECTS");
+        const otherSize1 = localStorage.getItem("OTHER_SIZE");
+        const t = localStorage.getItem("FIO");
+        const e = localStorage.getItem("PERSONAL");
+        const ht = localStorage.getItem("hasText");
 
   
-  function theme() {
-    them = localStorage.getItem('theme')
-    if (them == 'dark') {
-      body.classList.remove('dark-theme');
-      body.classList.add('ligth-theme');
-      themeToggle.textContent = "☀️";
-      localStorage.setItem('theme', 'ligth')
+        console.log("POS:", pos1);
+        console.log("MOM:", mom1);
+        console.log("POV:", pov1);
+        console.log("SOC:", soc1);
+        console.log("SIN:", sin1);
+        console.log("ZHN:", zhn1);
+        console.log("CLP:", clp1);
+        console.log("OTH:", oth1);
+        console.log("FORMAT:", format1);
+        console.log("TIME:", time1);
+        console.log("GOAL:", goal1);
+        console.log("WATERMARK:", watermark1);
+        console.log("MATERIALS:", materials1);
+        console.log("TEXT:", text1);
+        console.log("EFFECTS:", effects1);
+        console.log("OTHER_SIZE:", otherSize1);
+        console.log("FIO:", t);
+        console.log("PERSONAL_D:", e);
+        console.log("hasText:", ht);
+
+
+        const payload = {
+            POS: pos1,
+            MOM: mom1,
+            POV: pov1,
+            SOC: soc1,
+            SIN: sin1,
+            ZHN: zhn1,
+            CLP: clp1,
+            OTH: oth1,
+            FORMAT: format1,
+            TIME: time1,
+            GOAL: goal1,
+            WATERMARK: watermark1,
+            MATERIALS: materials1,
+            TEXT: text1,
+            EFFECTS: effects1,
+            OTHER_SIZE: otherSize1,
+            FIO: t,
+            PERSONAL: e,
+            hasText: ht
+        };
+
+        try {
+            const response = await fetch('https://nexboilerplate.vercel.app/api/getyears', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            console.log('Данные успешно отправлены:', result);
+
+            localStorage.removeItem("POS");
+            localStorage.removeItem("MOM");
+            localStorage.removeItem("POV");
+            localStorage.removeItem("SOC");
+            localStorage.removeItem("SIN");
+            localStorage.removeItem("ZHN");
+            localStorage.removeItem("CLP");
+            localStorage.removeItem("OTH");
+            localStorage.removeItem("FORMAT");
+            localStorage.removeItem("TIME");
+            localStorage.removeItem("GOAL");
+            localStorage.removeItem("WATERMARK");
+            localStorage.removeItem("MATERIALS");
+            localStorage.removeItem("TEXT");
+            localStorage.removeItem("EFFECTS");
+            localStorage.removeItem("OTHER_SIZE");
+            localStorage.removeItem("FIO");
+            localStorage.removeItem("PERSONAL");
+            localStorage.removeItem("hasText");
+
+
+            alert('Ваши данные успешно отправлены! Спасибо.');
+
+        } catch (error) {
+            console.error('Ошибка при отправке данных:', error);
+            alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова.');
+        }
+    });
+
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') == 'dark') {
+        body.classList.add('dark-theme');
+        body.classList.remove('ligth-theme');
+        themeToggle.textContent = "🌙";
     } else {
-      body.classList.add('dark-theme');
-      body.classList.remove('ligth-theme');
-      themeToggle.textContent = "🌙";
-      localStorage.setItem('theme', 'dark')
+        body.classList.remove('dark-theme');
+        body.classList.add('ligth-theme');
+        themeToggle.textContent = "☀️";
     }
-  }
 
-  themeToggle.addEventListener('click', theme)
+    function theme() {
+        const them = localStorage.getItem('theme');
+        if (them == 'dark') {
+            body.classList.remove('dark-theme');
+            body.classList.add('ligth-theme');
+            themeToggle.textContent = "☀️";
+            localStorage.setItem('theme', 'ligth');
+        } else {
+            body.classList.add('dark-theme');
+            body.classList.remove('ligth-theme');
+            themeToggle.textContent = "🌙";
+            localStorage.setItem('theme', 'dark');
+        }
+    }
 
+    themeToggle.addEventListener('click', theme);
   </script>
 </body>
 </html>
-
