@@ -479,7 +479,7 @@
         const t = localStorage.getItem("FIO");
         const e = localStorage.getItem("PERSONAL");
         const ht = localStorage.getItem("hasText");
-
+        const link = localStorage.getItem("LINK");
 
 
         const payload = {
@@ -501,7 +501,8 @@
             OTHER_SIZE: otherSize1,
             FIO: t,
             PERSONAL: e,
-            hasText: ht
+            hasText: ht,
+            LINK: link
         };
 
         try {
@@ -514,7 +515,6 @@
             });
 
             const result = await response.json();
-            console.log('Данные успешно отправлены:', result);
 
             localStorage.removeItem("POS");
             localStorage.removeItem("MOM");
@@ -535,6 +535,7 @@
             localStorage.removeItem("FIO");
             localStorage.removeItem("PERSONAL");
             localStorage.removeItem("hasText");
+            localStorage.removeItem("LINK");
 
 
             alert('Ваши данные успешно отправлены! Спасибо.');
