@@ -407,7 +407,7 @@
     
   </div>
 
-  <script>
+ <script>
 
     const form = document.getElementById('orderForm');
 
@@ -421,18 +421,18 @@
     const socialInput = document.querySelector('input[name="style"]:checked');
     const selectSinger = document.querySelector('input[name="SelectSinger"]:checked');
     const selectZhaner = document.querySelector('input[name="has"]:checked');
-    const selectOther = document.querySelector('input[name="other"]:checked');
-
+    const otherTextInput = document.querySelector('input[name="Other"]'); // Поле ввода "Другое"
 
 
     const pos = posInput.value;
     const moment = momInput.value;
     const povod = povInput.value;
-    const clips = clipsInput.value.trim();
-    const social = socialInput.value.trim();
-    const singer = selectSinger.value.trim();
-    const zhaner = selectZhaner.value.trim();
-    const other = selectOther.value.trim();
+    const clips = clipsInput ? clipsInput.value.trim() : '';
+    const social = socialInput ? socialInput.value.trim() : '';
+    const singer = selectSinger ? selectSinger.value.trim() : '';
+    const zhaner = selectZhaner ? selectZhaner.value.trim() : '';
+    const otherText = otherTextInput ? otherTextInput.value.trim() : '';
+
 
     localStorage.setItem("POS", pos)
     localStorage.setItem("MOM", moment)
@@ -441,8 +441,10 @@
     localStorage.setItem("SIN", singer)
     localStorage.setItem("ZHN", zhaner)
     localStorage.setItem("CLP", clips)
-    if (other && selectZhaner.value == "oth") {
-      localStorage.setItem("OTH", other)
+    if (zhaner === "oth" && otherText) { 
+      localStorage.setItem("OTHZH", otherText)
+    } else {
+      localStorage.removeItem("OTH"); 
     }
 
 
