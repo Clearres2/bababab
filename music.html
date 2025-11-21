@@ -319,6 +319,11 @@
         </label>
       </fieldset>
 
+       <fieldset>
+        <legend>Ссылка на профиль (ВК, телеграм):</legend>
+        <input type="text" name="linkToVK" placeholder="Ссылка" aria-label="Ссылка" required/> 
+      </fieldset>
+
     <button type="submit" class="small-button" aria-label="Перейти к следующему шагу">Далее</button>
     </form>
 
@@ -331,12 +336,16 @@
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-      const fioInput = document.querySelector('input[name="fio"]');
+    const fioInput = document.querySelector('input[name="fio"]');
     const hasTextInput = document.querySelector('input[name="hasText"]');
     const personalInput = document.querySelector('input[name="personal"]');
+    const linkInput = document.querySelector('input[name="linkToVK"]');
 
+
+    const link = linkInput.value.trim();
     const fio = fioInput.value.trim();
-           localStorage.setItem("FIO", fio)
+    localStorage.setItem("LINK", link)
+    localStorage.setItem("FIO", fio)
 
     if (hasTextInput) {
       localStorage.setItem('hasText', hasTextInput.checked)
