@@ -538,8 +538,9 @@
             localStorage.removeItem("hasText");
             localStorage.removeItem("LINK");
 
-
+            form.reset();
             alert('Ваши данные успешно отправлены! Спасибо.');
+          
 
         } catch (error) {
             alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова.');
