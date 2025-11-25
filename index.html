@@ -229,6 +229,7 @@
 <script>
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
+  const alertTrue = localStorage.getItem("ALERT");
 
   if (localStorage.getItem('theme') == 'dark') {
       body.classList.add('dark-theme');
@@ -257,6 +258,12 @@
   }
 
   themeToggle.addEventListener('click', theme)
+
+  if (alertTrue == "true") {
+    alert('Ваши данные успешно отправлены! Спасибо.')
+    localStorage.removeItem("ALERT")
+  }
+  
   </script>
 </body>
 
