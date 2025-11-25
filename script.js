@@ -403,6 +403,7 @@ let tracks = [
     { date: '19.11.2025', titleNumber: '175', title: 'На паперти душа стояла', url: 'https://nextjs-boil-delta.vercel.app/На паперти душа стояла, (Extend) (1).mp3'},
     { date: '21.11.2025', titleNumber: '176', title: 'Присяга воина', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Присяга воина.MP3'},
     { date: '21.11.2025', titleNumber: '177', title: 'Бухгалтер', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Бухгалтер.MP3'},   
+    { date: '25.11.2025', titleNumber: '178', title: 'Русская и точка', url: 'https://nextjs-boil-delta.vercel.app/Русская и точка.mp3'},
 ];
 
 
