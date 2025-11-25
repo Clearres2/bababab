@@ -260,7 +260,9 @@
   themeToggle.addEventListener('click', theme)
 
   if (alertTrue == "true") {
-    alert('Ваши данные успешно отправлены! Спасибо.')
+     setTimeout(() => {
+        alert('Ваши данные успешно отправлены! Спасибо.')       
+      }, 2000);
     localStorage.removeItem("ALERT")
   }
   
