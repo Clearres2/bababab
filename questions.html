@@ -410,6 +410,18 @@
  <script>
 
     const form = document.getElementById('orderForm');
+    const submitButton = document.querySelector('button[type="submit"]');
+    const clipOptions = document.querySelectorAll('input[name="styleClips"]');
+   
+   clipOptions.forEach(option => {
+    option.addEventListener('change', () => {
+        if (option.value === 'Нет') {
+            submitButton.textContent = 'Отправить';
+        } else {
+            submitButton.textContent = 'Далее';
+        }
+    });
+});
 
     form.addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -449,8 +461,6 @@
     if (clips === "Да") {
         window.location.href = 'questions2.html';
     } else {
-
-        form.textContent = 'Отправить'
         const payload = {
             FEN: pos,
             FEN1: moment,
