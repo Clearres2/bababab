@@ -449,8 +449,11 @@
 
 
 
-      
-        window.location.href = 'questions2.html';
+      if (clips == "Да") {
+          window.location.href = 'questions2.html';
+      } else {
+        console.log("Нет")
+      }
     });
     
  const themeToggle = document.getElementById('theme-toggle');
