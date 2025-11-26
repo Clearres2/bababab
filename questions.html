@@ -411,8 +411,8 @@
 
     const form = document.getElementById('orderForm');
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
+    form.addEventListener('submit', async function (event) {
+    event.preventDefault();
 
     const posInput = document.querySelector('input[name="Posvesh"]');
     const povInput = document.querySelector('input[name="pov"]');
@@ -423,7 +423,6 @@
     const selectZhaner = document.querySelector('input[name="has"]:checked');
     const otherTextInput = document.querySelector('input[name="Other"]'); 
 
-
     const pos = posInput.value;
     const moment = momInput.value;
     const povod = povInput.value;
@@ -433,29 +432,23 @@
     const zhaner = selectZhaner ? selectZhaner.value.trim() : '';
     const otherText = otherTextInput ? otherTextInput.value.trim() : '';
 
-
-    localStorage.setItem("POS", pos)
-    localStorage.setItem("MOM", moment)
-    localStorage.setItem("POV", povod)
-    localStorage.setItem("SOC", social)
-    localStorage.setItem("SIN", singer)
-    localStorage.setItem("ZHN", zhaner)
-    localStorage.setItem("CLP", otherText)
+    localStorage.setItem("POS", pos);
+    localStorage.setItem("MOM", moment);
+    localStorage.setItem("POV", povod);
+    localStorage.setItem("SOC", social);
+    localStorage.setItem("SIN", singer);
+    localStorage.setItem("ZHN", zhaner);
+    localStorage.setItem("CLP", otherText);
       
     if (zhaner === "Другой" && otherText) { 
-      localStorage.setItem("OTH", otherText)
+        localStorage.setItem("OTH", otherText);
     } else {
-      localStorage.removeItem("OTH"); 
+        localStorage.removeItem("OTH"); 
     }
 
-
-
-      if (clips == "Да") {
-          window.location.href = 'questions2.html';
-      } else {
-
-
-        
+    if (clips === "Да") {
+        window.location.href = 'questions2.html';
+    } else {
         const payload = {
             FEN: pos,
             FEN1: moment,
@@ -470,37 +463,25 @@
         try {
             const response = await fetch('https://fortwoankets.vercel.app/api/lower', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
 
             const result = await response.json();
 
-            localStorage.removeItem("POS");
-            localStorage.removeItem("MOM");
-            localStorage.removeItem("POV");
-            localStorage.removeItem("SOC");
-            localStorage.removeItem("SIN");
-            localStorage.removeItem("ZHN");
-            localStorage.removeItem("CLP");
-            localStorage.removeItem("OTH");
-            localStorage.removeItem("FIO");
-            localStorage.removeItem("PERSONAL");
-            localStorage.removeItem("LINK");
+            ["POS", "MOM", "POV", "SOC", "SIN", "ZHN", "CLP", "OTH", "FIO", "PERSONAL", "LINK"]
+                .forEach(key => localStorage.removeItem(key));
 
             form.reset();
             localStorage.setItem("ALERT", "true");
             window.location.href = 'index.html';
 
-          
-
         } catch (error) {
+            console.error('Ошибка отправки:', error);
             alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова.');
         }
-      }
-    });
+    }
+});
     
  const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
