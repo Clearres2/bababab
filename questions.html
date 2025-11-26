@@ -440,7 +440,8 @@
     localStorage.setItem("SOC", social)
     localStorage.setItem("SIN", singer)
     localStorage.setItem("ZHN", zhaner)
-    localStorage.setItem("CLP", clips)
+    localStorage.setItem("CLP", otherText)
+      
     if (zhaner === "Другой" && otherText) { 
       localStorage.setItem("OTH", otherText)
     } else {
@@ -452,7 +453,52 @@
       if (clips == "Да") {
           window.location.href = 'questions2.html';
       } else {
-        console.log("Нет")
+
+
+        
+        const payload = {
+            FEN: pos,
+            FEN1: moment,
+            FEN2: povod,
+            FEN3: clips,
+            FEN4: social,
+            FEN5: singer,
+            FEN6: zhaner,
+            FEN7: otherText,
+        };
+
+        try {
+            const response = await fetch('https://fortwoankets.vercel.app/api/lower', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            localStorage.removeItem("POS");
+            localStorage.removeItem("MOM");
+            localStorage.removeItem("POV");
+            localStorage.removeItem("SOC");
+            localStorage.removeItem("SIN");
+            localStorage.removeItem("ZHN");
+            localStorage.removeItem("CLP");
+            localStorage.removeItem("OTH");
+            localStorage.removeItem("FIO");
+            localStorage.removeItem("PERSONAL");
+            localStorage.removeItem("LINK");
+
+            form.reset();
+            localStorage.setItem("ALERT", "true");
+            window.location.href = 'index.html';
+
+          
+
+        } catch (error) {
+            alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова.');
+        }
       }
     });
     
