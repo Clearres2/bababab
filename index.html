@@ -228,21 +228,26 @@
 </section>
 
 <script>
-BACKEND_URL = "https://dera-flame.vercel.app/ping_users"
+const BACKEND_URL = "https://dera-flame.vercel.app/ping_users";
 
-  function sendPing(userId) {
-          fetch(BACKEND_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ user_id: userId })
-          })
-        }
+function sendPing(userId) {
+  fetch(BACKEND_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ user_id: userId })
+  }).catch(err => console.error("Ping failed:", err));
+}
 
-  const user = Telegram.WebApp.initDataUnsafe?.user;
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.Telegram && Telegram.WebApp) {
+    Telegram.WebApp.ready(); 
 
-      if (user && user.id) {
-        sendPing(user.id)
-      }
+    const user = Telegram.WebApp.initDataUnsafe?.user;
+    if (user?.id) {
+      sendPing(user.id);
+    }
+  }
+});
   
   
   const themeToggle = document.getElementById('theme-toggle');
