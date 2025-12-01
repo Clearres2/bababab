@@ -228,18 +228,30 @@
 </section>
 
 <script>
+BACKEND_URL = "https://dera-flame.vercel.app/ping_users"
 
   if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
       const user = Telegram.WebApp.initDataUnsafe?.user;
 
       if (user && user.id) {
         alert('Ваш Telegram ID: ' + user.id);
+        sendPing(user.id)
+        
       } else {
         alert('Не удалось получить данные пользователя.');
       }
     } else {
       alert('Эта страница работает только внутри Telegram!');
     }
+
+  function sendPing(userID) {
+          fetch(BACKEND_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ user_id: userId })
+          })
+        }
+  
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
   const alertTrue = localStorage.getItem("ALERT");
