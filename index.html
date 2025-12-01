@@ -230,6 +230,14 @@
 <script>
 BACKEND_URL = "https://dera-flame.vercel.app/ping_users"
 
+  function sendPing(userId) {
+          fetch(BACKEND_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ user_id: userId })
+          })
+        }
+
   if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
       const user = Telegram.WebApp.initDataUnsafe?.user;
 
@@ -244,13 +252,7 @@ BACKEND_URL = "https://dera-flame.vercel.app/ping_users"
       alert('Эта страница работает только внутри Telegram!');
     }
 
-  function sendPing(userId) {
-          fetch(BACKEND_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ user_id: userId })
-          })
-        }
+  
   
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
