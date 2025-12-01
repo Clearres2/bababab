@@ -244,7 +244,7 @@ BACKEND_URL = "https://dera-flame.vercel.app/ping_users"
       alert('Эта страница работает только внутри Telegram!');
     }
 
-  function sendPing(userID) {
+  function sendPing(userId) {
           fetch(BACKEND_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
