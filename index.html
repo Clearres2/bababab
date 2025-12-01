@@ -238,19 +238,11 @@ BACKEND_URL = "https://dera-flame.vercel.app/ping_users"
           })
         }
 
-  if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-      const user = Telegram.WebApp.initDataUnsafe?.user;
+  const user = Telegram.WebApp.initDataUnsafe?.user;
 
       if (user && user.id) {
         sendPing(user.id)
-        
-      } else {
-        alert('Не удалось получить данные пользователя.');
       }
-    } else {
-      alert('Эта страница работает только внутри Telegram!');
-    }
-
   
   
   const themeToggle = document.getElementById('theme-toggle');
