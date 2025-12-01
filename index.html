@@ -232,7 +232,7 @@ const BACKEND_URL = "https://dera-flame.vercel.app/ping_users";
 
 function sendPing(userId) {
   alert("Запуск: " + userId);
-  fetch(BACKEND_URL, {
+  fetch(BACKEND_URL.trim(), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ user_id: userId })
