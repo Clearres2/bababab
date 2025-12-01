@@ -211,6 +211,7 @@
       }
     }
   </style>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 
 <body>
@@ -227,6 +228,18 @@
 </section>
 
 <script>
+
+  if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+      const user = Telegram.WebApp.initDataUnsafe?.user;
+
+      if (user && user.id) {
+        alert('Ваш Telegram ID: ' + user.id);
+      } else {
+        alert('Не удалось получить данные пользователя.');
+      }
+    } else {
+      alert('Эта страница работает только внутри Telegram!');
+    }
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
   const alertTrue = localStorage.getItem("ALERT");
