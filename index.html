@@ -242,7 +242,6 @@ BACKEND_URL = "https://dera-flame.vercel.app/ping_users"
       const user = Telegram.WebApp.initDataUnsafe?.user;
 
       if (user && user.id) {
-        alert('Ваш Telegram ID: ' + user.id);
         sendPing(user.id)
         
       } else {
