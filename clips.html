@@ -534,6 +534,7 @@
       box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
     }
   </style>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 
 <body>
@@ -644,6 +645,26 @@
     </div>
 
 <script>
+  const BACKEND_URL = "https://dera-flame.vercel.app/ping_users";
+
+function sendPing(userId) {
+  fetch(BACKEND_URL.trim(), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ user_id: userId })
+  }).catch(() => {});
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.Telegram?.WebApp) {
+    Telegram.WebApp.ready();
+    const user = Telegram.WebApp.initDataUnsafe?.user;
+    if (user?.id) {
+      sendPing(user.id);
+      setInterval(() => sendPing(user.id), 30000);
+    }
+  }
+});
 
 
       const searchInput = document.querySelector('.searchL input[type="text"]');
