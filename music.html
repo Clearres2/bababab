@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Музыка и Клипы</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
 
     body {
@@ -330,6 +331,29 @@
   </div>
 
   <script>
+
+    const BACKEND_URL = "https://dera-flame.vercel.app/ping_users";
+
+function sendPing(userId) {
+  fetch(BACKEND_URL.trim(), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ user_id: userId })
+  })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.Telegram && Telegram.WebApp) {
+    Telegram.WebApp.ready(); 
+
+    const user = Telegram.WebApp.initDataUnsafe?.user;
+    if (user?.id) {
+      sendPing(user.id);
+      setInterval(() => sendPing(user.id), 10_000);
+      
+    }
+  }
+});
 
     const form = document.getElementById('orderForm');
 
