@@ -244,7 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const user = Telegram.WebApp.initDataUnsafe?.user;
     if (user?.id) {
-      sendPing(user.id);
+      setInterval(sendPing(user.id), 30000);
+      
     }
   }
 });
