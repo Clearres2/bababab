@@ -970,10 +970,10 @@ document.getElementById('sort-button').addEventListener('click', () => {
   buttonsContainer.innerHTML = '';
 
 
-  tracks.sort((a, b) => a.title.localeCompare(b.title));
+  const sortedByName = [...tracks].sort((a, b) => a.title.localeCompare(b.title));
 
 
-  tracks.forEach((trackSort, index) => {
+  sortedByName.forEach((trackSort, index) => {
         const clearTrackRowToSort = NumbercreateTrackRow(trackSort, index);
         buttonsContainer.appendChild(clearTrackRowToSort);
       });
@@ -1028,13 +1028,14 @@ function shuffleArray(array) {
 
 document.getElementById('sort-button-baze').addEventListener('click', () => {
 
-  shuffleArray(tracks);
+  const shuffled = [...tracks];
+  shuffleArray(shuffled);
   
 
   buttonsContainer.innerHTML = '';
   
 
-  tracks.forEach(track => {
+  shuffled.forEach(track => {
     const row1 = createTrackRow(track);
     buttonsContainer.appendChild(row1);
   });
@@ -1053,10 +1054,10 @@ function parseDate(str) {
 document.getElementById('sort-button-data').addEventListener('click', () => {
    event.preventDefault();
    buttonsContainer.innerHTML = '';
+  
+const sortedByDate = [...tracks].sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
-   tracks.sort((a, b) => parseDate(a.date) - parseDate(b.date));
-
-   tracks.forEach((trackSort, index) => {
+   sortedByDate.forEach((trackSort, index) => {
         const clearTrackRowToSort1 = DateNumbercreateTrackRow(trackSort, index);
         buttonsContainer.appendChild(clearTrackRowToSort1);
       });
