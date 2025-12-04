@@ -751,12 +751,21 @@ document.addEventListener('DOMContentLoaded', () => {
     { date: '25.11.2025', titleNumber: '178', title: 'Русская и точка', url: 'https://nextjs-boil-delta.vercel.app/Русская и точка.mp3'},
 ];
 
+  let pingInterval = null;
+  
 let currentHighlightedElement = null;
 
 currentTrackIndex = -1;
-
+  
+function stopPing() {
+    if (pingInterval) {
+      clearInterval(pingInterval);
+      pingInterval = null;
+    }
+  }
+  
 function playTrack(index) {
-
+  audioPlayer.addEventListener('pause', stopPing);
   if (currentHighlightedElement) {
         currentHighlightedElement.classList.remove('highlight');
     }
