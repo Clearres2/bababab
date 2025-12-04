@@ -781,6 +781,15 @@ function playTrack(index) {
       console.error("Ошибка воспроизведения:", error);
     });
 
+  if (window.Telegram?.WebApp) {
+  const user = Telegram.WebApp.initDataUnsafe?.user;
+  if (user?.id) {
+    sendPing(user.id);
+    if (window.pingInterval) clearInterval(window.pingInterval);
+    window.pingInterval = setInterval(() => sendPing(user.id), 25_000);
+  }
+}
+
 }
 
 
