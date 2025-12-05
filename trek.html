@@ -765,7 +765,6 @@ function stopPing() {
   }
   
 function playTrack(index) {
-  audioPlayer.addEventListener('pause', stopPing);
   if (currentHighlightedElement) {
         currentHighlightedElement.classList.remove('highlight');
     }
