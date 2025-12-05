@@ -599,8 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentHighlightedElement = null;
 
     function playTrack(albumIndex, trackIndex) {
-      audioPlayer.addEventListener('pause', stopPing);
-        if (currentHighlightedElement) {
+      if (currentHighlightedElement) {
             currentHighlightedElement.classList.remove('highlight');
         }
 
