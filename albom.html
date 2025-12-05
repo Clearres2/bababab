@@ -456,7 +456,14 @@
   <script>
 
 const BACKEND_URL = "https://dera-flame.vercel.app/ping_users";
-
+    
+function stopPing() {
+    if (pingInterval) {
+      clearInterval(pingInterval);
+      pingInterval = null;
+    }
+  }
+    
 function sendPing(userId) {
   fetch(BACKEND_URL.trim(), {
     method: "POST",
@@ -592,6 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentHighlightedElement = null;
 
     function playTrack(albumIndex, trackIndex) {
+      audioPlayer.addEventListener('pause', stopPing);
         if (currentHighlightedElement) {
             currentHighlightedElement.classList.remove('highlight');
         }
@@ -603,7 +611,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Ошибка воспроизведения:", error);
         });
 
-        // НОВЫЙ КОД: Находим конкретный альбом по индексу
         const albumTitles = document.querySelectorAll('.album-title');
         const currentAlbumTitle = albumTitles[albumIndex];
         
@@ -611,7 +618,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const albumTracks = currentAlbumTitle.nextElementSibling;
             const trackRows = albumTracks.querySelectorAll('.track-row');
             
-            // Находим конкретный трек по индексу в этом альбоме
             if (trackIndex < trackRows.length) {
                 const foundElement = trackRows[trackIndex];
                 foundElement.classList.add('highlight');
@@ -619,6 +625,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 foundElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
+
+
+      if (window.Telegram?.WebApp) {
+  const user = Telegram.WebApp.initDataUnsafe?.user;
+  if (user?.id) {
+    sendPing(user.id);
+    if (window.pingInterval) clearInterval(window.pingInterval);
+    window.pingInterval = setInterval(() => sendPing(user.id), 25_000);
+  }
+}
+      
     }
 
     const buttonsContainer = document.getElementById('buttons-container');
