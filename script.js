@@ -620,7 +620,6 @@ let currentHighlightedElement = null;
 
 
 async function playTrack(index) {
-   audioPlayer.addEventListener('pause', stopPing);
   if (currentHighlightedElement) {
         currentHighlightedElement.classList.remove('highlight');
     }
@@ -691,7 +690,6 @@ let currentTrackIndex = { albumIndex: -1, trackIndex: -1 };
 
 
 async function playAlbomTrack(albumIndex, trackIndex) {
-   audioPlayer.addEventListener('pause', stopPing);
     const album = albomsBaze[albumIndex];
     if (!album || !album.album) {
         console.error("А");
