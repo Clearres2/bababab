@@ -406,7 +406,20 @@ let tracks = [
     { date: '25.11.2025', titleNumber: '178', title: 'Русская и точка', url: 'https://nextjs-boil-delta.vercel.app/Русская и точка.mp3'},
 ];
 
-
+function stopPing() {
+    if (pingInterval) {
+      clearInterval(pingInterval);
+      pingInterval = null;
+    }
+  }
+    
+function sendPing(userId) {
+  fetch(BACKEND_URL.trim(), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ user_id: userId })
+  }).catch(() => {});
+}
 
 
 const CACHE_NAME = 'audio-cache-v190';
@@ -607,6 +620,7 @@ let currentHighlightedElement = null;
 
 
 async function playTrack(index) {
+   audioPlayer.addEventListener('pause', stopPing);
   if (currentHighlightedElement) {
         currentHighlightedElement.classList.remove('highlight');
     }
@@ -659,6 +673,17 @@ async function playTrack(index) {
           currentTrackElement.classList.add('highlight');
           currentHighlightedElement = currentTrackElement;
         }
+
+
+   if (window.Telegram?.WebApp) {
+  const user = Telegram.WebApp.initDataUnsafe?.user;
+  if (user?.id) {
+    sendPing(user.id);
+    if (window.pingInterval) clearInterval(window.pingInterval);
+    window.pingInterval = setInterval(() => sendPing(user.id), 25_000);
+  }
+}
+   
     }
 
 
@@ -666,6 +691,7 @@ let currentTrackIndex = { albumIndex: -1, trackIndex: -1 };
 
 
 async function playAlbomTrack(albumIndex, trackIndex) {
+   audioPlayer.addEventListener('pause', stopPing);
     const album = albomsBaze[albumIndex];
     if (!album || !album.album) {
         console.error("А");
@@ -748,6 +774,16 @@ async function playAlbomTrack(albumIndex, trackIndex) {
     } else {
         console.error("Т");
     }
+
+    if (window.Telegram?.WebApp) {
+  const user = Telegram.WebApp.initDataUnsafe?.user;
+  if (user?.id) {
+    sendPing(user.id);
+    if (window.pingInterval) clearInterval(window.pingInterval);
+    window.pingInterval = setInterval(() => sendPing(user.id), 25_000);
+  }
+}
+   
 }
 
 
