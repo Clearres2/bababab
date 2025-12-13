@@ -1798,7 +1798,7 @@ allTrackContainers.forEach(container => {
 
       const numberBtn = document.createElement('button');
             numberBtn.className = 'num-btn';
-            numberBtn.textContent = index + 1;
+            numberBtn.textContent = totalTrack.length - index;
             numberBtn.style.marginRight = '5px'
 
 
