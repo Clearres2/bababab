@@ -1793,7 +1793,7 @@ allTrackContainers.forEach(container => {
         const updatedFavorites = rawFilter.filter(fav => fav !== track.title);
         localStorage.setItem('trek', updatedFavorites.join('\n'));
         console.log(`Трек "${track.title}" удален из избранного.`); 
-        ABCUpdateFunction();
+        document.getElementById('sort-button').click();
       });
 
       const numberBtn = document.createElement('button');
