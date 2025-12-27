@@ -437,21 +437,17 @@ async function cacheAudioFile(url) {
         const cache = await caches.open(CACHE_NAME);
         const cachedResponse = await cache.match(url);
         if (cachedResponse) {
-            console.log(`Файл уже закэширован: ${url}`);
             return false; 
         } else {
             const response = await fetch(url);
             if (response.ok) {
                 await cache.put(url, response.clone());
-                console.log(`Файл закэширован: ${url}`);
                 return true;
             } else {
-                console.warn(`Не удалось получить файл для кэширования: ${url}`);
                 return false;
             }
         }
     } catch (error) {
-        console.error(`Ошибка при кэшировании файла ${url}:`, error);
         return false;
     }
 }
@@ -464,19 +460,16 @@ async function getAudioFile(url) {
         let cachedResponse = await cache.match(url);
 
         if (cachedResponse) {
-            console.log(`Файл получен из кэша: ${url}`);
             return cachedResponse;
         } else {
-            console.log(`Файл не найден в кэше, загружаем из сети: ${url}`);
             const networkResponse = await fetch(url);
             if (networkResponse.ok) {
                 return networkResponse;
             } else {
-                throw new Error(`Сеть ответила с ошибкой: ${networkResponse.status}`);
+                throw new Error(`Сеть ответила с ошибкой`);
             }
         }
     } catch (error) {
-        console.error(`Ошибка при получении файла ${url}:`, error);
         throw error;
     }
 }
@@ -534,9 +527,8 @@ async function DmanuallyRecacheAll() {
        await cacheAudioFile(window.location.origin + '/bababab/index.html');
        await cacheAudioFile(window.location.origin + '/bababab/trek.html'); 
 
-        console.log('Ручное кэширование завершено.');
     } catch (error) {
-        console.error('Ошибка при ручном кэшировании:', error);
+        console.error('Ошибка при ручном кэшировании:');
     } finally {
         loadingIndicator.style.display = 'none';
     }
@@ -595,9 +587,9 @@ async function manuallyRecacheAll() {
        await cacheAudioFile(window.location.origin + '/bababab/index.html');
        await cacheAudioFile(window.location.origin + '/bababab/trek.html'); 
 
-        console.log('Ручное кэширование завершено.');
+
     } catch (error) {
-        console.error('Ошибка при ручном кэшировании:', error);
+        console.error('Ошибка при ручном кэшировании:');
     } finally {
         loadingIndicator.style.display = 'none';
     }
@@ -660,9 +652,8 @@ async function playTrack(index) {
 
             await audioPlayer.play();
         } catch (error) {
-            console.error("Ошибка воспроизведения:", error);
             if (error.name === 'NotAllowedError') {
-                console.log('А');
+                console.log('ап');
             }
         }
 
@@ -732,13 +723,11 @@ async function playAlbomTrack(albumIndex, trackIndex) {
                 const audioBlob = await cachedResponse.blob();
                 const audioUrl = URL.createObjectURL(audioBlob);
                 audioPlayer.src = audioUrl;
-                console.log('Файл воспроизведён из кэша');
             } else {
                 if (navigator.onLine) {
                     audioPlayer.src = track.url;
                     audioPlayer.preload = 'auto';
                     audioPlayer.load();
-                    console.log('Файл загружается из сети');
                 } else {
                     throw new Error('Ф');
                 }
@@ -874,7 +863,6 @@ AlbomTitles.forEach((albom, index) => {
             const rawFilter = albomTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
             const updatedFavorites = rawFilter.filter(fav => fav !== albomMass.title);
             localStorage.setItem('trekA', updatedFavorites.join('\n'));
-            console.log(`Альбом "${albomMass.title}" удален из избранного.`);
             UpdateFunction();
         });
 
@@ -923,8 +911,6 @@ trackContainer.appendChild(trackNumberBtn);
               console.log(albomMass)
     const albumIndex = albomsBaze.indexOf(albomMass);
     const trackIndex = albomMass.album.indexOf(vf);
-    console.log("Album", albumIndex);
-    console.log("Track", trackIndex);
     playAlbomTrack(albumIndex, trackIndex);
 };
 
@@ -947,7 +933,6 @@ trackContainer.appendChild(trackNumberBtn);
               deleteBtn22.remove()
 
               btnf.disabled = true;
-              console.log("Сработало")
 
               const restoreBtn89 = document.createElement('button');
               restoreBtn89.textContent = '+';
@@ -963,10 +948,8 @@ trackContainer.appendChild(trackNumberBtn);
                   localStorage.setItem('disabled', updatedDisabledTitles.join('\n'));
                   btnf.disabled = false; 
                   restoreBtn89.remove(); 
-                  console.log(`Трек "${vf.title}" восстановлен.`); 
                   const disabledTitlesRaw3 = localStorage.getItem('disabled') || '';
                   const disabledTitles3 = disabledTitlesRaw3.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-                  console.log(disabledTitles3); 
                   buttonContainer.appendChild(deleteBtn22)
 
           
@@ -1082,7 +1065,6 @@ albumButton.addEventListener('click', createAlbumToggleHandler(albumButton, trac
                 const rawFilter = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
                 const updatedFavorites = rawFilter.filter(fav => fav !== track.title);
                 localStorage.setItem('trek', updatedFavorites.join('\n'));
-                console.log(`Трек "${track.title}" удален из избранного.`);
                 UpdateFunction();
             });
 
@@ -1106,7 +1088,7 @@ albumButton.addEventListener('click', createAlbumToggleHandler(albumButton, trac
 
     
 
-  console.log(AlbomTitles)
+
 
 
 }
@@ -1166,7 +1148,6 @@ function ABCUpdateFunction() {
         const rawFilter = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
         const updatedFavorites = rawFilter.filter(fav => fav !== track.title);
         localStorage.setItem('trek', updatedFavorites.join('\n'));
-        console.log(`Трек "${track.title}" удален из избранного.`); 
         ABCUpdateFunction();
       });
 
@@ -1190,8 +1171,7 @@ function ABCUpdateFunction() {
     get.push(derA)
   })
   const getUpdate = get.sort((a, b) => a.title.localeCompare(b.title))
-  console.log(getUpdate)
-  console.log('стоп')
+
 
   let albumIndex = AlbomTitles.length;
 
@@ -1201,11 +1181,10 @@ function ABCUpdateFunction() {
 
   AlbomTitles.forEach((albom, index) => {
 
-    console.log(getUpdate[index])
-    console.log('стоп')
+
     const albomMass = getUpdate[index].album.sort((a, b) => a.title.localeCompare(b.title))
 
-    console.log(albomMass)
+
 
     if (getUpdate.length > index) {
       console.log(getUpdate.length)
@@ -1296,10 +1275,8 @@ function ABCUpdateFunction() {
 
       const disabledTitlesRaw = localStorage.getItem('disabled') || '';
       const disabledTitles = disabledTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-      console.log(disabledTitles)
       if (disabledTitles.map(title => title.toLowerCase()).includes(vf.title.toLowerCase())) {
         btnf.disabled = true;
-        console.log("Сработало")
 
         const restoreBtn = document.createElement('button');
         restoreBtn.textContent = '+';
@@ -1315,7 +1292,6 @@ function ABCUpdateFunction() {
             localStorage.setItem('disabled', updatedDisabledTitles.join('\n'));
             btnf.disabled = false; 
             restoreBtn.remove(); 
-            console.log(`Трек "${vf.title}" восстановлен.`); 
             const disabledTitlesRaw3 = localStorage.getItem('disabled') || '';
             const disabledTitles3 = disabledTitlesRaw3.split('\n').map(s => s.trim()).filter(s => s.length > 0);
             console.log(disabledTitles3); 
@@ -1327,8 +1303,6 @@ function ABCUpdateFunction() {
       btnf.onclick = () => {
         const albumIndex = albomsBaze.indexOf(getUpdate[index]);
         const trackIndex = getUpdate[index].album.indexOf(vf);
-        console.log("Album", albumIndex);
-        console.log("Track", trackIndex);
         playAlbomTrack(albumIndex, trackIndex);
       };
 
@@ -1344,10 +1318,6 @@ function ABCUpdateFunction() {
         const disabledTitlesRaw = localStorage.getItem('disabled') || '';
         const disabledTitles = disabledTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
         localStorage.setItem('disabled', btnfDisabled + '\n' + disabledTitles.join('\n'));
-        console.log(`Трек "${btnfDisabled}" отключен.`); 
-
-
-
         const restoreBtn = document.createElement('button');
         restoreBtn.textContent = '+';
         restoreBtn.className = 'restore-button';
@@ -1362,7 +1332,6 @@ function ABCUpdateFunction() {
             localStorage.setItem('disabled', updatedDisabledTitles1.join('\n'));
             btnf.disabled = false; 
             restoreBtn.remove(); 
-            console.log(`Трек "${vf.title}" восстановлен.`); 
             const disabledTitlesRaw3 = localStorage.getItem('disabled') || '';
             const disabledTitles3 = disabledTitlesRaw3.split('\n').map(s => s.trim()).filter(s => s.length > 0);
             console.log(disabledTitles3); 
@@ -1410,7 +1379,6 @@ function DateUpdateFunction() {
     .filter(t => t && t.url);
 
 
-  console.log(favoriteTracks)
   favoriteTracks.sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
   if (favoriteTracks.length === 0) {
@@ -1451,7 +1419,6 @@ function DateUpdateFunction() {
         const rawFilter = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
         const updatedFavorites = rawFilter.filter(fav => fav !== track.title);
         localStorage.setItem('trek', updatedFavorites.join('\n'));
-        console.log(`Трек "${track.title}" удален из избранного.`); 
         DateUpdateFunction();
       });
 
@@ -1514,7 +1481,6 @@ albumIndex = AlbomTitles.length
       const rawFilter = albomTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
       const updatedFavorites = rawFilter.filter(fav => fav !== albomMass.title);
       localStorage.setItem('trekA', updatedFavorites.join('\n'));
-      console.log(`Альбом "${albomMass.title}" удален из избранного.`); 
       DateUpdateFunction();
     });
 
@@ -1585,7 +1551,6 @@ trackContainer.appendChild(trackNumberBtn);
       console.log(disabledTitles)
       if (disabledTitles.map(title => title.toLowerCase()).includes(vf.title.toLowerCase())) {
         btnf.disabled = true;
-        console.log("Сработало")
 
         const restoreBtn = document.createElement('button');
         restoreBtn.textContent = '+';
@@ -1601,11 +1566,8 @@ trackContainer.appendChild(trackNumberBtn);
             localStorage.setItem('disabled', updatedDisabledTitles.join('\n'));
             btnf.disabled = false; 
             restoreBtn.remove(); 
-            console.log(`Трек "${vf.title}" восстановлен.`); 
             const disabledTitlesRaw3 = localStorage.getItem('disabled') || '';
             const disabledTitles3 = disabledTitlesRaw3.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-            console.log(disabledTitles3); 
-
         
           
         });
@@ -1617,8 +1579,6 @@ trackContainer.appendChild(trackNumberBtn);
     
     const albumIndex = albomsBaze.indexOf(albomMass);
     const trackIndex = albomMass.album.indexOf(vf);
-    console.log("Album", albumIndex);
-    console.log("Track", trackIndex);
     playAlbomTrack(albumIndex, trackIndex);
 };
 
@@ -1635,7 +1595,6 @@ trackContainer.appendChild(trackNumberBtn);
         const disabledTitlesRaw = localStorage.getItem('disabled') || '';
         const disabledTitles = disabledTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
         localStorage.setItem('disabled', btnfDisabled + '\n' + disabledTitles.join('\n'));
-        console.log(`Трек "${btnfDisabled}" отключен.`); 
 
 
 
@@ -1652,11 +1611,9 @@ trackContainer.appendChild(trackNumberBtn);
             const updatedDisabledTitles1 = disabledTitles091.filter(title => title.toLowerCase() !== vf.title.toLowerCase());
             localStorage.setItem('disabled', updatedDisabledTitles1.join('\n'));
             btnf.disabled = false; 
-            restoreBtn.remove(); 
-            console.log(`Трек "${vf.title}" восстановлен.`); 
+            restoreBtn.remove();  
             const disabledTitlesRaw3 = localStorage.getItem('disabled') || '';
             const disabledTitles3 = disabledTitlesRaw3.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-            console.log(disabledTitles3); 
         });
 
         buttonContainer.appendChild(restoreBtn);
@@ -1799,7 +1756,6 @@ allTrackContainers.forEach(container => {
         const rawFilter = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
         const updatedFavorites = rawFilter.filter(fav => fav !== track.title);
         localStorage.setItem('trek', updatedFavorites.join('\n'));
-        console.log(`Трек "${track.title}" удален из избранного.`); 
         ABCUpdateFunction();
       });
 
@@ -1846,7 +1802,6 @@ row.appendChild(deleteBtn);
         const rawFilter = AlbomTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
         const updatedFavorites = rawFilter.filter(fav => fav !== track.title);
         localStorage.setItem('trekA', updatedFavorites.join('\n'));
-        console.log(`Альбом "${track.title}" удален из избранного.`); 
         ABCUpdateFunction();
     });
 
@@ -1922,8 +1877,6 @@ trackContainer.appendChild(trackNumberBtn);
         btnf2.title = `Воспроизвести ${albom.title}`;
         btnf2.setAttribute('aria-label', `Воспроизвести ${albom.title}`);
         btnf2.onclick = () => {
-          console.log(albomsBaze.indexOf(track))
-          console.log(track.album.indexOf(albom))
           playAlbomTrack(albomsBaze.indexOf(track), track.album.indexOf(albom));
        };
 
@@ -1945,8 +1898,7 @@ trackContainer.appendChild(trackNumberBtn);
             const btnfDisabled = btnf2.textContent;
             const disabledTitlesRaw = localStorage.getItem('disabled') || '';
             const disabledTitles = disabledTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-            localStorage.setItem('disabled', btnfDisabled + '\n' + disabledTitles.join('\n'));
-            console.log(`Трек "${btnfDisabled}" отключен.`); 
+            localStorage.setItem('disabled', btnfDisabled + '\n' + disabledTitles.join('\n')); 
             buttonContainer.appendChild(restoreBtn0);
             deleteBtn221.remove()
         });
@@ -1973,12 +1925,9 @@ albumButton.addEventListener('click', createAlbumToggleHandler(albumButton, trac
    const favoriteTitles = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
 
    favoriteTitles.sort((a, b) => a.localeCompare(b));
-   console.log(favoriteTitles)
 
    favoriteTitles.forEach((trackSort, index) => {
-     console.log(trackSort)
        const track = tracks.find(t => t.title === trackSort);
-       console.log(track)
        const clearTrackRowToSort = NumbercreateTrackRow(track, index, favoriteTitles);
        favoritesContainer.appendChild(clearTrackRowToSort);
    });
@@ -1989,18 +1938,14 @@ albumButton.addEventListener('click', createAlbumToggleHandler(albumButton, trac
    const AlbomTitles = albomTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
 
    AlbomTitles.sort((a, b) => a.localeCompare(b));
-   console.log(AlbomTitles)
 
     const albumObjects = AlbomTitles.map(title => albomsBaze.find(a => a.title === title)).filter(a => a);
 
    albumObjects.sort((a, b) => a.title.localeCompare(b.title));
 
    AlbomTitles.forEach((AlbomSort, index) => {
-       console.log(AlbomSort)
        const AlbomTrack = albomsT.find(t => t.title === AlbomSort);
-       console.log(AlbomTrack)
        const AclearTrackRowToSort = ANumbercreateTrackRow(AlbomTrack , index, albumObjects);
-       console.log(AclearTrackRowToSort)
        albomContainer.appendChild(AclearTrackRowToSort);
    });
 
@@ -2037,7 +1982,6 @@ albumButton.addEventListener('click', createAlbumToggleHandler(albumButton, trac
         const rawFilterDate = favoriteTitlesRawUpdate.split('\n').map(s => s.trim()).filter(s => s.length > 0);
         const updatedFavorites = rawFilterDate.filter(fav => fav !== track.title);
         localStorage.setItem('trek', updatedFavorites.join('\n'));
-        console.log(`Трек "${track.title}" удален из избранного.`); 
         DateUpdateFunction();
       });
 
@@ -2124,7 +2068,6 @@ const deleteBtn2124 = document.createElement('button');
     deleteBtn2124.addEventListener('click', () => {
         const updatedFavorites = AlbomTitles.filter(fav => fav !== track.title);
         localStorage.setItem('trekA', updatedFavorites.join('\n'));
-        console.log(`Альбом "${track.title}" удален из избранного.`); 
         DateUpdateFunction();
     });
 
@@ -2174,8 +2117,6 @@ albomRow.appendChild(trackNumberBtn);
     
     const albumIndex = albomsBaze.indexOf(track);
     const trackIndex = sortedTracks.indexOf(albom);
-    console.log("Album", albumIndex);
-    console.log("Track", trackIndex);
     playAlbomTrack(albumIndex, trackIndex);
 };
 
@@ -2199,7 +2140,6 @@ albomRow.appendChild(trackNumberBtn);
         const disabledTitlesRaw = localStorage.getItem('disabled') || '';
         const disabledTitles = disabledTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
         localStorage.setItem('disabled', btnfDisabled + '\n' + disabledTitles.join('\n'));
-        console.log(`Трек "${btnfDisabled}" отключен.`); 
         deleteBtn2210.remove()
         albomRow.appendChild(restoreBtn0)
 
@@ -2223,7 +2163,6 @@ albomRow.appendChild(trackNumberBtn);
 
         const disabledTitlesRaw67 = localStorage.getItem('disabled') || '';
       const disabledTitles67 = disabledTitlesRaw67.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-      console.log(disabledTitles67)
 
       
       albomRow.appendChild(btnf290)
@@ -2232,8 +2171,7 @@ albomRow.appendChild(trackNumberBtn);
 
       if (disabledTitles67.map(title => title.toLowerCase()).includes(albom.title.toLowerCase())) {
         btnf290.disabled = true;
-        console.log("Сработало")
-        deleteBtn2210.remove()
+         deleteBtn2210.remove()
         albomRow.appendChild(restoreBtn0)
       } else {
         albomRow.appendChild(deleteBtn2210)
@@ -2268,12 +2206,9 @@ albumButton.addEventListener('click', createAlbumToggleHandler(albumButton, trac
    const favoriteTitles = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
 
    favoriteTitles.sort((a, b) => a.localeCompare(b));
-   console.log(favoriteTitles)
 
    favoriteTitles.forEach((trackSort, index) => {
-     console.log(trackSort)
        const track = tracks.find(t => t.title === trackSort);
-       console.log(track)
        const clearTrackRowToSort = NumbercreateTrackRow(track, index, favoriteTitles);
        favoritesContainer.appendChild(clearTrackRowToSort);
    });
@@ -2284,14 +2219,10 @@ albumButton.addEventListener('click', createAlbumToggleHandler(albumButton, trac
    const AlbomTitles = albomTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
 
    AlbomTitles.sort((a, b) => a.localeCompare(b));
-   console.log(AlbomTitles)
 
    AlbomTitles.forEach((AlbomSort, index) => {
-       console.log(AlbomSort)
        const AlbomTrack = albomsBaze.find(t => t.title === AlbomSort);
-       console.log(AlbomTrack)
        const AclearTrackRowToSort = ANumbercreateTrackRow(AlbomTrack, index, AlbomTitles);
-       console.log(AclearTrackRowToSort)
        albomContainer.appendChild(AclearTrackRowToSort);
    });
 
@@ -2324,7 +2255,6 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
     if (Array.isArray(favoriteTitles)) {
         shuffledFavorites = shuffleArray(favoriteTitles);
     } else {
-        console.error("favoriteTitles не является массивом:", favoriteTitles);
         shuffledFavorites = []; 
     }
 
@@ -2372,7 +2302,6 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
             const rawFilter = albomTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
             const updatedFavorites = rawFilter.filter(fav => fav !== albomMass.title);
             localStorage.setItem('trekA', updatedFavorites.join('\n'));
-            console.log(`Альбом "${albomMass.title}" удален из избранного.`);
             UpdateFunction();
         });
 
@@ -2490,7 +2419,6 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
         albomContainer.appendChild(albumDiv);
     });
 
-    // Отображаем перемешанные треки
     if (favoriteTracks.length === 0) {
         favoritesContainer.style.color = '#363E6B';
         favoritesContainer.style.padding = '10px';
@@ -2525,7 +2453,6 @@ document.getElementById('sort-button-baze').addEventListener('click', () => {
                 const rawFilter = favoriteTitlesRaw.split('\n').map(s => s.trim()).filter(s => s.length > 0);
                 const updatedFavorites = rawFilter.filter(fav => fav !== track.title);
                 localStorage.setItem('trek', updatedFavorites.join('\n'));
-                console.log(`Трек "${track.title}" удален из избранного.`);
                 UpdateFunction();
             });
 
@@ -2579,7 +2506,6 @@ document.getElementById('sort-button-data').addEventListener('click', (event) =>
       }
    });
 
-   console.log(filteredUpdatedFavorites)
 
    filteredUpdatedFavorites.sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
@@ -2624,11 +2550,9 @@ audioPlayer.addEventListener('ended', () => {
     }
 
     if (albumIndex !== -1) {
-        // Воспроизведение треков из альбома
         const album = albomsBaze[albumIndex];
         let trackList = album.album;
         
-        // Используем перемешанные треки если включено
         if (peremesh && shuffledAlbumTracks[album.title]) {
             trackList = shuffledAlbumTracks[album.title];
         }
@@ -2636,11 +2560,9 @@ audioPlayer.addEventListener('ended', () => {
         const nextTrackIndex = (trackIndex + 1) % trackList.length;
         playAlbomTrack(albumIndex, nextTrackIndex);
     } else {
-        // Воспроизведение треков из избранного
         let trackList = [];
         
         if (peremesh && shuffledFavorites.length > 0) {
-            // Используем перемешанный список
             trackList = shuffledFavorites.map(title => 
                 tracks.find(t => t.title === title)
             ).filter(t => t);
