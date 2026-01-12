@@ -864,10 +864,10 @@ function playTrack(index) {
       return row;
     }
 
-    tracks.forEach(track => {
-      const row = createTrackRow(track);
-      buttonsContainer.appendChild(row);
-    });
+    [...tracks].reverse().forEach(track => {
+  const row = createTrackRow(track);
+  buttonsContainer.appendChild(row);
+});
 
 
 
