@@ -411,6 +411,7 @@ let tracks = [
     { date: '04.12.2025', titleNumber: '183', title: 'Помолись за наших', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Помолись за наших.MP3'},
     { date: '06.12.2025', titleNumber: '184', title: 'Держать святую землю', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_Держать_святую_землю.MP3'},
     { date: '07.12.2025', titleNumber: '185', title: 'Моя тихая вера', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Моя тихая вера.MP3'},
+    { date: '09.12.2025', titleNumber: '186', title: 'За тех, кто не вернулся', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_За_тех,_кто_не_вернулся.MP3'},
 ];
 
 function stopPing() {
