@@ -412,6 +412,17 @@ let tracks = [
     { date: '06.12.2025', titleNumber: '184', title: 'Держать святую землю', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_Держать_святую_землю.MP3'},
     { date: '07.12.2025', titleNumber: '185', title: 'Моя тихая вера', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Моя тихая вера.MP3'},
     { date: '09.12.2025', titleNumber: '186', title: 'За тех, кто не вернулся', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_За_тех,_кто_не_вернулся.MP3'},
+    { date: '20.12.2025', titleNumber: '187', title: 'На боевом посту', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - На боевом посту.MP3'},
+    { date: '31.12.2025', titleNumber: '188', title: 'Новый год', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Новый год.MP3'},
+    { date: '02.01.2026', titleNumber: '189', title: 'Голос надорвёшь, Европа!', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_Голос_надорвёшь,_Европа.MP3'},
+    { date: '04.01.2026', titleNumber: '190', title: 'Белая сказка', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Белая сказка.MP3'},
+    { date: '07.01.2026', titleNumber: '191', title: 'Свет Вифелеемской звезды', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_Свет_Вифлеемской_звезды.MP3'},
+    { date: '07.01.2026', titleNumber: '192', title: 'Христос Родился!', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Христос Родился!.MP3'},
+    { date: '13.01.2026', titleNumber: '193', title: 'Эх ты, русская душа!', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_Эх_ты,_русская_душа!.MP3'},
+    { date: '19.01.2026', titleNumber: '194', title: 'В крещенскую воду', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - В крещенскую воду.MP3'},
+    { date: '25.01.2026', titleNumber: '195', title: 'Ода студенческой юности', url: 'https://nextjs-boil-delta.vercel.app/Русская_душа_Ода_студенческой_юности.MP3'},
+    { date: '25.01.2026', titleNumber: '196', title: 'Голос, что не умрёт', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Голос, что не умрёт.MP3'},
+    { date: '27.01.2026', titleNumber: '197', title: 'В кольце блокады', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - В кольце блокады.MP3'},
 ];
 
 function stopPing() {
