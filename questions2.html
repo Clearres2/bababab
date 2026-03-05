@@ -461,10 +461,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const format = formatInput ? formatInput.value : '';
         const time = timeInput ? timeInput.value : '';
         const goal = goalInput ? goalInput.value : '';
-        const watermark = watermarkInput ? watermarkInput.value : '';
+        const watermark = watermarkInput?.value === 'Да' ? 'true' : 'false';
         const materials = materialsInput ? materialsInput.value : '';
         const textElements = textElementsInput ? textElementsInput.value : '';
-        const effects = effectsInput ? effectsInput.value : '';
+        const effects = effectsInput?.value === 'Да' ? 'true' : 'false';
         const otherSize = otherSizeInput ? otherSizeInput.value : '';
 
 
