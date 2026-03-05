@@ -322,7 +322,13 @@
 
        <fieldset>
         <legend>Ссылка на профиль (ВК, телеграм):</legend>
-        <input type="url" name="linkToVK" placeholder="Ссылка" aria-label="Ссылка" required/> 
+        <input 
+    type="text" 
+    name="contact" 
+    placeholder="https://... или @username"
+    pattern="^(https?://.*|@[\w\d_]+)$" 
+    required
+>
       </fieldset>
 
     <button type="submit" class="small-button" aria-label="Перейти к следующему шагу">Далее</button>
@@ -363,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fioInput = document.querySelector('input[name="fio"]');
     const hasTextInput = document.querySelector('input[name="hasText"]');
     const personalInput = document.querySelector('input[name="personal"]');
-    const linkInput = document.querySelector('input[name="linkToVK"]');
+    const linkInput = document.querySelector('input[name="contact"]');
 
 
     const link = linkInput.value.trim();
