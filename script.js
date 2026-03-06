@@ -436,6 +436,7 @@ let tracks = [
     { date: '18.02.2026', titleNumber: '208', title: 'Мать волчица', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Мать волчица.MP3'},
     { date: '23.02.2026', titleNumber: '209', title: 'Защитник', url: 'https://nextjs-boil-delta.vercel.app/russiansoul – Защитник.mp3'},
     { date: '24.02.2026', titleNumber: '210', title: 'Письмо домой', url: 'https://nextjs-boil-delta.vercel.app/Русская душа - Письмо домой.MP3'},
+    { date: '01.03.2026', titleNumber: '211', title: 'И заиграет весна', url: 'https://nextjs-boil-delta.vercel.app/Русская душа – И заиграет весна.mp3'},
 ];
 
 function stopPing() {
