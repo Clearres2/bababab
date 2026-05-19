@@ -2,10 +2,7 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-
-    - cron: '0 12 * * *'
-  
-
+    - cron: '0 */12 * * *'  
   workflow_dispatch:
 
 jobs:
@@ -13,22 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ping Supabase REST API
+      - name: Ping Supabase (real query)
         run: |
           echo "Pinging Supabase project: ${{ secrets.SUPABASE_PROJECT_ID }}"
           
-          # Отправляем GET запрос к базовому эндпоинту
-          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+          RESPONSE=$(curl -s -w "%{http_code}" -o /tmp/supabase_response.json \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Content-Type: application/json" \
-            "https://${{ secrets.SUPABASE_PROJECT_ID }}.supabase.co/rest/v1/")
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            "https://${{ secrets.SUPABASE_PROJECT_ID }}.supabase.co/rest/v1/users?select=count&limit=1")
           
           echo "HTTP Status Code: $RESPONSE"
+          echo "Response body:"
+          cat /tmp/supabase_response.json
           
-          # Проверка: если статус не 200 и не 401 (Unauthorized, но сервер живой), то ошибка
-          if [ "$RESPONSE" -ne 200 ] && [ "$RESPONSE" -ne 401 ]; then
+          if [ "$RESPONSE" = "200" ] || [ "$RESPONSE" = "406" ]; then
+            echo "✅ Supabase is awake! (status: $RESPONSE)"
+          else
             echo "❌ Failed to ping Supabase. Status: $RESPONSE"
             exit 1
-          else
-            echo "✅ Supabase is awake!"
           fi
